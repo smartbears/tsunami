@@ -38,7 +38,7 @@ namespace Protocols.Runner
             // Set the maximum number of concurrent connections
             ServicePointManager.DefaultConnectionLimit = 12;
 
-            var endpoint = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Endpoint1"];
+            var endpoint = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Public endpoint"];
             string baseUri = String.Format("{0}://{1}",
                 endpoint.Protocol, endpoint.IPEndpoint);
 
