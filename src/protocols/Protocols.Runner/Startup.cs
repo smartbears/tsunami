@@ -1,5 +1,7 @@
 ﻿using System.Web.Http;
 using Owin;
+using Microsoft.Owin.StaticFiles;
+using Protocols.Runner.Configs;
 
 namespace Protocols.Runner
 {
@@ -15,6 +17,8 @@ namespace Protocols.Runner
                 new { id = RouteParameter.Optional });
 
             app.UseWebApi(config);
+            app.Use<StaticFilesComponent>();
+            //app.UseStaticFiles("/../../Views/Home/");    
         }
     }
 }
