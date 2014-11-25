@@ -1,0 +1,17 @@
+/*Here goes the global variabless for less*/
+/*Here can go content related to the index page only*/
+body {
+  background-color: #ff0000;
+  font-size: 50px;
+  text-align: center;
+}
+body .content .title {
+  height: 100px;
+  background-color: yellow;
+}
+/*General Content here, available for every page */
+html,
+body {
+  height: 100%;
+  overflow-x: hidden;
+}
