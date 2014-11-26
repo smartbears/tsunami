@@ -37,6 +37,14 @@
     <ServiceConfiguration Include="ServiceConfiguration.Cloud.cscfg" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Protocols.Administration\Protocols.Administration.csproj">
+      <Name>Protocols.Administration</Name>
+      <Project>{5d1c9b39-60b0-45ff-803d-6d12e41c3e30}</Project>
+      <Private>True</Private>
+      <RoleType>Worker</RoleType>
+      <RoleName>Protocols.Administration</RoleName>
+      <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
+    </ProjectReference>
     <ProjectReference Include="..\Protocols.Runner\Protocols.Runner.csproj">
       <Name>Protocols.Runner</Name>
       <Project>{957f2d6e-1b2c-4666-9c13-9881b4b47d29}</Project>
@@ -48,9 +56,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Profiles" />
+    <Folder Include="Protocols.AdministrationContent\" />
     <Folder Include="Protocols.RunnerContent\" />
   </ItemGroup>
   <ItemGroup>
+    <DiagnosticsConfiguration Include="Protocols.AdministrationContent\diagnostics.wadcfgx" />
     <DiagnosticsConfiguration Include="Protocols.RunnerContent\diagnostics.wadcfgx" />
   </ItemGroup>
   <ItemGroup>

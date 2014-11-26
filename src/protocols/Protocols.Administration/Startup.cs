@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Owin;
-using Protocols.Runner.Configs;
 
 namespace Protocols.Runner
 {

@@ -9,4 +9,9 @@
       <Import moduleName="RemoteForwarder" />
     </Imports>
   </WorkerRole>
+  <WorkerRole name="Protocols.Administration" vmsize="Small">
+    <Imports>
+      <Import moduleName="RemoteAccess" />
+    </Imports>
+  </WorkerRole>
 </ServiceDefinition>

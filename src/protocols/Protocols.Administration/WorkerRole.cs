@@ -1,22 +1,19 @@
-using System;
 using System.Diagnostics;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using Microsoft.Owin.Hosting;
 using Microsoft.WindowsAzure.ServiceRuntime;
 
-namespace Protocols.Runner
+namespace Protocols.Administration
 {
     public class WorkerRole : RoleEntryPoint
     {
         private readonly CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
         private readonly ManualResetEvent runCompleteEvent = new ManualResetEvent(false);
-        private IDisposable _app = null;
 
         public override void Run()
         {
-            Trace.TraceInformation("Protocols.Runner is running");
+            Trace.TraceInformation("Protocols.Administration is running");
 
             try
             {
@@ -33,24 +30,26 @@ namespace Protocols.Runner
             // Set the maximum number of concurrent connections
             ServicePointManager.DefaultConnectionLimit = 12;
 
-            var endpoint = RoleEnvironment.CurrentRoleInstance.InstanceEndpoints["Public endpoint"];
-            string baseUri = String.Format("{0}://{1}",
-                endpoint.Protocol, endpoint.IPEndpoint);
+            // For information on handling configuration changes
+            // see the MSDN topic at http://go.microsoft.com/fwlink/?LinkId=166357.
 
-            Trace.TraceInformation(String.Format("Starting OWIN at {0}", baseUri),
-                "Information");
+            bool result = base.OnStart();
 
-            _app = WebApp.Start<Startup>(new StartOptions(url: baseUri));
-            return base.OnStart();
+            Trace.TraceInformation("Protocols.Administration has been started");
+
+            return result;
         }
 
         public override void OnStop()
         {
-            if (_app != null)
-            {
-                _app.Dispose();
-            }
+            Trace.TraceInformation("Protocols.Administration is stopping");
+
+            this.cancellationTokenSource.Cancel();
+            this.runCompleteEvent.WaitOne();
+
             base.OnStop();
+
+            Trace.TraceInformation("Protocols.Administration has stopped");
         }
 
         private async Task RunAsync(CancellationToken cancellationToken)
