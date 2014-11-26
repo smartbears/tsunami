@@ -15,7 +15,7 @@ namespace Protocols.Runner.Configs
         public StaticFilesComponent(AppFunc next)
         {
             this.next = next;
-            baseDirectory = AppDomain.CurrentDomain.BaseDirectory.Replace("bin\\Debug\\", "Views");
+			baseDirectory = AppDomain.CurrentDomain.BaseDirectory.Replace(Path.Combine("bin","Debug"), "Views");
         }
 
         //TODO: This can be improved to load the files from memory when running on production mode.
