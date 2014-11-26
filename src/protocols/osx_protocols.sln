@@ -5,19 +5,25 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocols.Runner", "Protocols.Runner\Protocols.Runner.csproj", "{957F2D6E-1B2C-4666-9C13-9881B4B47D29}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocols.Administration", "Protocols.Administration\Protocols.Administration.csproj", "{5D1C9B39-60B0-45FF-803D-6D12E41C3E30}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D1C9B39-60B0-45FF-803D-6D12E41C3E30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D1C9B39-60B0-45FF-803D-6D12E41C3E30}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D1C9B39-60B0-45FF-803D-6D12E41C3E30}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D1C9B39-60B0-45FF-803D-6D12E41C3E30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{957F2D6E-1B2C-4666-9C13-9881B4B47D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{957F2D6E-1B2C-4666-9C13-9881B4B47D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{957F2D6E-1B2C-4666-9C13-9881B4B47D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{957F2D6E-1B2C-4666-9C13-9881B4B47D29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Protocols.Runner\Protocols.Runner.csproj
+		StartupItem = Protocols.Administration\Protocols.Administration.csproj
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
