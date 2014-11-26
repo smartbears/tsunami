@@ -1,5 +1,5 @@
 App = Em.Application.create({
-  //rootElement: $('.view-container'),
+  rootElement: $('.view-container'),
 });
 
 App.Router.map(function() {
