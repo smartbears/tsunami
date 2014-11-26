@@ -9,6 +9,9 @@ body .content .title {
   height: 100px;
   background-color: yellow;
 }
+body .content ul {
+  list-style: none;
+}
 /*General Content here, available for every page */
 html,
 body {

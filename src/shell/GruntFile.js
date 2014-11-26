@@ -98,10 +98,10 @@ module.exports = function (grunt) {
                 templateCompilerPath: 'node_modules/ember-template-compiler/vendor/ember-template-compiler.js',
                 handlebarsPath: 'assets/js/external/handlebars-v1.3.0.js',
                 templateBasePath: "assets/js/views",
-                //templateFileExtensions: ".html"
+                templateFileExtensions: ".html"
             },
             files: {
-              "assets/js/templates.min.js": ["assets/js/views/*.hbs"]
+              "assets/js/templates.min.js": ["assets/js/views/*.html"]
             }
           }
         },
@@ -147,7 +147,7 @@ module.exports = function (grunt) {
                 ]
             },
             emberTemplates: {
-                files: 'assets/js/views/*.hbs',
+                files: 'assets/js/views/*.html',
                 tasks: ['emberTemplates']
             },
             application_scripts: {
