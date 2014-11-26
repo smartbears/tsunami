@@ -94,6 +94,7 @@ module.exports = function (grunt) {
         emberTemplates: {
           compile: {
             options: {
+                precompile:false,
                 templateBasePath: "static/js/views",
                 //templateFileExtensions: ".html"
             },
