@@ -61,7 +61,7 @@ module.exports = function (grunt) {
         less: {
             styles: {
                 files: {
-                    'static/tmp/shell.css': 'static/css/less/shell.less'
+                    'assets/tmp/shell.css': 'assets/css/less/shell.less'
                 }
             }
         },
@@ -76,37 +76,39 @@ module.exports = function (grunt) {
             },
             external: {
                 src: [
-                    'static/js/external/jquery-1.10.2.js',
-                    'static/js/external/handlebars-v1.3.0.js',
-                    'static/js/external/ember-1.8.1.js'
+                    'assets/js/external/jquery-1.10.2.js',
+                    'assets/js/external/handlebars-v1.3.0.js',
+                    'assets/js/external/ember-1.8.1.js'
                 ],
-                dest: 'static/js/external.min.js'
+                dest: 'assets/js/external.min.js'
             },
             application_scripts: {
                 src: [
-                    'static/js/views/*.js',
-                    'static/js/shell.js'
+                    'assets/js/views/*.js',
+                    'assets/js/shell.js'
                 ],
-                dest: 'static/js/shell.min.js'
+                dest: 'assets/js/shell.min.js'
 
             }
         },
         emberTemplates: {
           compile: {
             options: {
-                precompile:false,
-                templateBasePath: "static/js/views",
+                precompile:true,
+                templateCompilerPath: 'node_modules/ember-template-compiler/vendor/ember-template-compiler.js',
+                handlebarsPath: 'assets/js/external/handlebars-v1.3.0.js',
+                templateBasePath: "assets/js/views",
                 //templateFileExtensions: ".html"
             },
             files: {
-              "static/js/templates.min.js": ["static/js/views/*.hbs"]
+              "assets/js/templates.min.js": ["assets/js/views/*.hbs"]
             }
           }
         },
         /*
         handlebars: {
             options: {
-                namespace: 'Shell.Templates',
+                namespace: 'Ember.TEMPLATES',
                 processName: function(filePath) {
                     return filePath.substring(filePath.lastIndexOf("/") + 1, filePath.lastIndexOf('.'));
                 }
@@ -119,9 +121,9 @@ module.exports = function (grunt) {
         cssmin: {
             all: {
                 files: {
-                    'static/css/shell.min.css': [
-                        'static/css/less/external/*.css',
-                        'static/tmp/*.css'
+                    'assets/css/shell.min.css': [
+                        'assets/css/less/external/*.css',
+                        'assets/tmp/*.css'
                     ]
                 }
             }
@@ -132,24 +134,24 @@ module.exports = function (grunt) {
         //
         watch: {
             less: {
-                files: ['static/css/less/*.less'],
+                files: ['assets/css/less/*.less'],
                 tasks: [
                     'less',
                     'cssmin'
                 ]
             },
             libs: {
-                files: ['static/js/external/*.js'],
+                files: ['assets/js/external/*.js'],
                 tasks: [
                     'uglify:external',
                 ]
             },
             emberTemplates: {
-                files: 'static/js/views/*.hbs',
+                files: 'assets/js/views/*.hbs',
                 tasks: ['emberTemplates']
             },
             application_scripts: {
-                files: ['static/js/*.js','!static/js/*.min.js'],
+                files: ['assets/js/*.js','!assets/js/*.min.js'],
                 tasks: [
                     'uglify:application_scripts'
                 ]
