@@ -1,12 +1,20 @@
-﻿using System.Web.Http;
+﻿using MongoDB.Driver.Builders;
+using Protocols.Runner.Models;
+using System.Collections.Generic;
+using System.Web.Http;
 
 namespace Protocols.Runner.Controllers
 {
     public class HomeController : ApiController
     {
-        public string Get()
-        {
-            return "Hello protocols";
+        UnitOfWork unit = new UnitOfWork();
+
+        public List<User> Get()
+        {            
+            var x= unit.Users.FindAllAs<User>().ToList();
+            return unit.Users.FindAllAs<User>().ToList();
+            //return "Hello protocols";
         }
+
     }
 }

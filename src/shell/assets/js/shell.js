@@ -16,9 +16,9 @@ App.IndexRoute = Ember.Route.extend({
 App.MongoSample = Ember.Object.extend();
 App.MongoSample.reopenClass({
     all: function() {
-        return $.getJSON("http://invite-voiceflows.appspot.com/api/invite/a59ba960e8f148fab76658b4724b982e").then(function(response) {
+        return $.getJSON("http://localhost:8081/api/home").then(function(response) { 
             var items = [];
-            response.contacts.forEach( function (item) {
+            response.forEach( function (item) {
                 items.push( App.MongoSample.create(item) );
             });
             console.log(items);
