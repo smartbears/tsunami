@@ -13,7 +13,7 @@ namespace Protocols.Runner.Models
 
         public string name { get; set; }
 
-        public double age { get; set; }
+        public int age { get; set; }
 
     }
 }

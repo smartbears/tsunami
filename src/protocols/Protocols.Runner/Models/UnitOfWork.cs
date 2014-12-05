@@ -18,11 +18,11 @@ namespace Protocols.Runner.Models
 
         public UnitOfWork()
         {
-            var connectionString = "mongodb://localhost";
+            var connectionString = System.Configuration.ConfigurationSettings.AppSettings["ServerAddress"];
             var client = new MongoClient(connectionString);
 
             _server = client.GetServer();
-            _database = _server.GetDatabase("mydb");            
+            _database = _server.GetDatabase(System.Configuration.ConfigurationSettings.AppSettings["DbName"]);            
         }
 
         public MongoCollection<User> Users
