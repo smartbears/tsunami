@@ -31,17 +31,4 @@ namespace Protocols.Runner
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
         }
     }
-
-    public static class Helpers
-    {
-        public static List<T> ToList<T>(this MongoDB.Driver.MongoCursor<T> cursor)
-        {
-            var elements = new List<T>();
-            foreach (T item in cursor)
-            {
-                elements.Add(item);
-            }
-            return elements;
-        }
-    }
 }
