@@ -11,9 +11,7 @@ namespace Protocols.Runner.Controllers
 
         public List<User> Get()
         {            
-            var x= unit.Users.FindAllAs<User>().ToList();
-            return unit.Users.FindAllAs<User>().ToList();
-            //return "Hello protocols";
+            return unit.Users.FindAllAs<User>().ToList();            
         }
 
     }
