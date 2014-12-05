@@ -3,6 +3,8 @@ using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using Protocols.Runner.Configs;
+using System.Collections.Generic;
+using Protocols.Runner.Models;
 
 namespace Protocols.Runner
 {
@@ -25,6 +27,19 @@ namespace Protocols.Runner
             jsonFormatter.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+        }
+    }
+
+    public static class Helpers
+    {
+        public static List<T> ToList<T>(this MongoDB.Driver.MongoCursor<T> cursor)
+        {
+            var elements = new List<T>();
+            foreach (T item in cursor)
+            {
+                elements.Add(item);
+            }
+            return elements;
         }
     }
 }
