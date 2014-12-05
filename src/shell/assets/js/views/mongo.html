@@ -6,3 +6,12 @@ Hello World of Mongo
 <li>you have {{contact.age}} years old</li>
 {{/each}}
 <ul>
+
+
+
+	<p>Name:</p>
+		{{input type="text" value=name}}
+	<p>Age:</p>
+		{{input type="text" value=age}}
+	<br>
+		<button {{action "removeTodo"}} type="submit" class="destroy"></button>

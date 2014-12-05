@@ -1,14 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Web.Http;
+﻿using MongoDB.Driver.Builders;
 using Protocols.Runner.Models;
+using System.Collections.Generic;
+using System.Web.Http;
+using System.Linq;
 
 namespace Protocols.Runner.Controllers
 {
-    class UsersController : ApiController
+    public class UsersController : ApiController
     {
         UnitOfWork unit = new UnitOfWork();
 
@@ -17,5 +15,6 @@ namespace Protocols.Runner.Controllers
         {
             return unit.Users.FindAllAs<User>().ToList();
         }
+
     }
 }

@@ -33,3 +33,20 @@ App.MongoRoute = Ember.Route.extend({
         return App.MongoSample.all();
     }
 });
+
+$.postJSON = function(url, data, success, args) {
+  args = $.extend({
+    url: url,
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    async: true,
+    success: success
+  }, args);
+  return $.ajax(args);
+};
+
+//$.postJSON('test/url', data, function(result) {
+//  console.log('result', result);
+//});

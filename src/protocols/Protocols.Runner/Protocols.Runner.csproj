@@ -74,8 +74,8 @@
   <ItemGroup>
     <Compile Include="Configs\StaticFilesComponent.cs" />
     <Compile Include="ConsoleRole.cs" />
+    <Compile Include="Controllers\UsersController .cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Models\UnitOfWork.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
