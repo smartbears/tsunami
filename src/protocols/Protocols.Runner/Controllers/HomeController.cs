@@ -9,11 +9,19 @@ namespace Protocols.Runner.Controllers
     {
         UnitOfWork unit = new UnitOfWork();
 
+		[AllowCrossSiteJson]
         public List<User> Get()
         {            
-            var x= unit.Users.FindAllAs<User>().ToList();
-            return unit.Users.FindAllAs<User>().ToList();
-            //return "Hello protocols";
+			return new List<User> () {
+				new User{
+					name = "Louis",
+					age = 19
+				},
+				new User {
+					name = "John",
+					age = 26
+				}
+			};
         }
 
     }
