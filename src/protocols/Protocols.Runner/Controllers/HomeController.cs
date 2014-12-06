@@ -16,5 +16,12 @@ namespace Protocols.Runner.Controllers
             return unit.Users.FindAllAs<User>().ToList();            
         }
 
+        [AllowCrossSiteJson]
+        [HttpPost]
+        public string CreateUser(User user)
+        {
+            return "hello";
+        }
+
     }
 }
