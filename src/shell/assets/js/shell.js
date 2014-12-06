@@ -14,27 +14,10 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
-$.postJSON = function(url, data, success, args) {
-  args = $.extend({
-    url: url,
-    type: 'POST',
-    data: JSON.stringify(data),
-    contentType: 'application/json; charset=utf-8',
-    dataType: 'json',
-    async: true,
-    success: success
-  }, args);
-  return $.ajax(args);
-};
-
-//$.postJSON('test/url', data, function(result) {
-//  console.log('result', result);
-//});
-
 App.MongoSample = Ember.Object.extend();
 App.MongoSample.reopenClass({
     all: function() {
-        return $.getJSON("http://localhost:8081/api/home").then(function(response) {
+        return $.getJSON("http://localhost:8081/api/users").then(function(response) {
             var items = [];
             response.forEach( function (item) {
                 items.push( App.MongoSample.create(item) );
@@ -50,18 +33,13 @@ App.MongoSample.reopenClass({
         //Save the user to the backend
         console.log("llegue");
 
-        $.ajax({
-            type: "POST",
-            dataType: 'json',
-            contentType:"application/json; charset=utf-8",
-            url: 'http://localhost:8081/api/home/CreateUser' ,
-            data: JSON.stringify(user),
-            success: function(data){
-            },
-            error: function(error){
-                alert('The registration failed: ' + error.responseJSON.error.message);
-            }
-        });
+        $.post(
+        	"http://localhost:8081/api/users/createuser" ,
+            {name:user.name, age:user.age},
+			function(data) {
+			     alert("Data Loaded: " + data);
+			   }      
+        );
     }
 });
 
@@ -84,6 +62,7 @@ App.InsertController = Ember.ObjectController.extend({
     actions: {
         insert_user: function() {
             App.MongoSample.save(this.get('model'));
+            
         }
     }
 });

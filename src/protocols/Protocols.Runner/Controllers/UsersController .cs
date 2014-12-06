@@ -20,7 +20,10 @@ namespace Protocols.Runner.Controllers
         [AllowCrossSiteJsonAttribute]
         public string CreateUser(User user)
         {
-            return "hello";
+            if(user.name != null && user.age > 0)
+                unit.Users.Insert(user);
+            
+            return "OK";
         }
 
     }

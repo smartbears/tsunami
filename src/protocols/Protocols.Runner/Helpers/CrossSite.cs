@@ -10,8 +10,8 @@ namespace Protocols.Runner
 		{
 			if (actionExecutedContext.Response != null)
 				actionExecutedContext.Response.Headers.Add("Access-Control-Allow-Origin", "*");
-
-			base.OnActionExecuted(actionExecutedContext);
+            
+                base.OnActionExecuted(actionExecutedContext);
 		}
 	}
 }
