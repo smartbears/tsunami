@@ -13,7 +13,7 @@ namespace Protocols.Runner.Models
         MongoDatabase _database;
         MongoServer _server;
 
-        MongoCollection<User> _users;
+        MongoCollection<Subject> _users;
 
 
         public UnitOfWork()
@@ -25,12 +25,12 @@ namespace Protocols.Runner.Models
             _database = _server.GetDatabase(System.Configuration.ConfigurationSettings.AppSettings["DbName"]);            
         }
 
-        public MongoCollection<User> Users
+        public MongoCollection<Subject> Subjects
         {
             get
             {
                 if(_users == null)                
-                    _users = _database.GetCollection<User>("users");
+                    _users = _database.GetCollection<Subject>("subects");
                 return _users;
             }
         }

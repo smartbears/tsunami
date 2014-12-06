@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Protocols.Runner.Models
 {
-    public class User
+    public class Subject
     {
         public ObjectId Id { get; set; }
 

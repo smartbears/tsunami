@@ -11,9 +11,9 @@ namespace Protocols.Runner.Controllers
         UnitOfWork unit = new UnitOfWork();
 
         [AllowCrossSiteJsonAttribute]
-        public List<User> Get()
-        {            
-            return unit.Users.FindAllAs<User>().ToList();            
+        public string Get()
+        {
+            return "Hello Protocols";
         }
     }
 }

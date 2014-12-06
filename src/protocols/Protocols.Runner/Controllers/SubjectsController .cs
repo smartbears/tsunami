@@ -6,22 +6,22 @@ using System.Linq;
 
 namespace Protocols.Runner.Controllers
 {
-    public class UsersController : ApiController
+    public class SubjectsController : ApiController
     {
         UnitOfWork unit = new UnitOfWork();
 
         [AllowCrossSiteJsonAttribute]
-        public List<User> Get()
+        public List<Subject> Get()
         {
-            return unit.Users.FindAllAs<User>().ToList();
+            return unit.Subjects.FindAllAs<Subject>().ToList();
         }
         
         [HttpPost]
         [AllowCrossSiteJsonAttribute]
-        public string CreateUser(User user)
+        public string CreateSubject(Subject subject)
         {
-            if(user.name != null && user.age > 0)
-                unit.Users.Insert(user);
+            if(subject.name != null && subject.age > 0)
+                unit.Subjects.Insert(subject);
             
             return "OK";
         }
