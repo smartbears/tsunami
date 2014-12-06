@@ -17,7 +17,7 @@ App.IndexRoute = Ember.Route.extend({
 App.MongoSample = Ember.Object.extend();
 App.MongoSample.reopenClass({
     all: function() {
-        return $.getJSON("http://localhost:8081/api/users").then(function(response) {
+        return $.getJSON("http://localhost:8081/api/subjects").then(function(response) {
             var items = [];
             response.forEach( function (item) {
                 items.push( App.MongoSample.create(item) );
@@ -29,13 +29,13 @@ App.MongoSample.reopenClass({
     one: function(){
         return App.MongoSample.create({name: "no-name", age:0});
     },
-    save: function(user){
+    save: function(subject){
         //Save the user to the backend
         console.log("llegue");
 
         $.post(
-        	"http://localhost:8081/api/users/createuser" ,
-            {name:user.name, age:user.age},
+        	"http://localhost:8081/api/subjects/createsubject" ,
+            {name: subject.name, age: subject.age},
 			function(data) {
 			     alert("Data Loaded: " + data);
 			   }      
@@ -62,7 +62,7 @@ App.InsertController = Ember.ObjectController.extend({
     actions: {
         insert_user: function() {
             App.MongoSample.save(this.get('model'));
-            
+
         }
     }
 });
