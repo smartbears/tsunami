@@ -4,7 +4,7 @@ using Microsoft.Owin.Hosting;
 namespace Protocols.Runner
 {
     public class ConsoleRole
-    {
+     {
         public static void Main()
         {
 			var url = "http://localhost:8081";
