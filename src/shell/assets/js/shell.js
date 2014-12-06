@@ -14,6 +14,23 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
+$.postJSON = function(url, data, success, args) {
+  args = $.extend({
+    url: url,
+    type: 'POST',
+    data: JSON.stringify(data),
+    contentType: 'application/json; charset=utf-8',
+    dataType: 'json',
+    async: true,
+    success: success
+  }, args);
+  return $.ajax(args);
+};
+
+//$.postJSON('test/url', data, function(result) {
+//  console.log('result', result);
+//});
+
 App.MongoSample = Ember.Object.extend();
 App.MongoSample.reopenClass({
     all: function() {
@@ -31,7 +48,20 @@ App.MongoSample.reopenClass({
     },
     save: function(user){
         //Save the user to the backend
-        console.log(user);
+        console.log("llegue");
+
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            contentType:"application/json; charset=utf-8",
+            url: 'http://localhost:8081/api/home/CreateUser' ,
+            data: JSON.stringify(user),
+            success: function(data){
+            },
+            error: function(error){
+                alert('The registration failed: ' + error.responseJSON.error.message);
+            }
+        });
     }
 });
 
@@ -53,7 +83,6 @@ App.InsertRoute = Ember.Route.extend({
 App.InsertController = Ember.ObjectController.extend({
     actions: {
         insert_user: function() {
-
             App.MongoSample.save(this.get('model'));
         }
     }

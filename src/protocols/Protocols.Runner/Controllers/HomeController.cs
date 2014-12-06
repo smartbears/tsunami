@@ -24,5 +24,12 @@ namespace Protocols.Runner.Controllers
 			};
         }
 
+        [AllowCrossSiteJson]
+        [HttpPost]
+        public string CreateUser(User user)
+        {
+            return "hello";
+        }
+
     }
 }
