@@ -81,15 +81,13 @@
   <ItemGroup>
     <Compile Include="Configs\StaticFilesComponent.cs" />
     <Compile Include="ConsoleRole.cs" />
-    <Compile Include="Controllers\SubjectsController .cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Models\UnitOfWork.cs" />
-    <Compile Include="Models\Subject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceRole.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="WorkerRole.cs" />
     <Compile Include="Helpers\CrossSite.cs" />
+    <Compile Include="Helpers\ControllerFactory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -110,4 +108,14 @@
   </Target>
   -->
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Protocols.Models\Protocols.Models.csproj">
+      <Project>{9D7FA907-4BF6-47CD-85E2-C0888D31CA97}</Project>
+      <Name>Protocols.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Protocols.Repository\Protocols.Repository.csproj">
+      <Project>{E862A246-C9DE-4381-9A30-E5F203341BF5}</Project>
+      <Name>Protocols.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

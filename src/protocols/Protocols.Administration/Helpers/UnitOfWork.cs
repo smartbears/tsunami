@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Protocols.Models;
 
-namespace Protocols.Runner.Models
+namespace Protocols.Administration.Helpers
 {
     public class UnitOfWork
     {
