@@ -3,6 +3,7 @@ using Protocols.Runner.Models;
 using System.Collections.Generic;
 using System.Web.Http;
 using System.Linq;
+using MongoDB.Driver.Linq;
 
 namespace Protocols.Runner.Controllers
 {
@@ -15,16 +16,27 @@ namespace Protocols.Runner.Controllers
         {
             return unit.Subjects.FindAllAs<Subject>().ToList();
         }
-        
+
         [HttpPost]
         [AllowCrossSiteJsonAttribute]
         public string CreateSubject(Subject subject)
         {
-            if(subject.name != null && subject.age > 0)
+            if (subject.Name != null && subject.Age >= 0)
                 unit.Subjects.Insert(subject);
-            
+
             return "OK";
         }
 
+        [HttpDelete]
+        [AllowCrossSiteJsonAttribute]
+        public string DeleteSubject(Subject subject)
+        {
+            var to_delete = unit.Subjects.AsQueryable<Subject>().Where(sbj => sbj.Name == subject.Name && sbj.Age == subject.Age).FirstOrDefault();
+            var result = unit.Subjects.Remove(Query.EQ("_id", to_delete.Id));
+
+            if (result.Ok)
+                return "OK";
+            else return "FAIL";
+        }
     }
 }

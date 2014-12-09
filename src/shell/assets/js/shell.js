@@ -27,7 +27,7 @@ App.MongoSample.reopenClass({
         });
     },
     one: function(){
-        return App.MongoSample.create({name: "no-name", age:0});
+        return App.MongoSample.create({name: "no-name", age:0}); 
     },
     save: function(subject){
         //Save the user to the backend
@@ -35,7 +35,7 @@ App.MongoSample.reopenClass({
 
         $.post(
         	"http://localhost:8081/api/subjects/createsubject" ,
-            {name: subject.name, age: subject.age},
+            {Name: subject.name, Age: subject.age},
 			function(data) {
 			     alert("Data Loaded: " + data);
 			   }      

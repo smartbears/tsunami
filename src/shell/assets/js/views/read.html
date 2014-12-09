@@ -4,14 +4,6 @@ Hello World of Mongo
 {{#each contact in model}}
 <li>Hello, {{contact.name}}!</li>
 <li>you have {{contact.age}} years old</li> 
+<hr>
 {{/each}}
 <ul>
-
-
-
-	<p>Name:</p>
-		{{input type="text" value=name}}
-	<p>Age:</p>
-		{{input type="text" value=age}}
-	<br>
-		<button {{action "removeTodo"}} type="submit" class="destroy"></button>
