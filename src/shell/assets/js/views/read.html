@@ -1,9 +1,26 @@
 Hello World of Mongo
 
-<ul>
-{{#each contact in model}}
-<li>Hello, {{contact.name}}!</li>
-<li>you have {{contact.age}} years old</li> 
-<hr>
-{{/each}}
-<ul>
+<h1>Listing Subjects</h1>
+
+<table border="5">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each subject in model itemController="subject"}}
+      <tr>
+        <td>{{subject.id}}</td>
+        <td>{{subject.name}}</td>
+        <td>{{subject.age}}</td>        
+        <td><a href="#" {{action "removeSubject"}}>delete</a></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+

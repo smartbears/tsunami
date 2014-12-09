@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Web.Http;
 using System.Linq;
 using MongoDB.Driver.Linq;
+using MongoDB.Bson;
 
 namespace Protocols.Runner.Controllers
 {
@@ -29,9 +30,9 @@ namespace Protocols.Runner.Controllers
 
         [HttpDelete]
         [AllowCrossSiteJsonAttribute]
-        public string DeleteSubject(Subject subject)
+        public string DeleteSubject(ObjectId subject)
         {
-            var to_delete = unit.Subjects.AsQueryable<Subject>().Where(sbj => sbj.Name == subject.Name && sbj.Age == subject.Age).FirstOrDefault();
+            var to_delete = unit.Subjects.AsQueryable<Subject>().Where(sbj => sbj.Id == subject ).FirstOrDefault();
             var result = unit.Subjects.Remove(Query.EQ("_id", to_delete.Id));
 
             if (result.Ok)

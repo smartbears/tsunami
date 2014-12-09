@@ -31,7 +31,7 @@ App.MongoSample.reopenClass({
     },
     save: function(subject){
         //Save the user to the backend
-        console.log("llegue");
+        console.log("calling save method...");
 
         $.post(
         	"http://localhost:8081/api/subjects/createsubject" ,
@@ -46,7 +46,7 @@ App.MongoSample.reopenClass({
 App.ReadRoute = Ember.Route.extend({
     model: function() {
         return App.MongoSample.all();
-    }
+    }    
 });
 
 App.InsertRoute = Ember.Route.extend({
@@ -62,7 +62,24 @@ App.InsertController = Ember.ObjectController.extend({
     actions: {
         insert_user: function() {
             App.MongoSample.save(this.get('model'));
-
         }
     }
+});
+
+App.SubjectController = Ember.ObjectController.extend({
+  actions: {    
+	  removeSubject: function () {
+	  	console.log("calling deleteSubject method...");
+	    var subject = this.get('model');
+
+        $.ajax({
+		    url: 'http://localhost:8081/api/subjects/' + subject.id,
+		    type: 'DELETE',		    
+		    success: function(result) {
+		        // Do something with the result
+		        alert("Result: " + result);
+		    }
+		});
+	  }
+  }  
 });

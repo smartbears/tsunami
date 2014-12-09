@@ -23,5 +23,11 @@ namespace Protocols.Runner.Models
             Age = age;
         }
 
+        [BsonConstructor]
+        public Subject()
+        {
+
+        }
+
     }
 }
