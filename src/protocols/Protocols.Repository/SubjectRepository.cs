@@ -44,13 +44,11 @@ namespace Protocols.Repository
 			this.Remove (entry.Id);
         }
 
-        public Subject FindBy(string name)
+        public Subject FindBy(Guid id)
         {
-//            return this._collection.AsQueryable().Where(
-//				sbj => sbj.Id == id
-//			).FirstOrDefault();
-
-			throw new NotImplementedException ("Not done yet");
+            return this._collection.AsQueryable().Where(
+				sbj => sbj.Id == id
+			).FirstOrDefault();
         }
     }
 }

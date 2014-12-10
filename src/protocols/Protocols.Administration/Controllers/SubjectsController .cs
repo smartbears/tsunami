@@ -21,6 +21,12 @@ namespace Protocols.Administration.Controllers
             return Repository.GetAll().ToList();
 		}
 
+		[AllowCrossSiteJsonAttribute]
+		public Subject Get(Guid id)
+		{
+			return Repository.FindBy(id);
+		}
+
 		[HttpPost]
 		[AllowCrossSiteJsonAttribute]
 		public Guid Post(Subject subject)
