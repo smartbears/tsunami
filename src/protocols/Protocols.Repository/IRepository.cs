@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 
 namespace Protocols.Repository
@@ -6,8 +8,10 @@ namespace Protocols.Repository
 	public interface IRepository<T>
 	{
 		IList<T> GetAll();
-		void Insert(T entry);
-	}
+        WriteConcernResult Insert(T entry);
+        WriteConcernResult Remove(T entry);
+        T FindById(ObjectId id);
+    }
 
 }
 

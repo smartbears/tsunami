@@ -8,6 +8,7 @@ using Protocols.Administration;
 using Castle.Windsor;
 using Protocols.Administration.Helpers;
 using Castle.Windsor.Installer;
+using System.Web.Http.Cors;
 
 namespace Protocols.Runner
 {
@@ -22,6 +23,8 @@ namespace Protocols.Runner
                 "api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
 
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
             app.UseWebApi(config);
 
             //Json by Default
@@ -30,8 +33,11 @@ namespace Protocols.Runner
             jsonFormatter.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.KeyValuePairConverter());
+            jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
 
-			var container = new WindsorContainer();
+
+            var container = new WindsorContainer();
 			container.Install (FromAssembly.This ());
 
 			config.Services.Replace(

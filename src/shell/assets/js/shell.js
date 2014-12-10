@@ -14,10 +14,15 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
+App.Subject = DS.Model.extend({
+    name: DS.attr('string'),
+    age:  DS.attr('int')
+});
+
 App.MongoSample = Ember.Object.extend();
 App.MongoSample.reopenClass({
     all: function() {
-        return $.getJSON("http://localhost:8081/api/subjects").then(function(response) {
+        return $.getJSON("http://localhost:8082/api/subjects").then(function(response) {
             var items = [];
             response.forEach( function (item) {
                 items.push( App.MongoSample.create(item) );
@@ -34,7 +39,7 @@ App.MongoSample.reopenClass({
         console.log("calling save method...");
 
         $.post(
-        	"http://localhost:8081/api/subjects/createsubject" ,
+        	"http://localhost:8082/api/subjects/createsubject" ,
             {Name: subject.name, Age: subject.age},
 			function(data) {
 			     alert("Data Loaded: " + data);
@@ -73,8 +78,9 @@ App.SubjectController = Ember.ObjectController.extend({
 	    var subject = this.get('model');
 
         $.ajax({
-		    url: 'http://localhost:8081/api/subjects/' + subject.id,
-		    type: 'DELETE',		    
+		    url: 'http://localhost:8082/api/subjects/' + subject.id,
+		    type: 'DELETE',	
+		    contentType: 'text/plain',	    
 		    success: function(result) {
 		        // Do something with the result
 		        $('#'+subject.id).remove();
