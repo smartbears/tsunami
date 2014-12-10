@@ -50,5 +50,10 @@ namespace Protocols.Repository
 				sbj => sbj.Id == id
 			).FirstOrDefault();
         }
+
+        public List<Subject> SearchByName(string pattern)
+        {
+            return _collection.AsQueryable().Where(sbj => sbj.Name.Contains(pattern)).ToList();
+        }
     }
 }

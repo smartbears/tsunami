@@ -2,6 +2,7 @@
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
+using Protocols.Models;
 
 namespace Protocols.Repository
 {
@@ -11,7 +12,8 @@ namespace Protocols.Repository
 		Guid Insert(T entry);
 		void Remove(Guid id);
         void Remove(T entry);
-		T FindBy(Guid id); 
+		T FindBy(Guid id);
+        List<Subject> SearchByName(string pattern);
     }
 
 }

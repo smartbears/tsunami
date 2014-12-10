@@ -39,9 +39,9 @@ namespace Protocols.Administration.Controllers
 
         [ActionName("Search")]
         [AllowCrossSiteJsonAttribute]
-		public Subject Search()
+		public List<Subject> Search(string pattern)
 		{
-			throw new NotImplementedException ("Not done yet!");
+            return this.Repository.SearchByName(pattern);
 		}
 
         [HttpDelete]
