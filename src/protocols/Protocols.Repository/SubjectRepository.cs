@@ -38,7 +38,7 @@ namespace Protocols.Repository
             return this._collection.Remove(Query.EQ("_id", entry.Id));
         }
 
-        public Subject FindById(ObjectId subject_id)
+        public Subject FindById(Guid subject_id)
         {
             return this._collection.AsQueryable().Where(sbj => sbj.Id == subject_id).FirstOrDefault();
         }

@@ -10,7 +10,7 @@ namespace Protocols.Repository
 		IList<T> GetAll();
         WriteConcernResult Insert(T entry);
         WriteConcernResult Remove(T entry);
-        T FindById(ObjectId id);
+        T FindById(Guid id);
     }
 
 }

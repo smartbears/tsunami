@@ -31,7 +31,7 @@ namespace Protocols.Administration.Controllers
 
         [HttpDelete]
         [AllowCrossSiteJsonAttribute]        
-        public string DeleteSubject(ObjectId subject)
+        public string DeleteSubject(Guid subject)
         {
             var to_delete = Repository.FindById(subject);
             var result = Repository.Remove(to_delete);
