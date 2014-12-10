@@ -30,9 +30,9 @@ namespace Protocols.Runner.Controllers
 
         [HttpDelete]
         [AllowCrossSiteJsonAttribute]
-        public string DeleteSubject(ObjectId subject)
+        public string DeleteSubject(object subject)
         {
-            var to_delete = unit.Subjects.AsQueryable<Subject>().Where(sbj => sbj.Id == subject ).FirstOrDefault();
+            var to_delete = unit.Subjects.AsQueryable<Subject>().Where(sbj => sbj.Id == (ObjectId)subject ).FirstOrDefault();
             var result = unit.Subjects.Remove(Query.EQ("_id", to_delete.Id));
 
             if (result.Ok)

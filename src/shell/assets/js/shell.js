@@ -77,6 +77,7 @@ App.SubjectController = Ember.ObjectController.extend({
 		    type: 'DELETE',		    
 		    success: function(result) {
 		        // Do something with the result
+		        $('#'+subject.id).remove();
 		        alert("Result: " + result);
 		    }
 		});

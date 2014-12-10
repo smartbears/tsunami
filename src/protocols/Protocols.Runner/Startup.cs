@@ -5,6 +5,7 @@ using Owin;
 using Protocols.Runner.Configs;
 using System.Collections.Generic;
 using Protocols.Runner.Models;
+using System.Web.Http.Cors;
 
 namespace Protocols.Runner
 {
@@ -20,6 +21,7 @@ namespace Protocols.Runner
                 new { id = RouteParameter.Optional });
 
             app.UseWebApi(config);
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             //Json by Default
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();

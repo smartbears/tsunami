@@ -31,18 +31,18 @@ namespace Protocols.Runner.Models
         private void InitializeClasses()
         {
             // Registering Subject Class
-            if (!BsonClassMap.IsClassMapRegistered(typeof(Subject)))
-            {
-                BsonClassMap.RegisterClassMap<Subject>(cm =>
-                {
-                    cm.MapIdField(c => c.Id);
-                    cm.MapProperty(c => c.Name);
-                    cm.MapProperty(c => c.Age);
+            //if (!BsonClassMap.IsClassMapRegistered(typeof(Subject)))
+            //{
+            //    BsonClassMap.RegisterClassMap<Subject>(cm =>
+            //    {
+            //        cm.MapIdField(c => c.Id);
+            //        cm.MapProperty(c => c.Name);
+            //        cm.MapProperty(c => c.Age);
 
-                    cm.AutoMap();
-                    cm.MapCreator(s => new Subject(s.Name, s.Age));
-                });
-            }
+            //        cm.AutoMap();
+            //        cm.MapCreator(s => new Subject(s.Name, s.Age));
+            //    });
+            //}
 
         }
 
