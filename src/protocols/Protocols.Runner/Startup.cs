@@ -4,7 +4,12 @@ using Newtonsoft.Json.Serialization;
 using Owin;
 using Protocols.Runner.Configs;
 using System.Collections.Generic;
-using Protocols.Runner.Models;
+using System.Web.Http.Dispatcher;
+using Protocols.Runner;
+using Castle.Windsor;
+using Protocols.Runner.Helpers;
+using Castle.Core;
+using Castle.Windsor.Installer;
 
 namespace Protocols.Runner
 {
@@ -29,6 +34,13 @@ namespace Protocols.Runner
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.KeyValuePairConverter());
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
+
+			var container = new WindsorContainer();
+			container.Install (FromAssembly.This ());
+
+			config.Services.Replace(
+				typeof(IHttpControllerActivator),
+				new WindsorCompositionRoot(container));
         }
     }
 }

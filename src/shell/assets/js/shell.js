@@ -3,7 +3,7 @@ App = Em.Application.create({
   rootElement: $('.view-container'),
 });
 
-App.Router.map(function() {
+App.Router.map(function() { 
     this.route("read", { path: "/read" });
     this.route("insert", { path: "/insert" });
 });
@@ -14,38 +14,14 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
-App.MongoSample = Ember.Object.extend();
-App.MongoSample.reopenClass({
-    all: function() {
-        return $.getJSON("http://localhost:8081/api/subjects").then(function(response) {
-            var items = [];
-            response.forEach( function (item) {
-                items.push( App.MongoSample.create(item) );
-            });
-
-            return items;
-        });
-    },
-    one: function(){
-        return App.MongoSample.create({name: "no-name", age:0});
-    },
-    save: function(subject){
-        //Save the user to the backend
-        console.log("llegue");
-
-        $.post(
-        	"http://localhost:8081/api/subjects/createsubject" ,
-            {name: subject.name, age: subject.age},
-			function(data) {
-			     alert("Data Loaded: " + data);
-			   }      
-        );
-    }
+App.Subject = DS.Model.extend({
+    name: DS.attr('string'),
+    age:  DS.attr('int')
 });
 
 App.ReadRoute = Ember.Route.extend({
     model: function() {
-        return App.MongoSample.all();
+        return this.store.find('subject');
     }
 });
 

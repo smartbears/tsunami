@@ -78,14 +78,16 @@ module.exports = function (grunt) {
                 src: [
                     'assets/js/external/jquery-1.10.2.js',
                     'assets/js/external/handlebars-v1.3.0.js',
-                    'assets/js/external/ember-1.8.1.js'
+                    'assets/js/external/ember-1.8.1.js',
+                    'assets/js/external/emberdata-1.0.0.js'
                 ],
                 dest: 'assets/js/external.min.js'
             },
             application_scripts: {
                 src: [
                     'assets/js/views/*.js',
-                    'assets/js/shell.js'
+                    'assets/js/shell.js',
+                    'assets/js/models/*.js',
                 ],
                 dest: 'assets/js/shell.min.js'
 
@@ -151,7 +153,7 @@ module.exports = function (grunt) {
                 tasks: ['emberTemplates']
             },
             application_scripts: {
-                files: ['assets/js/*.js','!assets/js/*.min.js'],
+                files: ['assets/js/*.js', 'assets/js/models/*.js','!assets/js/*.min.js'],
                 tasks: [
                     'uglify:application_scripts'
                 ]
