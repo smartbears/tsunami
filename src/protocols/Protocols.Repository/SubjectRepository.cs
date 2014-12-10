@@ -29,18 +29,28 @@ namespace Protocols.Repository
 			return _users;
 		}
 
-		public WriteConcernResult Insert(Subject entry){
-			return this._collection.Insert (entry);
+		public Guid Insert(Subject entry){
+			this._collection.Save (entry);
+			return entry.Id;
 		}
 
-        public WriteConcernResult Remove(Subject entry)
+		public void Remove(Guid id)
+		{
+			this._collection.Remove(Query.EQ("_id", id));
+		}
+
+        public void Remove(Subject entry)
         {
-            return this._collection.Remove(Query.EQ("_id", entry.Id));
+			this.Remove (entry.Id);
         }
 
-        public Subject FindById(Guid subject_id)
+        public Subject FindBy(string name)
         {
-            return this._collection.AsQueryable().Where(sbj => sbj.Id == subject_id).FirstOrDefault();
+//            return this._collection.AsQueryable().Where(
+//				sbj => sbj.Id == id
+//			).FirstOrDefault();
+
+			throw new NotImplementedException ("Not done yet");
         }
     }
 }

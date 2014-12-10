@@ -8,9 +8,13 @@ namespace Protocols.Repository
 	public interface IRepository<T>
 	{
 		IList<T> GetAll();
-        WriteConcernResult Insert(T entry);
-        WriteConcernResult Remove(T entry);
-        T FindById(Guid id);
+		Guid Insert(T entry);
+		void Remove(Guid id);
+        void Remove(T entry);
+
+
+		//Still thinking what to do with this, doesnt belong here, so far.
+		//T FindBy(Guid id); 
     }
 
 }
