@@ -21,24 +21,30 @@ namespace Protocols.Administration.Controllers
             return Repository.GetAll().ToList();
 		}
 
+		[AllowCrossSiteJsonAttribute]
+		public Subject Get(Guid id)
+		{
+			return Repository.FindBy(id);
+		}
+
 		[HttpPost]
 		[AllowCrossSiteJsonAttribute]
-		public string Post(Subject subject)
+		public Guid Post(Subject subject)
 		{
-			Repository.Insert (subject);
-			return "OK";
+			return Repository.Insert (subject);
+		}
+
+		[AllowCrossSiteJsonAttribute]
+		public Subject Search()
+		{
+			throw new NotImplementedException ("Not done yet!");
 		}
 
         [HttpDelete]
         [AllowCrossSiteJsonAttribute]        
-        public string DeleteSubject(Guid subject)
+        public void Delete(Guid id)
         {
-            var to_delete = Repository.FindById(subject);
-            var result = Repository.Remove(to_delete);
-
-            if (result.Ok)
-                return "OK";
-            else return "FAIL";
+			Repository.Remove(id);
         }
 
     }
