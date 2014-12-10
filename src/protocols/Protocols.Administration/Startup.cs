@@ -20,7 +20,7 @@ namespace Protocols.Runner
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
                 "Default",
-                "api/{controller}/{id}",
+                "api/{controller}/{action}/{id}",
                 new { id = RouteParameter.Optional });
 
             config.EnableCors(new EnableCorsAttribute("*", "*", "*"));

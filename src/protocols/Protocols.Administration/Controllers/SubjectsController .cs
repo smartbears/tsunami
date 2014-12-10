@@ -15,32 +15,37 @@ namespace Protocols.Administration.Controllers
 	{
 		public IRepository<Subject> Repository{ get; set; }
 
+        [ActionName("ListSubjects")]
 		[AllowCrossSiteJsonAttribute]
 		public List<Subject> Get()
 		{
             return Repository.GetAll().ToList();
 		}
 
-		[AllowCrossSiteJsonAttribute]
+        [ActionName("GetSubject")]
+        [AllowCrossSiteJsonAttribute]
 		public Subject Get(Guid id)
 		{
 			return Repository.FindBy(id);
 		}
 
 		[HttpPost]
-		[AllowCrossSiteJsonAttribute]
+        [ActionName("InsertSubject")]
+        [AllowCrossSiteJsonAttribute]
 		public Guid Post(Subject subject)
 		{
 			return Repository.Insert (subject);
 		}
 
-		[AllowCrossSiteJsonAttribute]
+        [ActionName("Search")]
+        [AllowCrossSiteJsonAttribute]
 		public Subject Search()
 		{
 			throw new NotImplementedException ("Not done yet!");
 		}
 
         [HttpDelete]
+        [ActionName("DeleteSubject")]
         [AllowCrossSiteJsonAttribute]        
         public void Delete(Guid id)
         {
