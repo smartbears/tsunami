@@ -3,6 +3,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Owin;
+using System.Web.Http.Dispatcher;
+using Protocols.Administration;
+using Castle.Windsor;
+using Protocols.Administration.Helpers;
+using Castle.Windsor.Installer;
 
 namespace Protocols.Runner
 {
@@ -25,6 +30,16 @@ namespace Protocols.Runner
             jsonFormatter.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+
+			var container = new WindsorContainer();
+			container.Install (FromAssembly.This ());
+
+			config.Services.Replace(
+				typeof(IHttpControllerActivator),
+				new WindsorCompositionRoot(container));
+
         }
     }
+
+
 }

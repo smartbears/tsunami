@@ -13,9 +13,9 @@ namespace Protocols.Runner.Controllers
         UnitOfWork unit = new UnitOfWork();
 
         [AllowCrossSiteJsonAttribute]
-        public List<Subject> Get()
+        public string Get()
         {
-            return unit.Subjects.FindAllAs<Subject>().ToList();
+			return "xxx";
         }
 
         [HttpPost]
