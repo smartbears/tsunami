@@ -1,0 +1,5 @@
+<h1>Listing Subjects</h1>
+
+{{#each item in model}}
+<li>{{#link-to 'subject.index' item}}{{item.name}}{{/link-to}} -- {{item.age}}</li>
+{{/each}}
