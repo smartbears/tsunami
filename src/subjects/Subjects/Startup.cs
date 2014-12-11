@@ -18,10 +18,12 @@ namespace Subjects
             var config = new HttpConfiguration();
             config.Routes.MapHttpRoute(
                 "Default",
-                "api/{controller}/{id}",
+				"api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
 
-            app.UseWebApi(config); 
+            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+            app.UseWebApi(config);
 
             //Json by Default
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
@@ -29,8 +31,11 @@ namespace Subjects
             jsonFormatter.SerializerSettings.Converters.Add(new IsoDateTimeConverter());
             jsonFormatter.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
+            jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.KeyValuePairConverter());
+            jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
 
-			var container = new WindsorContainer();
+
+            var container = new WindsorContainer();
 			container.Install (FromAssembly.This ());
 
 			config.Services.Replace(

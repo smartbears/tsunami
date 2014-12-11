@@ -87,7 +87,6 @@
     <Compile Include="WorkerRole.cs" />
     <Compile Include="Controllers\SubjectsController .cs" />
     <Compile Include="Helpers\CrossSite.cs" />
-    <Compile Include="CrossSite.cs" />
     <Compile Include="WindsorInstallers\Managers.cs" />
     <Compile Include="WindsorInstallers\Controllers.cs" />
     <Compile Include="Helpers\ControllerFactory.cs" />

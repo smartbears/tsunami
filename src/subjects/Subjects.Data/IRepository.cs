@@ -1,13 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using Subjects.Core;
 
 namespace Subjects.Data
 {
 	public interface IRepository<T>
 	{
 		IList<T> GetAll();
-		void Insert(T entry);
-	}
+		Guid Insert(T entry);
+		void Remove(Guid id);
+        void Remove(T entry);
+		T FindBy(Guid id);
+        List<Subject> SearchByName(string pattern);
+    }
 
 }
 

@@ -1,10 +1,17 @@
 
 App = Em.Application.create({
   rootElement: $('.view-container'),
+  //LOG_TRANSITIONS: true
 });
 
-App.Router.map(function() { 
-    this.route("read", { path: "/read" });
+App.Router.map(function() {
+
+    this.resource("subjects", function(){
+        this.resource('subject', { path:'/:id' }, function(){
+            this.route('edit');
+        });
+    });
+
     this.route("insert", { path: "/insert" });
 });
 
@@ -19,26 +26,25 @@ App.Subject = DS.Model.extend({
     age:  DS.attr('int')
 });
 
-App.ReadRoute = Ember.Route.extend({
+
+App.SubjectsRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('subject');
     }
 });
 
-App.InsertRoute = Ember.Route.extend({
-    model: function() {
-        return App.MongoSample.one();
+App.SubjectRoute = Ember.Route.extend({
+    model: function(params) {
+        return this.store.find('subject', params.id);
     },
-    setupController: function(controller, model) {
-        controller.set('model', model);
-    }
 });
 
-App.InsertController = Ember.ObjectController.extend({
+App.SubjectEditController = Ember.ObjectController.extend({
     actions: {
-        insert_user: function() {
-            App.MongoSample.save(this.get('model'));
-
+        save: function(){
+            var subject = this.get('model');
+            //subject.save(); //Not working
+            this.transitionToRoute('subject', subject);
         }
     }
 });
