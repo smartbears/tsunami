@@ -10,6 +10,7 @@ using Castle.Windsor;
 using Protocols.Runner.Helpers;
 using Castle.Core;
 using Castle.Windsor.Installer;
+using System.Web.Http.Cors;
 
 namespace Protocols.Runner
 {
@@ -25,6 +26,7 @@ namespace Protocols.Runner
                 new { id = RouteParameter.Optional });
 
             app.UseWebApi(config);
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             //Json by Default
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();

@@ -1,4 +1,5 @@
 ﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +12,22 @@ namespace Protocols.Runner.Models
     {
         public ObjectId Id { get; set; }
 
-        public string name { get; set; }
+        public string Name { get; set; }
 
-        public int age { get; set; }
+        public int Age { get; set; }
+
+        [BsonConstructor]
+        public Subject(string name, int age)
+        {
+            Name = name;
+            Age = age;
+        }
+
+        [BsonConstructor]
+        public Subject()
+        {
+
+        }
 
     }
 }
