@@ -4,7 +4,7 @@ App = Em.Application.create({
 });
 
 App.Router.map(function() {
-    this.route("read", { path: "/read" });
+    this.route("subjects", { path: "/subjects" });
     this.route("insert", { path: "/insert" });
 });
 
@@ -14,44 +14,16 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
-App.Subject = DS.Model.extend({
+App.Subject = DS.Model.extend({ 
     name: DS.attr('string'),
     age:  DS.attr('int')
 });
 
-App.MongoSample = Ember.Object.extend();
-App.MongoSample.reopenClass({
-    all: function() {
-        return $.getJSON("http://localhost:8082/api/subjects").then(function(response) {
-            var items = [];
-            response.forEach( function (item) {
-                items.push( App.MongoSample.create(item) );
-            });
 
-            return items;
-        });
-    },
-    one: function(){
-        return App.MongoSample.create({name: "no-name", age:0}); 
-    },
-    save: function(subject){
-        //Save the user to the backend
-        console.log("calling save method...");
-
-        $.post(
-        	"http://localhost:8082/api/subjects/createsubject" ,
-            {Name: subject.name, Age: subject.age},
-			function(data) {
-			     alert("Data Loaded: " + data);
-			   }      
-        );
-    }
-});
-
-App.ReadRoute = Ember.Route.extend({
+App.SubjectsRoute = Ember.Route.extend({
     model: function() {
-        return App.MongoSample.all();
-    }    
+        return this.store.find('subject');
+    }
 });
 
 App.InsertRoute = Ember.Route.extend({
@@ -72,15 +44,15 @@ App.InsertController = Ember.ObjectController.extend({
 });
 
 App.SubjectController = Ember.ObjectController.extend({
-  actions: {    
+  actions: {
 	  removeSubject: function () {
 	  	console.log("calling deleteSubject method...");
 	    var subject = this.get('model');
 
         $.ajax({
 		    url: 'http://localhost:8082/api/subjects/' + subject.id,
-		    type: 'DELETE',	
-		    contentType: 'text/plain',	    
+		    type: 'DELETE',
+		    contentType: 'text/plain',
 		    success: function(result) {
 		        // Do something with the result
 		        $('#'+subject.id).remove();
@@ -88,5 +60,5 @@ App.SubjectController = Ember.ObjectController.extend({
 		    }
 		});
 	  }
-  }  
+  }
 });

@@ -15,38 +15,44 @@ namespace Protocols.Administration.Controllers
 	{
 		public IRepository<Subject> Repository{ get; set; }
 
-        [ActionName("ListSubjects")]
-		[AllowCrossSiteJsonAttribute]
-		public List<Subject> Get()
+        [ActionName("list")]
+		[AllowCrossSiteJson]
+		public object Get()
 		{
-            return Repository.GetAll().ToList();
+			return new {
+				subjects = Repository.GetAll().ToList()
+			};
+
 		}
 
-        [ActionName("GetSubject")]
-        [AllowCrossSiteJsonAttribute]
+        [ActionName("get")]
+		[AllowCrossSiteJson]
 		public Subject Get(Guid id)
 		{
 			return Repository.FindBy(id);
 		}
 
 		[HttpPost]
-        [ActionName("InsertSubject")]
-        [AllowCrossSiteJsonAttribute]
+        [ActionName("insert")]
+		[AllowCrossSiteJson]
 		public Guid Post(Subject subject)
 		{
 			return Repository.Insert (subject);
 		}
 
-        [ActionName("Search")]
-        [AllowCrossSiteJsonAttribute]
+        [ActionName("search")]
+		[AllowCrossSiteJson]
 		public List<Subject> Search(string pattern)
 		{
+			//This has to be changed
+			//The IRepository pattern cannot be bound with a searchbyName method
+			//Most likely other implementations than Subject wont have a Name
             return this.Repository.SearchByName(pattern);
 		}
 
         [HttpDelete]
-        [ActionName("DeleteSubject")]
-        [AllowCrossSiteJsonAttribute]        
+        [ActionName("delete")]
+		[AllowCrossSiteJson]        
         public void Delete(Guid id)
         {
 			Repository.Remove(id);
