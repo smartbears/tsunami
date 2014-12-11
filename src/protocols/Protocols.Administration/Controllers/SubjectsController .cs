@@ -11,11 +11,10 @@ using MongoDB.Bson;
 
 namespace Protocols.Administration.Controllers
 {
-	public class SubjectsController : ApiController
+	public class SubjectController : ApiController
 	{
 		public IRepository<Subject> Repository{ get; set; }
 
-        [ActionName("list")]
 		[AllowCrossSiteJson]
 		public object Get()
 		{
@@ -24,34 +23,32 @@ namespace Protocols.Administration.Controllers
 			};
 
 		}
-
-        [ActionName("get")]
+			
 		[AllowCrossSiteJson]
 		public Subject Get(Guid id)
 		{
 			return Repository.FindBy(id);
 		}
 
+		[AllowCrossSiteJson]
+		public List<Subject> Get(string pattern)
+		{
+			//This has to be changed
+			//The IRepository pattern cannot be bound with a searchbyName method
+			//Most likely other implementations than Subject wont have a Name
+			return this.Repository.SearchByName(pattern);
+		}
+
 		[HttpPost]
-        [ActionName("insert")]
 		[AllowCrossSiteJson]
 		public Guid Post(Subject subject)
 		{
 			return Repository.Insert (subject);
 		}
+			
 
-        [ActionName("search")]
-		[AllowCrossSiteJson]
-		public List<Subject> Search(string pattern)
-		{
-			//This has to be changed
-			//The IRepository pattern cannot be bound with a searchbyName method
-			//Most likely other implementations than Subject wont have a Name
-            return this.Repository.SearchByName(pattern);
-		}
 
         [HttpDelete]
-        [ActionName("delete")]
 		[AllowCrossSiteJson]        
         public void Delete(Guid id)
         {

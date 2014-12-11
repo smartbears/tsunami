@@ -1,10 +1,17 @@
 
 App = Em.Application.create({
   rootElement: $('.view-container'),
+  //LOG_TRANSITIONS: true
 });
 
 App.Router.map(function() {
-    this.route("subjects", { path: "/subjects" });
+
+    this.resource("subjects", function(){
+        this.resource('subject', { path:'/:id' }, function(){
+            this.route('edit');
+        });
+    });
+
     this.route("insert", { path: "/insert" });
 });
 
@@ -14,7 +21,7 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 
-App.Subject = DS.Model.extend({ 
+App.Subject = DS.Model.extend({
     name: DS.attr('string'),
     age:  DS.attr('int')
 });
@@ -26,39 +33,18 @@ App.SubjectsRoute = Ember.Route.extend({
     }
 });
 
-App.InsertRoute = Ember.Route.extend({
-    model: function() {
-        return App.MongoSample.one();
+App.SubjectRoute = Ember.Route.extend({
+    model: function(params) {
+        return this.store.find('subject', params.id);
     },
-    setupController: function(controller, model) {
-        controller.set('model', model);
-    }
 });
 
-App.InsertController = Ember.ObjectController.extend({
+App.SubjectEditController = Ember.ObjectController.extend({
     actions: {
-        insert_user: function() {
-            App.MongoSample.save(this.get('model'));
+        save: function(){
+            var subject = this.get('model');
+            //subject.save(); //Not working
+            this.transitionToRoute('subject', subject);
         }
     }
-});
-
-App.SubjectController = Ember.ObjectController.extend({
-  actions: {
-	  removeSubject: function () {
-	  	console.log("calling deleteSubject method...");
-	    var subject = this.get('model');
-
-        $.ajax({
-		    url: 'http://localhost:8082/api/subjects/' + subject.id,
-		    type: 'DELETE',
-		    contentType: 'text/plain',
-		    success: function(result) {
-		        // Do something with the result
-		        $('#'+subject.id).remove();
-		        alert("Result: " + result);
-		    }
-		});
-	  }
-  }
 });

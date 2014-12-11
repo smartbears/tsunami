@@ -1,4 +1,4 @@
-App.ApplicationAdapter = DS.RESTAdapter.extend({
+App.ApplicationAdapter = App.ShellRestAdapter.extend({
     host: 'http://localhost:8082/api',
 });
 

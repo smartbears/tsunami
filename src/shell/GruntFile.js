@@ -103,7 +103,7 @@ module.exports = function (grunt) {
                 templateFileExtensions: ".html"
             },
             files: {
-              "assets/js/templates.min.js": ["assets/js/views/*.html"]
+              "assets/js/templates.min.js": ["assets/js/views/*.html","assets/js/views/**/*.html"]
             }
           }
         },
@@ -149,7 +149,7 @@ module.exports = function (grunt) {
                 ]
             },
             emberTemplates: {
-                files: 'assets/js/views/*.html',
+                files: ['assets/js/views/*.html', 'assets/js/views/**/*.html' ],
                 tasks: ['emberTemplates']
             },
             application_scripts: {
