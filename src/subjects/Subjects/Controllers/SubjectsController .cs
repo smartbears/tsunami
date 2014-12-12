@@ -12,7 +12,7 @@ using Subjects.Helpers;
 
 namespace Subjects.Controllers
 {
-	public class SubjectController : ApiController
+	public class SubjectsController : ApiController
 	{
 		public IRepository<Subject> Repository{ get; set; }
 
