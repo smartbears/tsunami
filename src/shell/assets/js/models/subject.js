@@ -1,6 +1,6 @@
 App.Subject = DS.Model.extend({
     name: DS.attr('string'),
-    age:  DS.attr('int')
+    age:  DS.attr('number')
 });
 
 App.Subject.reopenClass({
