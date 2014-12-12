@@ -25,7 +25,7 @@ namespace Subjects
 			//Below line Breaks Mono, Data Binder.
 			//Please do not enable for now, or attempt to the consequences
 			//Zeus rage!
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             //Json by Default
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
