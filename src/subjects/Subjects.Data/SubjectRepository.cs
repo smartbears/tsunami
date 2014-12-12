@@ -24,9 +24,7 @@ namespace Subjects.Data
 
         public IList<Subject> GetAll()
 		{
-			if(_users == null)                
-				_users = this._collection.FindAll().ToList();
-			return _users;
+			return this._collection.FindAll().ToList();
 		}
 
 		public Guid Insert(Subject entry){
