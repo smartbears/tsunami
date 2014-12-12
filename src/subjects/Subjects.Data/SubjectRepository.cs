@@ -32,6 +32,10 @@ namespace Subjects.Data
 			return entry.Id;
 		}
 
+		public void Update(Subject entry){
+			this._collection.Save (entry);
+		}
+
 		public void Remove(Guid id)
 		{
 			this._collection.Remove(Query.EQ("_id", id));
