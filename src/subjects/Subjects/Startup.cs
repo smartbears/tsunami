@@ -22,9 +22,10 @@ namespace Subjects
 				"api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
 
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
-
-            app.UseWebApi(config);
+			//Below line Breaks Mono, Data Binder.
+			//Please do not enable for now, or attempt to the consequences
+			//Zeus rage!
+            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             //Json by Default
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
@@ -35,7 +36,7 @@ namespace Subjects
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.KeyValuePairConverter());
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
 
-			//config.Formatters.Insert(0, new EmberJsonMediaTypeFormatter());
+			app.UseWebApi(config);
 
             var container = new WindsorContainer();
 			container.Install (FromAssembly.This ());

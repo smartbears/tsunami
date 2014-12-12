@@ -9,6 +9,7 @@ using System.Linq;
 using System;
 using MongoDB.Bson;
 using Subjects.Helpers;
+using System.Web.Http.ModelBinding;
 
 namespace Subjects.Controllers
 {
@@ -17,7 +18,7 @@ namespace Subjects.Controllers
 		public IRepository<Subject> Repository{ get; set; }
 
 		[AllowCrossSiteJson]
-		public List<Subject> Get()
+		public IEnumerable<Subject> Get()
 		{
 			return Repository.GetAll ().ToList ();
 		}
@@ -44,7 +45,6 @@ namespace Subjects.Controllers
 			return Repository.Insert (subject);
 		}
 			
-
 
         [HttpDelete]
 		[AllowCrossSiteJson]        
