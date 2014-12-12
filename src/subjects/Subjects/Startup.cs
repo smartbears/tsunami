@@ -35,6 +35,7 @@ namespace Subjects
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.KeyValuePairConverter());
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
 
+			//config.Formatters.Insert(0, new EmberJsonMediaTypeFormatter());
 
             var container = new WindsorContainer();
 			container.Install (FromAssembly.This ());

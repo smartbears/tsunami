@@ -36,13 +36,3 @@ App.SubjectRoute = Ember.Route.extend({
         return this.store.find('subject', params.id);
     },
 });
-
-App.SubjectEditController = Ember.ObjectController.extend({
-    actions: {
-        save: function(){
-            var subject = this.get('model');
-            //subject.save(); //Not working
-            this.transitionToRoute('subject', subject);
-        }
-    }
-});

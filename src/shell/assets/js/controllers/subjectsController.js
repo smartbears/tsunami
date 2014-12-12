@@ -6,8 +6,18 @@ App.SubjectsAddController = Ember.ObjectController.extend({
               name: this.get("name"),
               age: this.get("age")
             });
-            subject.save(); //Not working
+            subject.save();
             this.transitionToRoute('subjects');
+        }
+    }
+});
+
+App.SubjectEditController = Ember.ObjectController.extend({
+    actions: {
+        update: function(){
+            var subject = this.get('model');
+            subject.save(); //Not working
+            this.transitionToRoute('subject', subject);
         }
     }
 });
