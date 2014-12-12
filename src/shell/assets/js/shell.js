@@ -10,9 +10,9 @@ App.Router.map(function() {
         this.resource('subject', { path:'/:id' }, function(){
             this.route('edit');
         });
+        this.route("add");
     });
 
-    this.route("insert", { path: "/insert" });
 });
 
 App.IndexRoute = Ember.Route.extend({
