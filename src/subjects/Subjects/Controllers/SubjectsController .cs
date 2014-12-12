@@ -12,17 +12,14 @@ using Subjects.Helpers;
 
 namespace Subjects.Controllers
 {
-	public class SubjectController : ApiController
+	public class SubjectsController : ApiController
 	{
 		public IRepository<Subject> Repository{ get; set; }
 
 		[AllowCrossSiteJson]
-		public object Get()
+		public List<Subject> Get()
 		{
-			return new {
-				subjects = Repository.GetAll().ToList()
-			};
-
+			return Repository.GetAll ().ToList ();
 		}
 			
 		[AllowCrossSiteJson]

@@ -1,20 +1,44 @@
 /*Here goes the global variabless for less*/
 /*Here can go content related to the index page only*/
 body {
-  background-color: #ff0000;
-  font-size: 50px;
+  font-size: 22px;
   text-align: center;
 }
-body .content .title {
-  height: 100px;
-  background-color: yellow;
+body .title {
+  height: 120px;
+  background-color: #3c5598;
+  color: white;
 }
-body .content ul {
+body .title .container ul {
   list-style: none;
+}
+body .sidebar-nav .navbar .navbar-collapse {
+  padding: 0;
+  padding-bottom: 420px;
+  max-height: none;
+  background-color: white;
+}
+body .sidebar-nav .navbar .navbar-collapse .btn-default {
+  margin-top: 20px;
+}
+body .sidebar-nav .navbar ul {
+  float: none;
+}
+body .sidebar-nav .navbar ul:not {
+  display: block;
+}
+body .sidebar-nav .navbar li {
+  float: none;
+  display: block;
+}
+body .sidebar-nav .navbar li a {
+  padding-top: 12px;
+  padding-bottom: 112px;
 }
 /*General Content here, available for every page */
 html,
 body {
   height: 100%;
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }

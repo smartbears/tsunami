@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -21,7 +22,7 @@ namespace Subjects
 				"api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
 
-            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             app.UseWebApi(config);
 
@@ -34,6 +35,7 @@ namespace Subjects
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.KeyValuePairConverter());
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
 
+			//config.Formatters.Insert(0, new EmberJsonMediaTypeFormatter());
 
             var container = new WindsorContainer();
 			container.Install (FromAssembly.This ());
