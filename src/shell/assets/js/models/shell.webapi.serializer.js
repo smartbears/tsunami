@@ -13,4 +13,8 @@ DS.WebAPISerializer = DS.RESTSerializer.extend({
         return this._super.apply(this, arguments);
     },
 
+    extractArray: function (store, primaryType, payload) {
+        return payload;
+    },
+
 });

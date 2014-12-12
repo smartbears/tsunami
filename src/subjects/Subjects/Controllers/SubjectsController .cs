@@ -44,6 +44,13 @@ namespace Subjects.Controllers
 		{
 			return Repository.Insert (subject);
 		}
+
+		[HttpPut]
+		[AllowCrossSiteJson]
+		public Guid Put(Subject subject)
+		{
+			return Repository.Insert (subject);
+		}
 			
 
         [HttpDelete]
