@@ -49,7 +49,8 @@ namespace Subjects.Controllers
 		[AllowCrossSiteJson]
 		public Guid Put(Subject subject)
 		{
-			return Repository.Insert (subject);
+            Repository.Update(subject);
+            return subject.Id;
 		}
 			
 

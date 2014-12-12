@@ -32,9 +32,9 @@ namespace Subjects.Data
 			return entry.Id;
 		}
 
-		public void Update(Subject entry){
-			this._collection.Save (entry);
-		}
+		public void Update(Subject entry){            
+            _collection.Update(Query<Subject>.EQ(x => x.Id, entry.Id), Update<Subject>.Replace(entry));            
+        }
 
 		public void Remove(Guid id)
 		{

@@ -100,7 +100,7 @@ DS.WebAPIAdapter = DS.RESTAdapter.extend({
         data = store.serializerFor(type.typeKey).serialize(record);
 
         var id = get(record, 'id');
-
+        data.id = id
         return this.ajax(this.buildURL(type.typeKey, id), "PUT", { data: data }, record);
     },
 
