@@ -8,6 +8,7 @@ namespace Subjects.Data
 	{
 		IList<T> GetAll();
 		Guid Insert(T entry);
+		void Update(T entry);
 		void Remove(Guid id);
         void Remove(T entry);
 		T FindBy(Guid id);
