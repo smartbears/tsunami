@@ -1,4 +1,5 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
@@ -21,7 +22,7 @@ namespace Subjects
 				"api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
 
-            //config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             app.UseWebApi(config);
 

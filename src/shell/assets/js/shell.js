@@ -16,14 +16,12 @@ App.Router.map(function() {
 });
 
 App.IndexRoute = Ember.Route.extend({
-  setupController: function(controller, model) {
-    controller.set('model', ['a', 'b', 'c']);
+  model: function() {
+    return "subjects"; //todo: replace this a server call.
+  },
+  afterModel: function(model, transition) {
+      this.transitionTo(model);
   }
-});
-
-App.Subject = DS.Model.extend({
-    name: DS.attr('string'),
-    age:  DS.attr('int')
 });
 
 
