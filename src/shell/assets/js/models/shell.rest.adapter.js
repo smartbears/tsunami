@@ -95,14 +95,19 @@ DS.WebAPIAdapter = DS.RESTAdapter.extend({
 
         return this.ajax(this.buildURL(type.typeKey), "POST", { data: data });
     },
+    
+    deleteRecord: function (store, type, record) {        
+
+        var id = get(record, 'id');
+        console.log(id);        
+        return this.ajax(this.buildURL(type.typeKey, id), "DELETE", { data: id });
+    },
 
     updateRecord: function (store, type, record) {
         var data = {};
-        data = store.serializerFor(type.typeKey).serialize(record);
-
-        var id = get(record, 'id');
-        data.id = id
-        return this.ajax(this.buildURL(type.typeKey, id), "PUT", { data: data }, record);
+        data = store.serializerFor(type.typeKey).serialize(record, { includeId: true });
+        
+        return this.ajax(this.buildURL(type.typeKey, data.id), "PUT", { data: data }, record);
     },
 
     ajax: function(url, type, hash, record) {

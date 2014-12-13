@@ -9,7 +9,14 @@ App.SubjectController = Ember.ObjectController.extend({
           var subject = this.get('model');
           subject.save(); //Not working
           this.set('isEditing', false);
+        },
+
+        delete: function(){
+            var subject = this.get('model');
+            subject.destroyRecord();
         }
+
+
     }
 });
 
@@ -23,6 +30,10 @@ App.SubjectsAddController = Ember.ObjectController.extend({
               age: this.get("age")
             });
             subject.save();
+
+            this.set("name","");
+            this.set("age","");
+
             this.transitionToRoute('subjects');
         }
     }
