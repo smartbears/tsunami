@@ -1,3 +1,19 @@
+App.SubjectController = Ember.ObjectController.extend({
+    isEditing: false,
+    actions: {
+        edit: function() {
+          this.set('isEditing', true);
+        },
+
+        doneEditing: function() {
+          var subject = this.get('model');
+          subject.save(); //Not working
+          this.set('isEditing', false);
+        }
+    }
+});
+
+
 App.SubjectsAddController = Ember.ObjectController.extend({
     actions: {
         add: function(){
@@ -12,7 +28,7 @@ App.SubjectsAddController = Ember.ObjectController.extend({
     }
 });
 
-App.SubjectEditController = Ember.ObjectController.extend({
+/*App.SubjectEditController = Ember.ObjectController.extend({
     actions: {
         update: function(){
             var subject = this.get('model');
@@ -20,4 +36,4 @@ App.SubjectEditController = Ember.ObjectController.extend({
             this.transitionToRoute('subject', subject);
         }
     }
-});
+});*/

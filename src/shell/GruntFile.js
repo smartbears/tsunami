@@ -77,7 +77,7 @@ module.exports = function (grunt) {
             external: {
                 src: [
                     'assets/js/external/jquery-1.10.2.js',
-                    'assets/js/external/handlebars-v1.3.0.js',
+                    'assets/js/external/handlebars-v2.0.0.js',
                     'assets/js/external/ember.prod.js',
                     'assets/js/external/ember-data.prod-v1.0.0.12.js'
                 ],
@@ -85,23 +85,34 @@ module.exports = function (grunt) {
             },
             application_scripts: {
                 src: [
-                    'assets/js/views/*.js',
+                    'assets/js/views/**/*.js',
                     'assets/js/shell.js',
                     'assets/js/models/*.js',
-					'assets/js/controllers/**/*.js',
+					          'assets/js/controllers/**/*.js',
                 ],
                 dest: 'assets/js/shell.min.js'
 
             }
         },
-        emberTemplates: {
+        /*emberTemplates: {
           compile: {
             options: {
                 precompile:true,
-                templateCompilerPath: 'node_modules/ember-template-compiler/vendor/ember-template-compiler.js',
-                handlebarsPath: 'assets/js/external/handlebars-v1.3.0.js',
+                templateCompilerPath: 'node_modules/ember-template-compiler1/vendor/ember-template-compiler.js',
+                handlebarsPath: 'assets/js/external/handlebars-v2.0.0.js',
                 templateBasePath: "assets/js/views",
                 templateFileExtensions: ".html"
+            },
+            files: {
+              "assets/js/templates.min.js": ["assets/js/views/*.html","assets/js/views/**//*.html"]
+            }
+          }
+        },*/
+        emberTemplates: {
+          compile: {
+            options: {
+              templateBasePath: "assets/js/views",
+              templateFileExtensions: ".html"
             },
             files: {
               "assets/js/templates.min.js": ["assets/js/views/*.html","assets/js/views/**/*.html"]

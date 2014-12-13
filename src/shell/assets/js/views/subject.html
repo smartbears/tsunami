@@ -1,0 +1,7 @@
+<h1>The subject2!!</h1>
+{{#if isEditing}}
+  {{partial 'subject/edit'}}
+  <button {{action 'doneEditing'}}>Done</button>
+{{else}}
+  {{name}} -- {{age}}</li> <button {{action 'edit'}}>Edit</button>
+{{/if}}
