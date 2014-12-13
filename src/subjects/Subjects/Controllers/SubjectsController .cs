@@ -52,7 +52,6 @@ namespace Subjects.Controllers
             Repository.Update(subject);
             return subject.Id;
 		}
-			
 
         [HttpDelete]
 		[AllowCrossSiteJson]        

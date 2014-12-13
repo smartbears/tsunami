@@ -82,6 +82,7 @@ antiForgeryTokenSelector: "#antiForgeryToken",
 
 DS.WebAPIAdapter = DS.RESTAdapter.extend({
     defaultSerializer: "DS/WebAPI", //Ember.Data 1.0 beta 1 way
+    corsWithCredentials: true,
 
     createRecord: function (store, type, record) {
         var data = {};
@@ -124,6 +125,8 @@ DS.WebAPIAdapter = DS.RESTAdapter.extend({
             hash.type = type;
             hash.dataType = 'json';
             hash.context = adapter;
+            console.log('here');
+            hash.crossDomain = true;
 
             if (hash.data && type !== 'GET') {
                 hash.contentType = 'application/json; charset=utf-8';
