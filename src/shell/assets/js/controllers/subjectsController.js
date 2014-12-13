@@ -7,6 +7,10 @@ App.SubjectsAddController = Ember.ObjectController.extend({
               age: this.get("age")
             });
             subject.save();
+            
+            this.set("name",""),
+            this.set("age","")
+
             this.transitionToRoute('subjects');
         }
     }
@@ -20,10 +24,21 @@ App.SubjectEditController = Ember.ObjectController.extend({
             this.transitionToRoute('subject', subject);
         },
         delete: function() {
-            var subject = this.get('model');            
-            subject.deleteRecord();
+            var id = this.get('id');     
+            var subject = this.store.getById('subject', id);       
+            subject.destroyRecord();          
             this.transitionTo('subjects');
         }
     }
+});
+
+App.SubjectController = Ember.ObjectController.extend({
+  actions: {   
+      delete: function() {
+            var id = this.get('id');     
+            var subject = this.store.getById('subject', id);       
+            subject.destroyRecord();  
+      }
+  }
 });
 

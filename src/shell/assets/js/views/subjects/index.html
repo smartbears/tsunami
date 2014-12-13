@@ -1,6 +1,6 @@
 <h1>Listing Subjects</h1>
 {{#link-to 'subjects.add'}}(Add new subject){{/link-to}}
 
-{{#each item in model}}
-<li>{{#link-to 'subject.index' item}}{{item.name}}{{/link-to}} -- {{item.age}}</li>
+{{#each item in model itemController="subject"}}
+<li>{{#link-to 'subject.index' item}}{{item.name}}{{/link-to}} -- {{item.age}} --> <a href="#" {{action 'delete'}}> delete </a></li>
 {{/each}}
