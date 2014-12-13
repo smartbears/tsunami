@@ -19,5 +19,11 @@ App.SubjectEditController = Ember.ObjectController.extend({
             subject.save(); //Not working
             this.transitionToRoute('subject', subject);
         }
+        delete: function() {
+            var subject = this.get('model');            
+            this.store.deleteRecord(subject);
+            this.transitionTo('subjects');
+        }
     }
 });
+

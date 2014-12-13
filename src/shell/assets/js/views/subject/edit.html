@@ -7,4 +7,10 @@
     {{input value=age}}
 </div>
 
-<button title="Save" {{action "update" this}}>Save</button>
+<button title="Save" {{action "update" this}}>Save</button> |
+<button title="Delete" {{action "delete" this}}>Delete</button>
+<br>
+
+<div class="line">
+	{{#link-to "subjects.index"}}View All{{/link-to}}
+</div>
