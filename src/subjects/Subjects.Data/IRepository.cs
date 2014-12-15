@@ -12,7 +12,7 @@ namespace Subjects.Data
 		void Remove(Guid id);
         void Remove(T entry);
 		T FindBy(Guid id);
-        List<Subject> SearchByName(string pattern);
+        List<Subject> Search(string pattern);
     }
 
 }
