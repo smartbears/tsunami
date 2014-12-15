@@ -21,6 +21,24 @@ App.SubjectController = Ember.ObjectController.extend({
 });
 
 
+App.SubjectsController = Ember.ObjectController.extend({  
+    isSearching: false,  
+    actions: {
+        search: function() {
+          var pattern = this.get("searchPattern");  
+          var results = this.store.find('subject', {pattern: pattern});
+          this.set('isSearching', true);
+          this.set('model',results);
+        },
+
+        doneSearch: function() {
+          this.set('isSearching', false);
+          this.set('model',this.store.find('subject'));
+          this.transitionToRoute('subjects');         
+        }
+    }
+});
+
 App.SubjectsAddController = Ember.ObjectController.extend({
     actions: {
         add: function(){

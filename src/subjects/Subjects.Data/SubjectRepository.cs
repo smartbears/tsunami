@@ -53,9 +53,19 @@ namespace Subjects.Data
 			).FirstOrDefault();
         }
 
-        public List<Subject> SearchByName(string pattern)
+        public List<Subject> Search(string pattern)
+        {
+            return SearchByName(pattern);
+        }
+
+        List<Subject> SearchByName(string pattern)
         {
             return _collection.AsQueryable().Where(sbj => sbj.Name.Contains(pattern)).ToList();
+        }
+
+        List<Subject> SearchByAge(string pattern)
+        {
+            return _collection.AsQueryable().Where(sbj => sbj.Age == int.Parse(pattern)).ToList();
         }
     }
 }

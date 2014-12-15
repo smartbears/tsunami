@@ -110,6 +110,12 @@ DS.WebAPIAdapter = DS.RESTAdapter.extend({
         return this.ajax(this.buildURL(type.typeKey, data.id), "PUT", { data: data }, record);
     },
 
+    findQuery : function (store, type, query) {        
+
+        console.log(query);        
+        return this.ajax(this.buildURL(type.typeKey), "GET",{ data: query });
+    },
+
     ajax: function(url, type, hash, record) {
         // if antiForgeryTokenSelector attribute exists, pass it in the header
         var antiForgeryTokenElemSelector = get(this, 'antiForgeryTokenSelector');

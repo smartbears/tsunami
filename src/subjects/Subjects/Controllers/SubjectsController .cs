@@ -35,7 +35,7 @@ namespace Subjects.Controllers
 			//This has to be changed
 			//The IRepository pattern cannot be bound with a searchbyName method
 			//Most likely other implementations than Subject wont have a Name
-			return this.Repository.SearchByName(pattern);
+			return this.Repository.Search(pattern);
 		}
 
 		[HttpPost]
