@@ -6,6 +6,6 @@ namespace Subjects.Core.Persistence
     {
         IList<Subject> SearchByName(string name);
 
-        IList<Subject> SearchByName(int age);
+        IList<Subject> SearchByAge(int age);
     }
 }

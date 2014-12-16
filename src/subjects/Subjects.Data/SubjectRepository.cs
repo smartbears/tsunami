@@ -52,7 +52,7 @@ namespace Subjects.Data
             return _collection.AsQueryable().Where(sbj => sbj.Name.Contains(name) ).ToList();
         }
 
-        public List<Subject> SearchByAge(int age)
+        public IList<Subject> SearchByAge(int age)
         {
             return _collection.AsQueryable().Where(sbj => sbj.Age == age ).ToList();
         }
