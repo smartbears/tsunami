@@ -33,7 +33,7 @@ App.Subject = DS.Model.extend({
     if(middle.length > 1)
       middle = middle + ' ';
     return this.get('firstName') + middle  + this.get('lastName');
-  }.property('firstName', 'middleName', 'lastName')
+    }.property('firstName', 'middleName', 'lastName'),
 
   age: function(){
     var ageDifMs = Date.now() - birthday.getTime();
