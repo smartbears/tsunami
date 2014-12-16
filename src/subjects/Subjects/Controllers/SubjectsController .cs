@@ -1,41 +1,32 @@
 using Subjects.Core;
 using System.Web.Http;
 using Subjects.Data;
-using MongoDB.Driver.Builders;
-using MongoDB.Driver.Linq;
 using System.Collections.Generic;
-using System.Web.Http;
-using System.Linq;
 using System;
-using MongoDB.Bson;
 using Subjects.Helpers;
-using System.Web.Http.ModelBinding;
 
 namespace Subjects.Controllers
 {
 	public class SubjectsController : ApiController
 	{
-		public IRepository<Subject> Repository{ get; set; }
+		public SubjectRepository Repository{ get; set; }
 
 		[AllowCrossSiteJson]
 		public IEnumerable<Subject> Get()
 		{
-			return Repository.GetAll ().ToList ();
+			return Repository.List();
 		}
 			
 		[AllowCrossSiteJson]
 		public Subject Get(Guid id)
 		{
-			return Repository.FindBy(id);
+			return Repository.Get(id);
 		}
 
 		[AllowCrossSiteJson]
-		public List<Subject> Get(string pattern)
+		public IEnumerable<Subject> Get(string name)
 		{
-			//This has to be changed
-			//The IRepository pattern cannot be bound with a searchbyName method
-			//Most likely other implementations than Subject wont have a Name
-			return this.Repository.Search(pattern);
+            return this.Repository.SearchByName(name);
 		}
 
 		[HttpPost]
@@ -54,10 +45,10 @@ namespace Subjects.Controllers
 		}
 
         [HttpDelete]
-		[AllowCrossSiteJson]        
+		[AllowCrossSiteJson]     
         public void Delete(Guid id)
         {
-			Repository.Remove(id);
+			Repository.Delete(id);
         }
 
     }
