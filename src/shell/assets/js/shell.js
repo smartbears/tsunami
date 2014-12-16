@@ -16,7 +16,7 @@ App.SubjectsRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('subject');
     }
-});
+}); 
 
 App.SubjectRoute = Ember.Route.extend({
     model: function(params) {

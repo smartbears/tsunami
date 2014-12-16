@@ -51,8 +51,28 @@ App.SubjectsAddController = Ember.ObjectController.extend({
         add: function(){
             var subject = this.store.createRecord('subject',
             {
-              name: this.get("name"),
-              age: this.get("age")
+              firstName: this.get('firstName'),
+              middleName: this.get('middleName'),
+              lastName: this.get('LastName'),
+              address: this.get('firstName'),
+              zipCode: this.get('firstName'),
+              city: this.get('firstName'),
+              state: this.get('firstName'),
+              country: this.get('firstName'),
+              email: this.get('firstName'),
+              homePhone: this.get('firstName'),
+              workPhone: this.get('firstName'),
+              cellPhone: this.get('firstName'),
+              alternatedCellPhone: this.get('firstName'),
+              birthday: this.get('birthday'),
+              gender: this.get('firstName'),
+              height: this.get('firstName'),
+              weight: this.get('firstName'),
+              heartRate:this.get('firstName'),
+              bloodPreasure: this.get('firstName'),
+              race: this.get('firstName'),
+              ethnicity: this.get('firstName'),
+              maritalStatus: this.get('firstName'),
             });
             subject.save();
 
