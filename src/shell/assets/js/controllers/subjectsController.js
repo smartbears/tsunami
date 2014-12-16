@@ -53,31 +53,28 @@ App.SubjectsAddController = Ember.ObjectController.extend({
             {
               firstName: this.get('firstName'),
               middleName: this.get('middleName'),
-              lastName: this.get('LastName'),
-              address: this.get('firstName'),
-              zipCode: this.get('firstName'),
-              city: this.get('firstName'),
-              state: this.get('firstName'),
-              country: this.get('firstName'),
-              email: this.get('firstName'),
-              homePhone: this.get('firstName'),
-              workPhone: this.get('firstName'),
-              cellPhone: this.get('firstName'),
-              alternatedCellPhone: this.get('firstName'),
-              birthday: this.get('birthday'),
+              lastName: this.get('lastName'),
+              address: this.get('address'),
+              zipCode: this.get('zipCode'),
+              city: this.get('city'),
+              state: this.get('state'),
+              country: this.get('country'),
+              email: this.get('email1'),
+              homePhone: this.get('homePhone'),
+              workPhone: this.get('workPhone'),
+              cellPhone: this.get('cellPhone'),
+              alternatedCellPhone: this.get('altCellPhone'),
+              birthday: Date.now(),
               gender: this.get('firstName'),
               height: this.get('firstName'),
               weight: this.get('firstName'),
-              heartRate:this.get('firstName'),
+              heartRate: this.get('firstName'),
               bloodPreasure: this.get('firstName'),
               race: this.get('firstName'),
               ethnicity: this.get('firstName'),
               maritalStatus: this.get('firstName'),
             });
-            subject.save();
-
-            this.set("name","");
-            this.set("age","");
+            subject.save();            
 
             this.transitionToRoute('subjects');
         }

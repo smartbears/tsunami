@@ -49,7 +49,7 @@ namespace Subjects.Data
 
         public IList<Subject> SearchByName(string name)
         {
-            return _collection.AsQueryable().Where(sbj => sbj.Name.Contains(name) ).ToList();
+            return _collection.AsQueryable().Where(sbj => sbj.firstName.Contains(name) ).ToList();
         }
 
         public IList<Subject> SearchByAge(int age)

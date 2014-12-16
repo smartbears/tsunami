@@ -33,13 +33,13 @@ App.Subject = DS.Model.extend({
     if(middle.length > 1)
       middle = middle + ' ';
     return this.get('firstName') + middle  + this.get('lastName');
-  }.property('firstName', 'middleName', 'lastName')
+  }.property('firstName', 'middleName', 'lastName'),
 
-  age: function(){
-    var ageDifMs = Date.now() - birthday.getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }.property('birthday')
+  //age: function(){
+  //  var ageDifMs = Date.now() - this.get('birthday').getTime();
+  //  var ageDate = new Date(ageDifMs); // miliseconds from epoch
+  //  return Math.abs(ageDate.getUTCFullYear() - 1970);
+  //}.property('birthday')
 });
 
 App.Guardian = DS.Model.extend({
