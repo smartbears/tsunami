@@ -37,6 +37,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Generators\SubjectIdGenerator.cs" />
+    <Compile Include="Persistence\IRepository.cs" />
+    <Compile Include="Persistence\ISubjectRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subject.cs" />
   </ItemGroup>

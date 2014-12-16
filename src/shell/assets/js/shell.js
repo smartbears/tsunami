@@ -12,15 +12,6 @@ App.Router.map(function() {
     });
 });
 
-App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return "subjects"; //todo: replace this a server call.
-  },
-  afterModel: function(model, transition) {
-      this.transitionTo(model);
-  }
-});
-
 App.SubjectsRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('subject');

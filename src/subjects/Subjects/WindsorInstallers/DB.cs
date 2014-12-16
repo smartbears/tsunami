@@ -24,9 +24,9 @@ namespace Subjects.WindsorInstallers
 				.Instance(_database)
 			);
 
-			container.Register(Classes.FromAssemblyContaining(typeof(IRepository<>))
-				.BasedOn(typeof(IRepository<>))
-				.WithServiceAllInterfaces());
+			container.Register(Classes.FromAssemblyContaining(typeof(SubjectRepository))
+				.BasedOn<SubjectRepository>()
+				.LifestyleSingleton());
 		}
 	}
 }
