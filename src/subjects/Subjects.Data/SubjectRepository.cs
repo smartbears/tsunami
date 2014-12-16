@@ -8,11 +8,12 @@ using Subjects.Core;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using MongoDB.Bson;
+using Subjects.Core.Persistence;
 
 
 namespace Subjects.Data
 {
-	public class SubjectRepository: IRepository<Subject>
+	public class SubjectRepository: IRepository<Subject>, ISubjectRepository
 	{
 		MongoCollection<Subject> _collection;
 		IList<Subject> _users;
@@ -20,14 +21,14 @@ namespace Subjects.Data
 		public SubjectRepository(MongoDatabase _database)
 		{
 			this._collection = _database.GetCollection<Subject> ("subjects");
-		}       
+		}    
 
-        public IList<Subject> GetAll()
-		{
-			return this._collection.FindAll().ToList();
-		}
+	    public IList<Subject> List()
+	    {
+            return this._collection.FindAll().ToList();
+	    }
 
-		public Guid Insert(Subject entry){
+	    public Guid Insert(Subject entry){
 			this._collection.Save (entry);
 			return entry.Id;
 		}
@@ -36,29 +37,17 @@ namespace Subjects.Data
             _collection.Update(Query<Subject>.EQ(x => x.Id, entry.Id), Update<Subject>.Replace(entry));            
         }
 
-		public void Remove(Guid id)
+	    public void Delete(Guid id)
 		{
 			this._collection.Remove(Query.EQ("_id", id));
 		}
 
-        public void Remove(Subject entry)
+        public Subject Get(Guid id)
         {
-			this.Remove (entry.Id);
+            return this._collection.AsQueryable().FirstOrDefault(sbj => sbj.Id == id);
         }
 
-        public Subject FindBy(Guid id)
-        {
-            return this._collection.AsQueryable().Where(
-				sbj => sbj.Id == id
-			).FirstOrDefault();
-        }
-
-        public List<Subject> Search(string pattern)
-        {
-            return SearchByName(pattern);
-        }
-
-        List<Subject> SearchByName(string pattern)
+        public IList<Subject> SearchByName(string pattern)
         {
             return _collection.AsQueryable().Where(sbj => sbj.Name.Contains(pattern)).ToList();
         }
@@ -67,5 +56,5 @@ namespace Subjects.Data
         {
             return _collection.AsQueryable().Where(sbj => sbj.Age == int.Parse(pattern)).ToList();
         }
-    }
+	}
 }

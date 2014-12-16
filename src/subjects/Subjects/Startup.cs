@@ -17,16 +17,18 @@ namespace Subjects
         {
             //app.Run((ctx=> ctx.Response.WriteAsync("This is a test")));
             var config = new HttpConfiguration();
+
+            //Below line Breaks Mono, Data Binder.
+            //Please do not enable for now, or attempt to the consequences
+            //Zeus rage!
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
             config.Routes.MapHttpRoute(
                 "Default",
 				"api/{controller}/{id}",
                 new { id = RouteParameter.Optional });
 
-			//Below line Breaks Mono, Data Binder.
-			//Please do not enable for now, or attempt to the consequences
-			//Zeus rage!
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
-
+            config.Formatters.Insert(0, new MyEmberJsonMediaTypeFormatter());
             //Json by Default
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
             var jsonFormatter = config.Formatters.JsonFormatter;
@@ -35,6 +37,7 @@ namespace Subjects
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.StringEnumConverter());
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.KeyValuePairConverter());
             jsonFormatter.SerializerSettings.Converters.Add(new Newtonsoft.Json.Converters.BsonObjectIdConverter());
+            
 
 			app.UseWebApi(config);
 
