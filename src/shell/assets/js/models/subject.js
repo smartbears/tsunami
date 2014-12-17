@@ -21,12 +21,12 @@ App.Subject = DS.Model.extend({
   race: DS.attr('string'),
   ethnicity: DS.attr('string'),
   maritalStatus: DS.attr('string'),
-  guardian: DS.belongsTo('guardian'),
-  medications: DS.hasMany('medication'),
-  conditions: DS.hasMany('condition'),
-  alergies: DS.hasMany('alergy'),
-  immunizations: DS.hasMany('immunization'),
-  procedures: DS.hasMany('procedure'),
+  //guardian: DS.belongsTo('guardian'),
+  //medications: DS.hasMany('medication'),
+  //conditions: DS.hasMany('condition'),
+  //alergies: DS.hasMany('alergy'),
+  //immunizations: DS.hasMany('immunization'),
+  //procedures: DS.hasMany('procedure'),
 
   fullName: function() {
     var middle = ' ' + this.get('middleName');
@@ -35,11 +35,11 @@ App.Subject = DS.Model.extend({
     return this.get('firstName') + middle  + this.get('lastName');
   }.property('firstName', 'middleName', 'lastName'),
 
-  //age: function(){
-  //  var ageDifMs = Date.now() - this.get('birthday').getTime();
-  //  var ageDate = new Date(ageDifMs); // miliseconds from epoch
-  //  return Math.abs(ageDate.getUTCFullYear() - 1970);
-  //}.property('birthday')
+ /* age: function(){
+    var ageDifMs = Date.now() - this.get('birthday').getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }.property('birthday')*/
 });
 
 App.Guardian = DS.Model.extend({

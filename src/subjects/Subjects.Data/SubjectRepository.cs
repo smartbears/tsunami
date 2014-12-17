@@ -54,7 +54,7 @@ namespace Subjects.Data
 
         public IList<Subject> SearchByAge(int age)
         {
-            return _collection.AsQueryable().Where(sbj => sbj.Age == age ).ToList();
+            return _collection.AsQueryable().Where(sbj => 0 == age ).ToList();
         }
 	}
 }

@@ -18,7 +18,7 @@
     <table class="table table-striped table-hover">
       {{#each item in model itemController="subject"}}
         <tr {{bind-attr id="item.id" }}>
-          <td>{{#link-to 'subject' item}}{{item.name}}{{/link-to}}</td>
+          <td>{{#link-to 'subject' item}}{{item.fullName}}{{/link-to}}</td>
           <td>{{item.age}}</td>
           <td><a href="#" {{action "delete" }}>-->delete</a></td>
         </tr>

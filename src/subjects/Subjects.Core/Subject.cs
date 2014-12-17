@@ -5,11 +5,11 @@ using Subjects.Core.Generators;
 
 namespace Subjects.Core
 {
+    [BsonIgnoreExtraElements]
 	public class Subject
 	{
         [BsonId(IdGenerator = typeof(SubjectIdGenerator))]
-		public Guid Id { get; set; }
-
+        public Guid Id { get; set; }
 		public string firstName { get; set; }
         public string middleName { get; set; }
         public string lastName { get; set; }
@@ -22,9 +22,9 @@ namespace Subjects.Core
         public string homePhone { get; set; }
         public string workPhone { get; set; }
         public string cellPhone { get; set; }
-        public string alternatedCellPhone { get; set; }
-        
-        public DateTime birthday { get; set; }
+        public string alternatedCellPhone { get; set; }     
+        [BsonIgnoreIfNull]   
+        public BsonDateTime birthday { get; set; }
         public string gender { get; set; }
         public int height { get; set; }
         public int weight { get; set; }
@@ -33,7 +33,7 @@ namespace Subjects.Core
         public string race { get; set; }
         public string ethnicity { get; set; }
         public string maritalStatus { get; set; }       
-        public int Age { get; set; }
+        
 
 	}
 }
