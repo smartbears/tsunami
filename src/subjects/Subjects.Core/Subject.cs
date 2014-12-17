@@ -1,7 +1,7 @@
 ﻿using System;
 using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using Subjects.Core.Generators;
+using Subjects.Core.Generators; 
 
 namespace Subjects.Core
 {
