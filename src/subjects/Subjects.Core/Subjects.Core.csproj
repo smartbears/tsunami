@@ -43,6 +43,7 @@
     <Compile Include="Immunization.cs" />
     <Compile Include="Medication.cs" />
     <Compile Include="Persistence\IRepository.cs" />
+    <Compile Include="Persistence\IAlergyRepository.cs" />
     <Compile Include="Persistence\ISubjectRepository.cs" />
     <Compile Include="Procedure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

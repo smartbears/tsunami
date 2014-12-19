@@ -23,3 +23,10 @@ App.SubjectRoute = Ember.Route.extend({
         return this.store.find('subject', params.id);
     }
 });
+
+
+$(function () {
+    $('.datetimepicker').datetimepicker({
+        pickTime: false
+    });
+});
