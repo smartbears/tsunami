@@ -1,4 +1,5 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 using Subjects.Core.Generators;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,8 @@ namespace Subjects.Core
         public Guid Id { get; set; }
         public string name { get; set; }
         public string reaction { get; set; }
-        public DateTime reactionOn { get; set; }
+        [BsonIgnoreIfNull]
+        public BsonDateTime reactionOn { get; set; }
         public string comments { get; set; }
     }
 }

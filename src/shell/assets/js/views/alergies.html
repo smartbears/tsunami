@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>Alergies</h1>
+    {{#link-to 'alergies.add'}}(Add new alergy){{/link-to}}
+         
+     <div class="input-group">
+      {{input value=searchPattern class="form-control" insert-newline="search"}}        
+         
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" {{action "search"}} >Search</button>
+      </span>
+    </div>
+
+    {{#if isSearching}}
+        <a href="#" {{action "doneSearch" }}>Show All</a>
+    {{/if}}
+
+    <table class="table table-striped table-hover">
+      {{#each item in model itemController="alergy"}}
+        <tr {{bind-attr id="item.id" }}>
+          <td>{{#link-to 'alergy' item}}{{item.name}}{{/link-to}}</td>
+          <td>{{item.reaction}}</td>
+          <td><a href="#" {{action "delete" }}>-->delete</a></td>
+        </tr>
+      {{else}}
+        Sorry, no elements were found.
+      {{/each}}
+    </table>
+  </div>
+  <div class="col-md-6">
+    {{outlet}}
+  </div>

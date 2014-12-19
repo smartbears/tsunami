@@ -24,7 +24,7 @@ namespace Subjects.Core
         public string cellPhone { get; set; }
         public string alternatedCellPhone { get; set; }     
         [BsonIgnoreIfNull]   
-        public DateTime birthday { get; set; }
+        public BsonDateTime birthday { get; set; }
         public string gender { get; set; }
         public int height { get; set; }
         public int weight { get; set; }

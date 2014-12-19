@@ -10,6 +10,13 @@ App.Router.map(function() {
         });
         this.route("add");
     });
+
+    this.resource("alergies", function(){
+        this.resource('alergy', { path:'/:id' }, function(){
+            this.route('edit');
+        });
+        this.route("add");
+    });
 });
 
 App.SubjectsRoute = Ember.Route.extend({
@@ -25,8 +32,15 @@ App.SubjectRoute = Ember.Route.extend({
 });
 
 
-$(function () {
-    $('.datetimepicker').datetimepicker({
-        pickTime: false
-    });
+App.AlergiesRoute = Ember.Route.extend({
+    model: function() {
+        return this.store.find('alergy');
+    }
+}); 
+
+App.AlergyRoute = Ember.Route.extend({
+    model: function(params) {
+        return this.store.find('alergy', params.id);
+    }
 });
+
