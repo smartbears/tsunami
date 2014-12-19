@@ -36,6 +36,11 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConditionRepository.cs" />
+    <Compile Include="ProcedureRepository.cs" />
+    <Compile Include="MedicationRepository.cs" />
+    <Compile Include="ImmunizationRepository.cs" />
+    <Compile Include="GuardianRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AlergyRepository.cs" />
     <Compile Include="SubjectRepository.cs" />

@@ -13,28 +13,28 @@ using Subjects.Core.Persistence;
 
 namespace Subjects.Data
 {
-	public class AlergyRepository: IRepository<Alergy>, IAlergyRepository
+	public class ConditionRepository : IRepository<Condition>, IConditionRepository
 	{
-		MongoCollection<Alergy> _collection;
-		IList<Alergy> _alergies;
+		MongoCollection<Condition> _collection;
+		IList<Condition> _conditions;
 
-		public AlergyRepository(MongoDatabase _database)
+		public ConditionRepository(MongoDatabase _database)
 		{
-			this._collection = _database.GetCollection<Alergy> ("alergies");
+			this._collection = _database.GetCollection<Condition> ("conditions");
 		}    
 
-	    public IList<Alergy> List()
+	    public IList<Condition> List()
 	    {
             return this._collection.FindAll().ToList();
 	    }
 
-	    public Guid Insert(Alergy entry){
+	    public Guid Insert(Condition entry){
 			this._collection.Save (entry);
 			return entry.Id;
 		}
 
-		public void Update(Alergy entry){            
-            _collection.Update(Query<Alergy>.EQ(x => x.Id, entry.Id), Update<Alergy>.Replace(entry));            
+		public void Update(Condition entry){            
+            _collection.Update(Query<Condition>.EQ(x => x.Id, entry.Id), Update<Condition>.Replace(entry));            
         }
 
 	    public void Delete(Guid id)
@@ -42,7 +42,7 @@ namespace Subjects.Data
 			this._collection.Remove(Query.EQ("_id", id));
 		}
 
-        public Alergy Get(Guid id)
+        public Condition Get(Guid id)
         {
             return this._collection.AsQueryable().FirstOrDefault(sbj => sbj.Id == id);
         }        

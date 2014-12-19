@@ -44,7 +44,7 @@
     <Compile Include="Medication.cs" />
     <Compile Include="Persistence\IProcedureRepository.cs" />
     <Compile Include="Persistence\IMedicationRepository.cs" />
-    <Compile Include="Persistence\IInmunizationRepository.cs" />
+    <Compile Include="Persistence\IImmunizationRepository.cs" />
     <Compile Include="Persistence\IGuardianRepository.cs" />
     <Compile Include="Persistence\IConditionRepository.cs" />
     <Compile Include="Persistence\IRepository.cs" />

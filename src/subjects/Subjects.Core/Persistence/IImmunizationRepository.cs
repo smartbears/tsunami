@@ -2,7 +2,7 @@
 
 namespace Subjects.Core.Persistence
 {
-    public interface IInmunizationRepository
+    public interface IImmunizationRepository
     {
        
     }
