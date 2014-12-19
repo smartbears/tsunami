@@ -25,17 +25,17 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Guardian subject)
+		public Guid Post(Guardian guardian)
 		{
-			return Repository.Insert (subject);
+			return Repository.Insert (guardian);
 		}
 
 		[HttpPut]
 		[AllowCrossSiteJson]
-		public Guid Put(Guardian subject)
+		public Guid Put(Guardian guardian)
 		{
-            Repository.Update(subject);
-            return subject.Id;
+            Repository.Update(guardian);
+            return guardian.Id;
 		}
 
         [HttpDelete]

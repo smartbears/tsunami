@@ -25,17 +25,17 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Immunization subject)
+		public Guid Post(Immunization immunization)
 		{
-			return Repository.Insert (subject);
+			return Repository.Insert (immunization);
 		}
 
 		[HttpPut]
 		[AllowCrossSiteJson]
-		public Guid Put(Immunization subject)
+		public Guid Put(Immunization immunization)
 		{
-            Repository.Update(subject);
-            return subject.Id;
+            Repository.Update(immunization);
+            return immunization.Id;
 		}
 
         [HttpDelete]

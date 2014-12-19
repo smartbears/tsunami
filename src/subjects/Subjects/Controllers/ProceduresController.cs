@@ -25,17 +25,17 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Procedure subject)
+		public Guid Post(Procedure procedure)
 		{
-			return Repository.Insert (subject);
+			return Repository.Insert (procedure);
 		}
 
 		[HttpPut]
 		[AllowCrossSiteJson]
-		public Guid Put(Procedure subject)
+		public Guid Put(Procedure procedure)
 		{
-            Repository.Update(subject);
-            return subject.Id;
+            Repository.Update(procedure);
+            return procedure.Id;
 		}
 
         [HttpDelete]
