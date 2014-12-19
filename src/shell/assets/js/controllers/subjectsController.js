@@ -15,26 +15,33 @@ App.SubjectController = Ember.ObjectController.extend({
             var subject = this.get('model');
             subject.destroyRecord();
         }
-
-
     }
 });
 
 
-App.SubjectsController = Ember.ObjectController.extend({  
-    isSearching: false,  
+App.SubjectsController = Ember.ObjectController.extend({
+    isSearching: false,
     actions: {
         search: function() {
-          var pattern = this.get("searchPattern");  
-          var results = this.store.find('subject', {pattern: pattern});
-          this.set('isSearching', true);
-          this.set('model',results);
+          var pattern = this.get("searchPattern");
+          var model = this.store.all('subject');
+
+          if(pattern){
+            this.set('isSearching', true);
+            this.set("model", model.filter(function(subject){
+              return subject.get("name").toLowerCase()
+                            .match(pattern.toLowerCase());
+                          }));
+          }
+          //we are only looking by name for now.
+          /*var results = this.store.find('subject', {name: pattern});
+          this.set('model',results);*/
         },
 
         doneSearch: function() {
           this.set('isSearching', false);
-          this.set('model',this.store.find('subject'));
-          this.transitionToRoute('subjects');         
+          this.set('model',this.store.all('subject'));
+          this.transitionToRoute('subjects');
         }
     }
 });
