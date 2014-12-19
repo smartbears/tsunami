@@ -86,6 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleRole.cs" />
+    <Compile Include="Controllers\ProceduresController.cs" />
+    <Compile Include="Controllers\MedicationsController.cs" />
+    <Compile Include="Controllers\ImmunizationsController.cs" />
+    <Compile Include="Controllers\GuardiansController.cs" />
+    <Compile Include="Controllers\ConditionsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\AlergiesController.cs" />
     <Compile Include="Helpers\MyEmberJsonMediaTypeFormatter.cs" />
