@@ -45,39 +45,8 @@
         </div>
       </div>
 
-      <script type="text/x-handlebars" data-template-name="dnd">
-        <div class="contents">
-          <div class="row">
-            <div class="col-xs-6">
-              <h3>Files in folder</h3>
-              {{#each file in model.inFolder}}
-                {{#draggable-file file=file}}{{/draggable-file}}
-              {{/each}}
-            </div>
-            <div class="col-xs-6">
-              <h3>Files in trash</h3>
-              {{#each item in model.inTrash}}
-                <div class="file">{{item.name}}</div>
-              {{/each}}
-            </div>
-          </div>
-          <br>
-          {{#droppable-trash inFolder=model.inFolder inTrash=model.inTrash}}{{/droppable-trash}}
-          <br>
-        </div>
-      </script>
+      
 
-      <script type="text/x-handlebars" data-template-name="components/draggable-file">
-        <div class="file" draggable="true">
-          {{file.name}}
-        </div>
-      </script>
-
-      <script type="text/x-handlebars" data-template-name="components/droppable-trash">
-        <div {{bind-attr class="overTrash:trash-active :trash"}}>
-          <span class="glyphicon glyphicon-trash"></span> Drag files here to put in trash
-        </div>
-      </script>
     </div>
 
     <script src="assets/js/external.min.js"></script>

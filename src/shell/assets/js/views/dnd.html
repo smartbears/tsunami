@@ -1,0 +1,31 @@
+<div class="contents">
+  <div class="row">
+    <div class="col-xs-6">
+      {{#droppable-container inFolder=model.inFolder inTrash=model.inTrash}}
+      <h3>Files in folder</h3>
+      {{#each file in model.inFolder}}
+        {{#draggable-element file=file}}
+          <div class="file" draggable="true">
+            {{file.name}}
+          </div>
+        {{/draggable-element}}
+      {{/each}}
+      {{/droppable-container}}
+    </div>
+    <div class="col-xs-6">
+      {{#droppable-container inFolder=model.inFolder inTrash=model.inTrash}}
+      <h3>Files in trash</h3>
+      {{#each file in model.inTrash}}
+        {{#draggable-element file=file}}
+          <div class="file" draggable="true">
+            {{file.name}}
+          </div>
+        {{/draggable-element}}
+      {{/each}}
+      {{/droppable-container}}
+    </div>
+  </div>
+  <br>
+
+  <br>
+</div>
