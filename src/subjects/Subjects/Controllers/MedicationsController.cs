@@ -25,7 +25,7 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Medication medication)
+		public Medication Post(Medication medication)
 		{
 			return Repository.Insert (medication);
 		}

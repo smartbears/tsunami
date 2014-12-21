@@ -25,7 +25,7 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Condition condition)
+		public Condition Post(Condition condition)
 		{
 			return Repository.Insert (condition);
 		}

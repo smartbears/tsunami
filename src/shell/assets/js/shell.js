@@ -44,3 +44,45 @@ App.AlergyRoute = Ember.Route.extend({
     }
 });
 
+App.DragElementComponent = Ember.Component.extend({
+  tagName:'tr',
+  attributeBindings:['draggable', 'elementName', 'item'],
+  draggable: 'true',
+  elementName: null,
+  item: null,
+  dragStart: function(event) {
+    if (this.get('elementName')){
+        var o = {};
+        o.container = true;
+        o.item = this.get('item');
+        o.elementName = this.get('elementName');
+      event.dataTransfer.setData('text', JSON.stringify(o));
+    } else {
+        event.dataTransfer.setData('text', JSON.stringify(this.get('item')));
+    }
+  }
+});
+
+App.DropElementComponent = Ember.Component.extend({
+  tagName:'div',
+  attributeBindings:['elementName'],
+  elementName: '',
+  dragOver: function(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    return false;
+  },
+  drop: function(event) {
+    var item = event.dataTransfer.getData('text');
+    var o = JSON.parse(item);
+    event.preventDefault();
+    if (o.container){
+      this.sendAction('dropAction', o.item, this.elementName, o.elementName);
+    } else {
+      this.sendAction('dropAction', o, this.elementName);
+    }
+    return false;
+  }
+});
+
+

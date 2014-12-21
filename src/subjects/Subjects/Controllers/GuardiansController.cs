@@ -25,7 +25,7 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Guardian guardian)
+		public Guardian Post(Guardian guardian)
 		{
 			return Repository.Insert (guardian);
 		}

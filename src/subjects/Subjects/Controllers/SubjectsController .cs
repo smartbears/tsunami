@@ -37,7 +37,7 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Subject subject)
+		public Subject Post(Subject subject)
 		{
 			return Repository.Insert (subject);
 		}

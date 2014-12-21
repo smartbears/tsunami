@@ -28,9 +28,9 @@ namespace Subjects.Data
             return this._collection.FindAll().ToList();
 	    }
 
-	    public Guid Insert(Guardian entry){
+	    public Guardian Insert(Guardian entry){
 			this._collection.Save (entry);
-			return entry.Id;
+			return entry;
 		}
 
 		public void Update(Guardian entry){            

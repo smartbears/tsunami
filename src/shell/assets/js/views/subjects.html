@@ -15,18 +15,29 @@
         <a href="#" {{action "doneSearch" }}>Show All</a>
     {{/if}}
 
-    <table class="table table-striped table-hover">
+    <table class="table table-striped table-hover" id="subjects_table">
       {{#each item in model itemController="subject"}}
-        <tr {{bind-attr id="item.id" }}>
-          <td>{{#link-to 'subject' item}}{{item.fullName}}{{/link-to}}</td>
-          <td>{{item.age}}</td>
-          <td><a href="#" {{action "delete" }}>-->delete</a></td>
-        </tr>
+        {{#drag-element item=item.id elementName='something'}}
+          <tr {{bind-attr id="item.id" }}>
+            <td>{{#link-to 'subject' item}}{{item.fullName}}{{/link-to}}</td>
+            <td>{{item.age}}</td>
+            <td><a href="#" {{action "delete" }}>-->delete</a></td>
+          </tr>
+        {{/drag-element}}
       {{else}}
         Sorry, no elements were found.
       {{/each}}
     </table>
+
+    <hr>
+    {{#drop-element dropAction='dropDelete' elementName='trash'}}
+      <div class="list-group-item list-group-item-danger">Trash Zone</div>
+    {{/drop-element}}
+
   </div>
   <div class="col-md-6">
     {{outlet}}
   </div>
+
+
+ 

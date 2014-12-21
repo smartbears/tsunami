@@ -25,7 +25,7 @@ namespace Subjects.Controllers
 
         [HttpPost]
 		[AllowCrossSiteJson]
-		public Guid Post(Procedure procedure)
+		public Procedure Post(Procedure procedure)
 		{
 			return Repository.Insert (procedure);
 		}
