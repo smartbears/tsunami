@@ -2,10 +2,10 @@
   <div class="col-md-6">
     <h1>Subjects</h1>
     {{#link-to 'subjects.add'}}(Add new subject){{/link-to}}
-         
+
      <div class="input-group">
-      {{input value=searchPattern class="form-control" insert-newline="search"}}        
-         
+      {{input value=searchPattern class="form-control" insert-newline="search"}}
+
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" {{action "search"}} >Search</button>
       </span>
@@ -16,15 +16,37 @@
     {{/if}}
 
     <table class="table table-striped table-hover">
-    {{#each item in model itemController="subject"}}
-      <tr {{bind-attr id="item.id" }}>
-        <td>{{#link-to 'subject' item}}{{item.name}}{{/link-to}}</td>
-        <td>{{item.age}}</td>
-        <td><a href="#" {{action "delete" }}>-->delete</a></td>
-      </tr>
-    {{/each}}
+      {{#each item in model itemController="subject"}}
+        <tr {{bind-attr id="item.id" }}>
+          <td>{{#link-to 'subject' item}}{{item.fullName}}{{/link-to}}</td>
+          <td>{{item.age}}</td>
+          <td><a href="#" {{action "delete" }}>-->delete</a></td>
+        </tr>
+      {{else}}
+        Sorry, no elements were found.
+      {{/each}}
     </table>
   </div>
   <div class="col-md-6">
     {{outlet}}
+  </div>
+
+  <div class="contents">
+    <div class="row">
+      <div class="col-xs-6">
+        <h3>Files in folder</h3>
+        {{#each file in model.inFolder}}
+
+        {{/each}}
+      </div>
+      <div class="col-xs-6">
+        <h3>Files in trash</h3>
+        {{#each item in model.inTrash}}
+          <div class="file">{{item.name}}</div>
+        {{/each}}
+      </div>
+    </div>
+    <br>
+
+    <br>
   </div>

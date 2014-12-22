@@ -35,6 +35,22 @@ body .sidebar-nav .navbar li a {
   padding-top: 12px;
   padding-bottom: 112px;
 }
+body .file {
+  background: #e3e3e3;
+  border: 1px solid #3e3e3e;
+  border-radius: 3px;
+  margin: 5px 0;
+  padding: 3px 5px 3px 5px;
+}
+body .trash {
+  border: 1px solid #3e3e3e;
+  border-radius: 3px;
+  padding: 10px;
+}
+body .trash-active {
+  background: #ff3232;
+  font-weight: bold;
+}
 .resetHorPadding {
   padding-left: 1px;
   padding-right: 1px;

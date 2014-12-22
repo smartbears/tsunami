@@ -47,14 +47,14 @@ namespace Subjects.Data
             return this._collection.AsQueryable().FirstOrDefault(sbj => sbj.Id == id);
         }
 
-        public IList<Subject> SearchByName(string pattern)
+        public IList<Subject> SearchByName(string name)
         {
-            return _collection.AsQueryable().Where(sbj => sbj.Name.Contains(pattern)).ToList();
+            return _collection.AsQueryable().Where(sbj => sbj.firstName.Contains(name) ).ToList();
         }
 
-        List<Subject> SearchByAge(string pattern)
+        public IList<Subject> SearchByAge(int age)
         {
-            return _collection.AsQueryable().Where(sbj => sbj.Age == int.Parse(pattern)).ToList();
+            return _collection.AsQueryable().Where(sbj => 0 == age ).ToList();
         }
 	}
 }

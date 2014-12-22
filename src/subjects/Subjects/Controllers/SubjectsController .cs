@@ -29,7 +29,13 @@ namespace Subjects.Controllers
             return this.Repository.SearchByName(name);
 		}
 
-		[HttpPost]
+        [AllowCrossSiteJson]
+        public IEnumerable<Subject> Get(int age)
+        {
+            return this.Repository.SearchByAge(age);
+        }
+
+        [HttpPost]
 		[AllowCrossSiteJson]
 		public Guid Post(Subject subject)
 		{

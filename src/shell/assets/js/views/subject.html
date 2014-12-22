@@ -1,7 +1,6 @@
 <h1>Details</h1>
 {{#if isEditing}}
-  {{partial 'subject/edit'}}
-  <button {{action 'doneEditing'}}>Done</button>
+  {{partial 'subject/edit'}}    
 {{else}}
-  {{name}} -- {{age}}</li> <button {{action 'edit'}}>Edit</button>
+  {{firstName}} -- {{lastName}}</li> <button {{action 'edit'}}>Edit</button>
 {{/if}}

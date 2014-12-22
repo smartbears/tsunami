@@ -85,9 +85,10 @@ module.exports = function (grunt) {
             },
             application_scripts: {
                 src: [
-                    'assets/js/views/**/*.js',
                     'assets/js/shell.js',
+                    'assets/js/views/**/*.js',
                     'assets/js/models/*.js',
+                    'assets/js/components/*.js',
 					          'assets/js/controllers/**/*.js',
                 ],
                 dest: 'assets/js/shell.min.js'
@@ -115,7 +116,7 @@ module.exports = function (grunt) {
               templateFileExtensions: ".html"
             },
             files: {
-              "assets/js/templates.min.js": ["assets/js/views/*.html","assets/js/views/**/*.html"]
+              "assets/js/templates.min.js": ["assets/js/views/**/*.html"]
             }
           }
         },
@@ -161,11 +162,11 @@ module.exports = function (grunt) {
                 ]
             },
             emberTemplates: {
-                files: ['assets/js/views/*.html', 'assets/js/views/**/*.html' ],
+                files: ['assets/js/views/**/*.html' ],
                 tasks: ['emberTemplates']
             },
             application_scripts: {
-                files: ['assets/js/*.js', 'assets/js/models/**/*.js','assets/js/controllers/*.js','!assets/js/*.min.js'],
+                files: ['assets/js/*.js', 'assets/js/models/**/*.js', 'assets/js/views/**/*.js', 'assets/js/controllers/*.js','!assets/js/*.min.js'],
                 tasks: [
                     'uglify:application_scripts'
                 ]
