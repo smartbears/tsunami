@@ -89,7 +89,7 @@ module.exports = function (grunt) {
                     'assets/js/views/**/*.js',
                     'assets/js/models/*.js',
                     'assets/js/components/*.js',
-					          'assets/js/controllers/**/*.js',
+					'assets/js/controllers/**/*.js',
                 ],
                 dest: 'assets/js/shell.min.js'
 
