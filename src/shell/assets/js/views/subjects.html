@@ -2,10 +2,10 @@
   <div class="col-md-6">
     <h1>Subjects</h1>
     {{#link-to 'subjects.add'}}(Add new subject){{/link-to}}
-         
+
      <div class="input-group">
-      {{input value=searchPattern class="form-control" insert-newline="search"}}        
-         
+      {{input value=searchPattern class="form-control" insert-newline="search"}}
+
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" {{action "search"}} >Search</button>
       </span>
@@ -38,6 +38,3 @@
   <div class="col-md-6">
     {{outlet}}
   </div>
-
-
- 

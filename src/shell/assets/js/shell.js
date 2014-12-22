@@ -24,6 +24,8 @@ App.Router.map(function() {
         });
         this.route("add");
     });
+
+    this.resource("dnd");
 });
 
 
@@ -46,7 +48,7 @@ App.SubjectsRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('subject');
     }
-}); 
+});
 
 App.SubjectRoute = Ember.Route.extend({
     model: function(params) {
@@ -60,7 +62,7 @@ App.AlergiesRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('alergy');
     }
-}); 
+});
 
 App.AlergyRoute = Ember.Route.extend({
     model: function(params) {
@@ -68,6 +70,7 @@ App.AlergyRoute = Ember.Route.extend({
     }
 });
 
+<<<<<<< HEAD
 
 
 App.DragElementComponent = Ember.Component.extend({
@@ -112,3 +115,25 @@ App.DropElementComponent = Ember.Component.extend({
 });
 
 
+=======
+App.DndRoute = Ember.Route.extend({
+  model: function(){
+    return {
+      inFolder: [
+        {id: 1, name: "Procedure 1"},
+        {id: 2, name: "Procedure 2"},
+        {id: 3, name: "Procedure 3"}
+      ],
+      inTrash: [
+        {id: 4, name: "Procedure 4"}
+      ]
+    };
+  }
+});
+
+App.DraggableComponent = Ember.Component.extend({
+  dragStart: function(event){
+    event.dataTransfer.setData('text/data', this.get('file.id'));
+  }
+}); 
+>>>>>>> master
