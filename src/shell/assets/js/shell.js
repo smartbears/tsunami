@@ -71,8 +71,8 @@ App.AlergyRoute = Ember.Route.extend({
 
 
 App.DragElementComponent = Ember.Component.extend({
-  tagName:'tr',
-  attributeBindings:['draggable', 'elementName', 'item'],
+  tagName:'div',
+  attributeBindings:['draggable', 'elementName', 'item', 'tag:tagName'],
   draggable: 'true',
   elementName: null,
   item: null,

@@ -19,31 +19,34 @@ App.ProcedureController = Ember.ObjectController.extend({
 });
 
 
-App.ProceduresController = Ember.ObjectController.extend({
-    isSearching: false,
-    actions: {
-        search: function() {
-          var pattern = this.get("searchPattern");
-          var model = this.store.all('procedure');
-
-          if(pattern){
-            this.set('isSearching', true);
-            this.set("model", model.filter( function(procedure){
-                  return procedure.get("name").toLowerCase()
-                                .match(pattern.toLowerCase());
-                              }));
-          }
-          //we are only looking by name for now.
-          /*var results = this.store.find('subject', {name: pattern});
-          this.set('model',results);*/
+App.ProceduresController = Ember.ObjectController.extend({    
+    isCreating: false,
+    actions: {     
+        newProcedure: function(){
+          this.set('isCreating',true);
+          this.transitionToRoute('procedures');
         },
 
-        doneSearch: function() {
-          this.set('isSearching', false);
-          this.set('model',this.store.all('procedure'));
-          this.transitionToRoute('procedures');
+        addProcedure: function(){
+            this.set('isCreating',false);
+            var procedure = this.store.createRecord('procedure',
+            {
+              name: this.get('name'),              
+              performedOn: Date.now(),
+              comments: this.get('comments')
+            });
+            procedure.save();            
+
+            this.transitionToRoute('procedures');
+        },
+
+        acceptElement: function(item, elementName, senderElement){
+              var procedure = this.store.getById('procedure',item);
+              if($('#listone #' + item).length <= 0){ 
+                $('#listone').append( '<div class="list-group-item" id="'+ item +'">' + procedure.get('name') + '</div>');
+              }
         }
-    }
+      }
 });
 
 App.ProceduresAddController = Ember.ObjectController.extend({
