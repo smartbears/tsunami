@@ -28,10 +28,10 @@ App.SubjectsController = Ember.ObjectController.extend({
 
           if(pattern){
             this.set('isSearching', true);
-            this.set("model", model.filter(function(subject){
-              return subject.get("name").toLowerCase()
-                            .match(pattern.toLowerCase());
-                          }));
+            this.set("model", model.filter( function(subject){
+                  return subject.get("name").toLowerCase()
+                                .match(pattern.toLowerCase());
+                              }));
           }
           //we are only looking by name for now.
           /*var results = this.store.find('subject', {name: pattern});
@@ -51,25 +51,32 @@ App.SubjectsAddController = Ember.ObjectController.extend({
         add: function(){
             var subject = this.store.createRecord('subject',
             {
-              name: this.get("name"),
-              age: this.get("age")
+              firstName: this.get('firstName'),
+              middleName: this.get('middleName'),
+              lastName: this.get('lastName'),
+              address: this.get('address'),
+              zipCode: this.get('zipCode'),
+              city: this.get('city'),
+              state: this.get('state'),
+              country: this.get('country'),
+              email: this.get('email'),
+              homePhone: this.get('homePhone'),
+              workPhone: this.get('workPhone'),
+              cellPhone: this.get('cellPhone'),
+              alternatedCellPhone: this.get('alternatedCellPhone'),
+              birthday: Date.now(),
+              gender: this.get('firstName'),
+              height: 10,
+              weight: 10,
+              heartRate: this.get('firstName'),
+              bloodPreasure: this.get('firstName'),
+              race: this.get('firstName'),
+              ethnicity: this.get('firstName'),
+              maritalStatus: this.get('firstName'),
             });
-            subject.save();
-
-            this.set("name","");
-            this.set("age","");
+            subject.save();            
 
             this.transitionToRoute('subjects');
         }
     }
 });
-
-/*App.SubjectEditController = Ember.ObjectController.extend({
-    actions: {
-        update: function(){
-            var subject = this.get('model');
-            subject.save(); //Not working
-            this.transitionToRoute('subject', subject);
-        }
-    }
-});*/

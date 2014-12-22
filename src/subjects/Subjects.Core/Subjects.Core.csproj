@@ -36,9 +36,21 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alergy.cs" />
+    <Compile Include="Condition.cs" />
     <Compile Include="Generators\SubjectIdGenerator.cs" />
+    <Compile Include="Guardian.cs" />
+    <Compile Include="Immunization.cs" />
+    <Compile Include="Medication.cs" />
+    <Compile Include="Persistence\IProcedureRepository.cs" />
+    <Compile Include="Persistence\IMedicationRepository.cs" />
+    <Compile Include="Persistence\IImmunizationRepository.cs" />
+    <Compile Include="Persistence\IGuardianRepository.cs" />
+    <Compile Include="Persistence\IConditionRepository.cs" />
     <Compile Include="Persistence\IRepository.cs" />
+    <Compile Include="Persistence\IAlergyRepository.cs" />
     <Compile Include="Persistence\ISubjectRepository.cs" />
+    <Compile Include="Procedure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subject.cs" />
   </ItemGroup>

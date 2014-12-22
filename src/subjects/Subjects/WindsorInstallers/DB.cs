@@ -27,7 +27,31 @@ namespace Subjects.WindsorInstallers
 			container.Register(Classes.FromAssemblyContaining(typeof(SubjectRepository))
 				.BasedOn<SubjectRepository>()
 				.LifestyleSingleton());
-		}
+
+            container.Register(Classes.FromAssemblyContaining(typeof(AlergyRepository))
+                .BasedOn<AlergyRepository>()
+                .LifestyleSingleton());
+
+            container.Register(Classes.FromAssemblyContaining(typeof(ConditionRepository))
+                .BasedOn<ConditionRepository>()
+                .LifestyleSingleton());
+
+            container.Register(Classes.FromAssemblyContaining(typeof(GuardianRepository))
+               .BasedOn<GuardianRepository>()
+               .LifestyleSingleton());
+
+            container.Register(Classes.FromAssemblyContaining(typeof(ImmunizationRepository))
+              .BasedOn<ImmunizationRepository>()
+              .LifestyleSingleton());
+
+            container.Register(Classes.FromAssemblyContaining(typeof(MedicationRepository))
+              .BasedOn<MedicationRepository>()
+              .LifestyleSingleton());
+
+            container.Register(Classes.FromAssemblyContaining(typeof(ProcedureRepository))
+              .BasedOn<ProcedureRepository>()
+              .LifestyleSingleton());
+        }
 	}
 }
 

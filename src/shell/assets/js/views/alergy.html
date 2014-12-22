@@ -1,0 +1,6 @@
+<h1>Details</h1>
+{{#if isEditing}}
+  {{partial 'alergy/edit'}}    
+{{else}}
+  {{name}} -- {{reaction}}</li> <button {{action 'edit'}}>Edit</button>
+{{/if}}
