@@ -1,28 +1,28 @@
 <div class="contents">
   <div class="row">
     <div class="col-xs-6">
-      {{#droppable-container inFolder=model.inFolder inTrash=model.inTrash}}
+      {{#drop-element inFolder=model.inFolder inTrash=model.inTrash}}
       <h3>Files in folder</h3>
       {{#each file in model.inFolder}}
-        {{#draggable-element file=file}}
+        {{#drag-element file=file}}
           <div class="file" draggable="true">
             {{file.name}}
           </div>
-        {{/draggable-element}}
+        {{/drag-element}}
       {{/each}}
-      {{/droppable-container}}
+      {{/drop-element}}
     </div>
     <div class="col-xs-6">
-      {{#droppable-container inFolder=model.inFolder inTrash=model.inTrash}}
+      {{#drop-element inFolder=model.inFolder inTrash=model.inTrash}}
       <h3>Files in trash</h3>
       {{#each file in model.inTrash}}
-        {{#draggable-element file=file}}
+        {{#drag-element file=file}}
           <div class="file" draggable="true">
             {{file.name}}
           </div>
-        {{/draggable-element}}
+        {{/drag-element}}
       {{/each}}
-      {{/droppable-container}}
+      {{/drop-element}}
     </div>
   </div>
   <br>

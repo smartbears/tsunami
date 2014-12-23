@@ -1,0 +1,39 @@
+<div class="row">
+	<div class="col-md-3">
+		<div class="list-group">
+			{{#each item in model}}
+				{{#drag-element item=item.id elementName='num'}}
+					<div class="list-group-item">{{item.name}}</div> 					
+				{{/drag-element}}
+			{{else}}
+		        Sorry, no elements were found.
+		    {{/each}}
+		    {{#if isCreating}}
+		    	<div class="list-group-item">
+		    		{{input value=name}}<br>
+		    		{{textarea value=comments}}<br>
+		    		<button type="button" class="btn btn-default" {{action 'addProcedure'}}>Add Procedure</button>
+		    	</div>
+		    {{/if}}
+		</div>
+		<button type="button" class="btn btn-default" {{action 'newProcedure'}}>New Procedure</button>
+	</div>
+	<div class="col-md-9">					
+			{{#drop-element dropAction='acceptElement' elementName='visit'}}
+				<div class="list-group" id="listone">
+					<div class="list-group-item list-group-item-danger">Visit 1</div>  
+				</div> 	
+		    {{/drop-element}}		
+	</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+

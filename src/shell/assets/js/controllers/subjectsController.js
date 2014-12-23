@@ -14,7 +14,9 @@ App.SubjectController = Ember.ObjectController.extend({
         delete: function(){
             var subject = this.get('model');
             subject.destroyRecord();
-        }
+        },
+
+       
     }
 });
 
@@ -42,6 +44,11 @@ App.SubjectsController = Ember.ObjectController.extend({
           this.set('isSearching', false);
           this.set('model',this.store.all('subject'));
           this.transitionToRoute('subjects');
+        },
+
+         dropDelete: function(item, elementName, senderElement){
+          var subject = this.store.getById('subject',item);
+            subject.destroyRecord();
         }
     }
 });
@@ -74,7 +81,10 @@ App.SubjectsAddController = Ember.ObjectController.extend({
               ethnicity: this.get('firstName'),
               maritalStatus: this.get('firstName'),
             });
-            subject.save();            
+            
+            subject.save().then(function(){                        
+                 $("table tr").last().attr("item", subject.get('id') );
+                });       
 
             this.transitionToRoute('subjects');
         }

@@ -7,7 +7,7 @@ namespace Subjects.Core.Persistence
 	{
 		IList<T> List();
 	    T Get(Guid id);
-		Guid Insert(T entry);
+		T Insert(T entry);
 		void Update(T entry);
 		void Delete(Guid id);
     }

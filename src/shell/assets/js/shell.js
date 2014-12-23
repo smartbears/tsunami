@@ -4,6 +4,13 @@ App = Em.Application.create({
 });
 
 App.Router.map(function() {
+    this.resource("procedures", function(){
+        this.resource('procedure', { path:'/:id' }, function(){
+            this.route('edit');
+        });
+        this.route("add");
+    });
+
     this.resource("subjects", function(){
         this.resource('subject', { path:'/:id' }, function(){
             this.route('edit');
@@ -21,6 +28,22 @@ App.Router.map(function() {
     this.resource("dnd");
 });
 
+
+//Procedures
+App.ProceduresRoute = Ember.Route.extend({
+    model: function() {
+        return this.store.find('procedure');
+    }
+}); 
+
+App.ProcedureRoute = Ember.Route.extend({
+    model: function(params) {
+        return this.store.find('procedure', params.id);
+    }
+});
+
+
+//Subjects
 App.SubjectsRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('subject');
@@ -34,6 +57,7 @@ App.SubjectRoute = Ember.Route.extend({
 });
 
 
+//Alergies
 App.AlergiesRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('alergy');
@@ -60,9 +84,3 @@ App.DndRoute = Ember.Route.extend({
     };
   }
 });
-
-App.DraggableComponent = Ember.Component.extend({
-  dragStart: function(event){
-    event.dataTransfer.setData('text/data', this.get('file.id'));
-  }
-}); 

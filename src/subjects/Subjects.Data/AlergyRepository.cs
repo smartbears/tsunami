@@ -28,9 +28,9 @@ namespace Subjects.Data
             return this._collection.FindAll().ToList();
 	    }
 
-	    public Guid Insert(Alergy entry){
+	    public Alergy Insert(Alergy entry){
 			this._collection.Save (entry);
-			return entry.Id;
+			return entry;
 		}
 
 		public void Update(Alergy entry){            

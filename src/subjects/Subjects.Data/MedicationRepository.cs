@@ -28,9 +28,9 @@ namespace Subjects.Data
             return this._collection.FindAll().ToList();
 	    }
 
-	    public Guid Insert(Medication entry){
+	    public Medication Insert(Medication entry){
 			this._collection.Save (entry);
-			return entry.Id;
+			return entry;
 		}
 
 		public void Update(Medication entry){            
