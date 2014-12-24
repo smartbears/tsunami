@@ -7,7 +7,7 @@ using Subjects.Helpers;
 
 namespace Subjects.Controllers
 {
-	public class SubjectsController : ApiController
+	public class SubjectsController : BaseController
 	{
 		public SubjectRepository Repository{ get; set; }
 
@@ -39,18 +39,20 @@ namespace Subjects.Controllers
 		[AllowCrossSiteJson]
 		public Subject Post(Subject subject)
 		{
-			return Repository.Insert (subject);
+			return Repository.Insert(subject);
 		}
-
-		[HttpPut]
+			
 		[AllowCrossSiteJson]
-		public Guid Put(Subject subject)
+		public Guid Put(Guid id, Subject subject)
 		{
+			//Ember doesnt send the id along with the model
+			//gotta be obtained from the URL. 
+			//MVC binding works flawlessly here
+			subject.Id = id;
             Repository.Update(subject);
             return subject.Id;
 		}
-
-        [HttpDelete]
+			
 		[AllowCrossSiteJson]     
         public void Delete(Guid id)
         {
