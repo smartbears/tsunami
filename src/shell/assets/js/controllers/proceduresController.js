@@ -45,8 +45,12 @@ App.ProceduresController = Ember.ObjectController.extend({
 
         acceptElement: function(item, elementName, senderElement){          
               var procedure = this.store.getById('procedure',item);
-              if($('#listone #' + item).length <= 0){ 
-                $('#listone').append( '<div class="list-group-item '+ item +'">' + procedure.get('name') + '</div>');
+              if($('#'+ elementName +' .col-md-5 .' + item).length <= 0){ 
+                $('#'+ elementName +' .col-md-5').append('<div class="list-group-item '+ item +'" style="font-size: 14px;">' + procedure.get('name') + '</div>');
+              }
+              else
+              {
+                alert('The procedure "' + procedure.get('name') + '" already exist in the current visit.');
               }
         },
 
@@ -61,7 +65,14 @@ App.ProceduresController = Ember.ObjectController.extend({
               });
                  
               this.transitionToRoute('procedures');           
+        },
+
+        destroyVisit: function(visit){
+            $('#'+visit).fadeOut("slow",function(){
+              $(this).remove();
+            })
         }
+
       }
 });
 

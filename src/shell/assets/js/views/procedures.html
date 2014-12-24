@@ -30,11 +30,35 @@
 		<button type="button" class="btn btn-default" {{action 'newProcedure'}}>New Procedure</button>
 	</div>
 	<div class="col-md-7">					
-			{{#drop-element dropAction='acceptElement' elementName='visit'}}
-				<div class="list-group" id="listone">
-					<div class="list-group-item list-group-item-danger">Visit 1</div>  
+			
+				<div class="list-group" id="listOfVisits">
+					{{#drop-element dropAction='acceptElement' elementName='visit1' id="visit1"}}
+						<div class="col-md-5">
+							<div class="list-group-item list-group-item-danger">
+								Visit 1
+								<button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' 'visit1'}}>&times;</button>
+							</div> 
+						</div>	
+					{{/drop-element}}
+					{{#drop-element dropAction='acceptElement' elementName='visit2' id="visit2"}}
+						<div class="col-md-5">
+							<div class="list-group-item list-group-item-danger">
+								Visit 2
+								<button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' 'visit2'}}>&times;</button>
+							</div> 
+						</div>	
+					{{/drop-element}}
+					{{#drop-element dropAction='acceptElement' elementName='visit3' id="visit3"}}
+						<div class="col-md-5">
+							<div class="list-group-item list-group-item-danger">
+								Visit 3
+								<button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' 'visit3'}}>&times;</button>
+							</div>  
+						</div>
+					{{/drop-element}}										
 				</div> 	
-		    {{/drop-element}}		
+				
+		    		
 	</div>
 
 
