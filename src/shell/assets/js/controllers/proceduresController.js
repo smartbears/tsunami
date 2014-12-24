@@ -35,16 +35,32 @@ App.ProceduresController = Ember.ObjectController.extend({
               performedOn: Date.now(),
               comments: this.get('comments')
             });
-            procedure.save();            
+            procedure.save();
+
+            this.set('name', '');
+            this.set('comments', '');            
 
             this.transitionToRoute('procedures');
         },
 
-        acceptElement: function(item, elementName, senderElement){
+        acceptElement: function(item, elementName, senderElement){          
               var procedure = this.store.getById('procedure',item);
               if($('#listone #' + item).length <= 0){ 
-                $('#listone').append( '<div class="list-group-item" id="'+ item +'">' + procedure.get('name') + '</div>');
+                $('#listone').append( '<div class="list-group-item '+ item +'">' + procedure.get('name') + '</div>');
               }
+        },
+
+        destroyProcedure:function(procedure){
+              $('.'+procedure.get('id')).each(function(){
+                  $(this).fadeOut("slow",function(){
+                    $(this).remove();
+                  });
+                  
+              }).then(function(){
+                  procedure.destroyRecord();
+              });
+                 
+              this.transitionToRoute('procedures');           
         }
       }
 });

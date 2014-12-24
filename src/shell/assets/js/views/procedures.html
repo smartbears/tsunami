@@ -2,23 +2,34 @@
 	<div class="col-md-3">
 		<div class="list-group">
 			{{#each item in model}}
-				{{#drag-element item=item.id elementName='num'}}
-					<div class="list-group-item">{{item.name}}</div> 					
+				{{#drag-element item=item.id elementName='num' class=item.id}}
+					<div class="list-group-item" style="font-size: 14px;">
+						{{item.name}}
+						<button type="button" class="close" aria-hidden="true" {{action 'destroyProcedure' item}}>&times;</button>
+					</div> 					
 				{{/drag-element}}
 			{{else}}
 		        Sorry, no elements were found.
 		    {{/each}}
 		    {{#if isCreating}}
-		    	<div class="list-group-item">
-		    		{{input value=name}}<br>
-		    		{{textarea value=comments}}<br>
-		    		<button type="button" class="btn btn-default" {{action 'addProcedure'}}>Add Procedure</button>
-		    	</div>
+			    <form role="form">
+				  <div class="form-group">
+				    <label for="name">Name</label>
+				    {{input value=name class="form-control" placeholder="Enter name..."}}				    
+				  </div>
+				  <div class="form-group">
+				    <label for="exampleInputPassword1">Comments</label>
+				    {{textarea value=comments class="form-control" placeholder="Enter comments..."}}
+				   
+				  </div>
+				  
+				  <button type="submit" class="btn btn-default" {{action 'addProcedure'}}>Add Procedure</button>
+				</form>		    	
 		    {{/if}}
 		</div>
 		<button type="button" class="btn btn-default" {{action 'newProcedure'}}>New Procedure</button>
 	</div>
-	<div class="col-md-9">					
+	<div class="col-md-7">					
 			{{#drop-element dropAction='acceptElement' elementName='visit'}}
 				<div class="list-group" id="listone">
 					<div class="list-group-item list-group-item-danger">Visit 1</div>  

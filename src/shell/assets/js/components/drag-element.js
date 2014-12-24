@@ -1,6 +1,6 @@
 App.DragElementComponent = Ember.Component.extend({
   tagName:'div',
-  attributeBindings:['draggable', 'elementName', 'item', 'tag:tagName'],
+  attributeBindings:['draggable', 'elementName', 'item', 'tag:tagName', 'id', 'class'],
   draggable: 'true',
   elementName: null,
   item: null,
