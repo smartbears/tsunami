@@ -15,8 +15,6 @@ App.SubjectController = Ember.ObjectController.extend({
             var subject = this.get('model');
             subject.destroyRecord();
         },
-
-       
     }
 });
 
@@ -31,9 +29,12 @@ App.SubjectsController = Ember.ObjectController.extend({
           if(pattern){
             this.set('isSearching', true);
             this.set("model", model.filter( function(subject){
-                  return subject.get("name").toLowerCase()
-                                .match(pattern.toLowerCase());
-                              }));
+                if(subject.get('firstName') != null)
+                    return subject.get("firstName").toLowerCase()
+                        .match(pattern.toLowerCase());
+                else
+                    return false;
+            }));
           }
           //we are only looking by name for now.
           /*var results = this.store.find('subject', {name: pattern});
@@ -72,19 +73,19 @@ App.SubjectsAddController = Ember.ObjectController.extend({
               cellPhone: this.get('cellPhone'),
               alternatedCellPhone: this.get('alternatedCellPhone'),
               birthday: Date.now(),
-              gender: this.get('firstName'),
+              //gender: this.get('firstName'),
               height: 10,
               weight: 10,
-              heartRate: this.get('firstName'),
-              bloodPreasure: this.get('firstName'),
-              race: this.get('firstName'),
-              ethnicity: this.get('firstName'),
-              maritalStatus: this.get('firstName'),
+              //heartRate: this.get('firstName'),
+              //bloodPreasure: this.get('firstName'),
+              //race: this.get('firstName'),
+              //ethnicity: this.get('firstName'),
+              //maritalStatus: this.get('firstName'),
             });
-            
-            subject.save().then(function(){                        
+
+            subject.save().then(function(){
                  $("table tr").last().attr("item", subject.get('id') );
-                });       
+            });
 
             this.transitionToRoute('subjects');
         }
