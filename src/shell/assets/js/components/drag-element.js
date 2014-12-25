@@ -21,8 +21,16 @@ App.DragElementComponent = Ember.Component.extend({
         position: 'absolute',
         top: '100px',
         right: '100px',
-        opacity: 1.0
+        opacity: 1.0        
       };
+
+      var draggingStyles = {
+        color: 'white',
+        'background-color': 'gray'
+      };
+      clone_element.contents().filter('.list-group-item').css(draggingStyles);
+      clone_element.contents().filter('.list-group-item').contents().filter('button').remove();
+
       clone_element.css(styles);//Applying style to the drag object.
       
       //Inserting into document the drag object.
@@ -57,5 +65,5 @@ App.DragElementComponent = Ember.Component.extend({
         $(this.element).css(styles);    
     }
   }
-  
+
 });
