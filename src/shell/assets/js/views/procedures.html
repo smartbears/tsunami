@@ -7,7 +7,7 @@
 					    	{{input value=item.name class="form-control" placeholder="Enter name..." insert-newline="doneEditing"}}   
 					  	</div>
 					{{else}}
-						{{#drag-element item=item.id elementName='num'}}
+						{{#drag-element item=item.id elementName='num' dragType='visits'}}
 							<div {{bind-attr class=":list-group-item item.id"}} style="font-size: 14px;" {{action 'edit' item on="doubleClick"}}>
 								<span>{{item.name}}</span>
 								<button type="button" class="close" aria-hidden="true" {{action 'delete' item}}>&times;</button>
@@ -34,6 +34,7 @@
 				</form>		    	
 		    {{/if}}
 		</div>
+		<div style="width: 170px; height: 100px; position: absolute; top: 0; right: 0;z-index:2"></div>
 		<button type="button" class="btn btn-default" {{action 'newProcedure'}}>New Procedure</button>
 	</div>
 	<div class="col-md-7">					
