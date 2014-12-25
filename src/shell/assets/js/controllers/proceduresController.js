@@ -3,6 +3,7 @@ App.ProcedureController = Ember.ObjectController.extend({
     actions: {
         edit: function() {
           this.set('isEditing', true);
+          $('#'+ this.get('model').get('id')).focus();
         },
 
         doneEditing: function() {

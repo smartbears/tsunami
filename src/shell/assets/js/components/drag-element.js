@@ -9,20 +9,29 @@ App.DragElementComponent = Ember.Component.extend({
 
     if(dragType == 'visits'){
       $(this.element).animate({ opacity: 0.25 }, 500); 
-    
+
       var clone_element =  $(this.element).clone(true); //Cloning the original element and creating the drag object.
       var styles = {
-        '-webkit-transform': 'rotate(35deg)', /* Safari and Chrome */
-        '-moz-transform': 'rotate(35deg)',   /* Firefox */
-        '-ms-transform': 'rotate(35deg)',   /* IE 9 */
-        '-o-transform': 'rotate(35deg)',   /* Opera */
-        'transform': 'rotate(35deg)',
+        '-webkit-transform': 'rotate(0deg)', /* Safari and Chrome */
+        '-moz-transform': 'rotate(0deg)',   /* Firefox */
+        '-ms-transform': 'rotate(0eg)',   /* IE 9 */
+        '-o-transform': 'rotate(0deg)',   /* Opera */
+        'transform': 'rotate(0deg)',
         'z-index': '-3',
         position: 'absolute',
         top: '100px',
         right: '100px',
+        opacity: 1.0        
+      };
+
+      var draggingStyles = {
+        color: 'white',
+        'background-color': 'gray',
         opacity: 1.0
       };
+      clone_element.contents().filter('.list-group-item').css(draggingStyles);
+      clone_element.contents().filter('.list-group-item').contents().filter('button').remove();
+
       clone_element.css(styles);//Applying style to the drag object.
       
       //Inserting into document the drag object.
@@ -46,7 +55,7 @@ App.DragElementComponent = Ember.Component.extend({
     var dragType = this.get('dragType');
     
     if(dragType == 'visits'){
-       $(this.element).animate({ opacity: 10.0}, 500);
+       $(this.element).animate({ opacity: 1.0}, 500);
        var styles = {
           '-webkit-transform': 'rotate(0deg)', /* Safari and Chrome */
           '-moz-transform': 'rotate(0deg)',   /* Firefox */
@@ -57,5 +66,5 @@ App.DragElementComponent = Ember.Component.extend({
         $(this.element).css(styles);    
     }
   }
-  
+
 });
