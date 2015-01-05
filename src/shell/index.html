@@ -10,7 +10,7 @@
 
     <title>Protocols</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href="assets/css/shell.min.css" rel="stylesheet">
+    <link href="assets/css/shell.min.css" rel="stylesheet">   
 
     <script type="text/x-handlebars" data-template-name="procedure-item">
        <div {{bind-attr class=":list-group-item view.id"}} style="font-size: 14px;">
@@ -18,18 +18,20 @@
        </div>
     </script>
 
-     <script type="text/x-handlebars" data-template-name="visit-item">
-       {{#drop-element dropAction='acceptElement' elementName=view.elementName id=view.id}}
+    <script type="text/x-handlebars" data-template-name="visit-item">
+       {{#drop-element dropAction='acceptElement' elementName=view.elementName id=id}}
             <div class="col-md-5">
-              <div class="list-group-item list-group-item-danger">
-                {{view.name}}
-                <button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' view.id}}>&times;</button>
+              <div class="list-group-item list-group-item-danger" {{action 'startRenaming'}}>
+                {{#if isRenamingView}}
+                  {{input value=name class="form-control" placeholder="Enter name..." insert-newline="doneRenaming" focus-out="doneRenaming" id="inputEditVisit" }} 
+                {{else}}
+                  {{name}}
+                  <button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' id}}>&times;</button>
+                {{/if}}                
               </div> 
             </div>  
         {{/drop-element}}
     </script>
-
-    
 
 </head>
 

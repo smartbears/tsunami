@@ -4,7 +4,7 @@
 			{{#each item in model itemController="procedure"}}				
 					{{#if item.isEditing }}
 						<div class="form-group list-group-item">					    
-					    	{{input value=item.name class="form-control" placeholder="Enter name..." insert-newline="doneEditing" focus-out="doneEditing" id=item.id }}   
+					    	{{input value=item.name class="form-control" placeholder="Enter name..." insert-newline="doneEditing" focus-out="doneEditing" id="inputEditProcedure" }}   
 					  	</div>
 					{{else}}
 						{{#drag-element item=item.id elementName='num' dragType='visits'}}
@@ -18,7 +18,7 @@
 			{{else}}
 		        Sorry, no elements were found.
 		    {{/each}}
-		    {{#if isCreating}}
+		    {{#if isCreating}}<!-- TODO: Change this for a dinamyc input. -->
 			    <form role="form">
 				  <div class="form-group">
 				    <label for="name">Name</label>
@@ -35,12 +35,16 @@
 		    {{/if}}
 		</div>
 		<div style="width: 170px; height: 100px; position: absolute; top: 0; right: 0;z-index:2"></div>
-		<button type="button" class="btn btn-default" {{action 'newProcedure'}}>New Procedure</button>
+		<button class="btn btn-default" {{action 'newProcedure'}}>New Procedure</button>  
 	</div>
-	<div class="col-md-7">					
-			
-				<div class="list-group" id="listOfVisits">
-					<button id="buttonrare" class="btn btn-default" {{action 'newVisit'}}>New Visit</button>	
-				</div> 		    		
+	
+	<div class="col-md-6">				
+		<div class="list-group" id="listOfVisits">
+			<!-- List of visits goes here!!! -->			
+		</div> 		    		
+	</div>
+	
+	<div class="col-md-1">				
+		<button id="buttonrare" class="btn btn-default" {{action 'newVisit'}}>New Visit</button>   		
 	</div>
 </div>
