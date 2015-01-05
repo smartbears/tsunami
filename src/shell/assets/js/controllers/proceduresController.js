@@ -32,10 +32,11 @@ App.ProcedureController = Ember.ObjectController.extend({
 });
 
 App.VisitController = Ember.ObjectController.extend({
+    store: null,
     isRenamingView: false,    
     actions: {
         destroyVisit: function(visit){
-            $('#'+visit).fadeOut("slow",function(){             
+            $('.ember-view #'+visit).fadeOut("slow",function(){             
               $(this).remove();
             });            
         },
@@ -53,15 +54,15 @@ App.VisitController = Ember.ObjectController.extend({
 
         acceptElement: function(item, elementName, senderElement){ 
                 //HERE IS THE THING!!!         
-                var procedure = this.store.getById('procedure',item);
-                if($('#'+ elementName +' .col-md-5 .' + item).length <= 0){ 
+                var procedure = this.get('store').getById('procedure',item);
+                if($('.ember-view #'+ elementName +' .col-md-5 .ember-view .' + item).length <= 0){ 
                   var procedureItem = Ember.View.create({ 
                                         templateName: 'procedure-item',                                      
                                         container: this.container, 
                                         id: item, 
                                         name: procedure.get('name')
                                       });
-                  procedureItem.appendTo($('#'+ elementName +' .col-md-5').first());                
+                  procedureItem.appendTo($('.ember-view ' + '#'+ elementName +' .col-md-5').first());                
                 }
                 else
                 {
@@ -113,12 +114,13 @@ App.ProceduresController = Ember.ObjectController.extend({
               name: 'Visit ' + count             
             });
           visit.save();            
-
+          var viewController = App.VisitController.create({ model: visit, store: this.store, container: this.container });
           var visitView = Ember.View.create({ 
                                       templateName: 'visit-item',
-                                      controller: App.VisitController.create({ model: visit }),
+                                      controller: viewController,
                                       container: this.container,                                       
-                                      elementName: 'visit' + count                                                                   
+                                      elementName: 'visit' + count,
+                                      store: this.store                                                                   
                                     });
           visitView.appendTo('#listOfVisits');
           

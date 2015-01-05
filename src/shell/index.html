@@ -19,14 +19,14 @@
     </script>
 
     <script type="text/x-handlebars" data-template-name="visit-item">
-       {{#drop-element dropAction='acceptElement' elementName=view.elementName id=id}}
+       {{#drop-element dropAction='acceptElement' elementName=view.elementName id=view.elementName}}
             <div class="col-md-5">
-              <div class="list-group-item list-group-item-danger" {{action 'startRenaming'}}>
+              <div class="list-group-item list-group-item-danger" {{action 'startRenaming' on="doubleClick"}}>
                 {{#if isRenamingView}}
                   {{input value=name class="form-control" placeholder="Enter name..." insert-newline="doneRenaming" focus-out="doneRenaming" id="inputEditVisit" }} 
                 {{else}}
                   {{name}}
-                  <button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' id}}>&times;</button>
+                  <button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' view.elementName}}>&times;</button>
                 {{/if}}                
               </div> 
             </div>  
