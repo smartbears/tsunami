@@ -62,3 +62,15 @@ body {
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
 }
+.drag-element {
+  z-index: -3;
+  position: absolute;
+  top: 100px;
+  right: 100px;
+  opacity: 1;
+}
+.dragging-element {
+  color: white;
+  background-color: gray;
+  opacity: 1;
+}
