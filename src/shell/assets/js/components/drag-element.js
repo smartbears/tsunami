@@ -37,7 +37,9 @@ App.DragElementComponent = Ember.Component.extend({
       //Inserting into document the drag object.
       event.dataTransfer.effectAllowed = "copy";
       document.body.appendChild(clone_element[0]);
-      event.dataTransfer.setDragImage(clone_element[0], 0, 0); 
+      event.dataTransfer.setDragImage(clone_element[0], 0, 0);
+      
+
     }       
     
     if (this.get('elementName')){

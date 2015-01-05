@@ -8,7 +8,7 @@
 					  	</div>
 					{{else}}
 						{{#drag-element item=item.id elementName='num' dragType='visits'}}
-							<div {{bind-attr class=":list-group-item item.id"}} style="font-size: 14px;" {{action 'edit' item on="doubleClick"}}>
+							<div {{bind-attr class=":list-group-item item.id"}} style="font-size: 14px;" {{action 'edit' item on="doubleClick"}} >
 								<span>{{item.name}}</span>
 								<button type="button" class="close" aria-hidden="true" {{action 'delete' item}}>&times;</button>
 							</div>
@@ -40,43 +40,7 @@
 	<div class="col-md-7">					
 			
 				<div class="list-group" id="listOfVisits">
-					{{#drop-element dropAction='acceptElement' elementName='visit1' id="visit1"}}
-						<div class="col-md-5">
-							<div class="list-group-item list-group-item-danger">
-								Visit 1
-								<button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' 'visit1'}}>&times;</button>
-							</div> 
-						</div>	
-					{{/drop-element}}
-					{{#drop-element dropAction='acceptElement' elementName='visit2' id="visit2"}}
-						<div class="col-md-5">
-							<div class="list-group-item list-group-item-danger">
-								Visit 2
-								<button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' 'visit2'}}>&times;</button>
-							</div> 
-						</div>	
-					{{/drop-element}}
-					{{#drop-element dropAction='acceptElement' elementName='visit3' id="visit3"}}
-						<div class="col-md-5">
-							<div class="list-group-item list-group-item-danger">
-								Visit 3
-								<button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' 'visit3'}}>&times;</button>
-							</div>  
-						</div>
-					{{/drop-element}}										
-				</div> 	
-				
-		    		
+					<button id="buttonrare" class="btn btn-default" {{action 'newVisit'}}>New Visit</button>	
+				</div> 		    		
 	</div>
-
-
-
-
 </div>
-
-
-
-
-
-
-

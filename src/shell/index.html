@@ -12,6 +12,25 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link href="assets/css/shell.min.css" rel="stylesheet">
 
+    <script type="text/x-handlebars" data-template-name="procedure-item">
+       <div {{bind-attr class=":list-group-item view.id"}} style="font-size: 14px;">
+         <span>{{view.name}}</span>
+       </div>
+    </script>
+
+     <script type="text/x-handlebars" data-template-name="visit-item">
+       {{#drop-element dropAction='acceptElement' elementName=view.elementName id=view.id}}
+            <div class="col-md-5">
+              <div class="list-group-item list-group-item-danger">
+                {{view.name}}
+                <button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' view.id}}>&times;</button>
+              </div> 
+            </div>  
+        {{/drop-element}}
+    </script>
+
+    
+
 </head>
 
 <body>

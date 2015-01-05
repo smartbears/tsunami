@@ -83,10 +83,10 @@ App.Procedure = DS.Model.extend({
   name: DS.attr('string'),
   performedOn: DS.attr('date'),
   comments: DS.attr('string'),
-  visit: DS.belongsTo('visit')
+  //visit: DS.belongsTo('visit')
 });
 
 App.Visit = DS.Model.extend({
   name: DS.attr('string'),
-  procedures: DS.hasMany('procedure')
+  //procedures: DS.hasMany('procedure')
 })
