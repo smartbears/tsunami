@@ -14,13 +14,13 @@
   <div class="form-group">
     <label for="inputBirthday" class="col-md-2 resetHorPadding">Birthday</label>
     <div class="col-md-10 resetHorPadding">
-      {{input value=birthday class="form-control" id="inputBirthday" placeholder="Enter birthday"}}     
+        {{view App.DatePicker valueBinding=birthday}}
     </div>
   </div>
 
   <div class="form-group">
     <label for="addressInput">Address</label>
-    {{input value=address class="form-control" id="inputAddress" placeholder="Enter address"}}    
+    {{input value=address class="form-control" id="inputAddress" placeholder="Enter address"}}
   </div>
 
   <div class="form-inline form-group">
@@ -32,29 +32,29 @@
 
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
-    {{input type="email" value=email class="form-control" id="exampleInputEmail1" placeholder="Enter email"}}    
+    {{input type="email" value=email class="form-control" id="exampleInputEmail1" placeholder="Enter email"}}
   </div>
 
   <div class="form-group">
     <label for="inputHomePhone">Home phone</label>
-    {{input type="phone" value=homePhone class="form-control" id="inputHomePhone" placeholder="Enter home phone"}}    
+    {{input type="phone" value=homePhone class="form-control" id="inputHomePhone" placeholder="Enter home phone"}}
   </div>
 
   <div class="form-group">
     <label for="inputWorkPhone">Work phone</label>
-    {{input type="phone" value=workPhone class="form-control" id="inputWorkPhone" placeholder="Enter work phone"}}    
+    {{input type="phone" value=workPhone class="form-control" id="inputWorkPhone" placeholder="Enter work phone"}}
   </div>
 
   <div class="form-group">
     <label for="inputCellPhone">Cell phone</label>
-    {{input type="phone" value=cellPhone class="form-control" id="inputCellPhone" placeholder="Enter cell phone"}}    
+    {{input type="phone" value=cellPhone class="form-control" id="inputCellPhone" placeholder="Enter cell phone"}}
   </div>
 
   <div class="form-group">
     <label for="inputAltCellPhone">Alternated Cell phone</label>
-    {{input type="phone" value=alternatedCellPhone class="form-control" id="inputAltCellPhone" placeholder="Enter alternated cell phone"}}   
+    {{input type="phone" value=alternatedCellPhone class="form-control" id="inputAltCellPhone" placeholder="Enter alternated cell phone"}}
   </div>
-  
+
   </div>
   <button type="submit" class="btn btn-default" {{action "doneEditing" this}}>Save</button> |
   <button class="btn btn-default" {{action 'doneEditing'}}>Done</button>

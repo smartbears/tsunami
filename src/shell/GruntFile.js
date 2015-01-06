@@ -71,7 +71,7 @@ module.exports = function (grunt) {
     //
         uglify: {
             options: {
-                compress:true,
+                compress:false,
                 beautify:true
             },
             external: {
@@ -80,6 +80,9 @@ module.exports = function (grunt) {
                     'assets/js/external/handlebars-v2.0.0.js',
                     'assets/js/external/ember.prod.js',
                     'assets/js/external/ember-data.prod-v1.0.0.14.js'
+                    'assets/js/external/moment.js',
+                    'assets/js/external/bootstrap.js',
+                    'assets/js/external/bootstrap-datetimepicker.js'
                 ],
                 dest: 'assets/js/external.min.js'
             },
@@ -90,7 +93,7 @@ module.exports = function (grunt) {
                     'assets/js/views/**/*.js',
                     'assets/js/models/*.js',
                     'assets/js/components/*.js',
-					          'assets/js/controllers/**/*.js',
+			'assets/js/controllers/**/*.js',
                 ],
                 dest: 'assets/js/shell.min.js'
 

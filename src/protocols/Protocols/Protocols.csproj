@@ -105,20 +105,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Protocols.Data\Protocols.Data.csproj">
-      <Project>{1F78FEB1-812B-486D-9110-F43AB8239B02}</Project>
-      <Name>Protocols.Data</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
-      <Project>{9ddde55c-efa2-45d6-b75f-436d01460bf3}</Project>
-      <Name>SharedKernel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Protocols.Core\Protocols.Core.csproj">
-      <Project>{536475de-995d-46e3-8f8c-0b5a41b3a701}</Project>
-      <Name>Protocols.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -130,4 +116,18 @@
   </Target>
   -->
   <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Protocols.Core\Protocols.Core.csproj">
+      <Project>{536475DE-995D-46E3-8F8C-0B5A41B3A701}</Project>
+      <Name>Protocols.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
+      <Project>{9DDDE55C-EFA2-45D6-B75F-436D01460BF3}</Project>
+      <Name>SharedKernel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Protocols.Data\Protocols.Data.csproj">
+      <Project>{1f78feb1-812b-486d-9110-f43ab8239b02}</Project>
+      <Name>Protocols.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
 </Project>

@@ -32,7 +32,7 @@ App.ProcedureController = Ember.ObjectController.extend({
 });
 
 App.VisitController = Ember.ObjectController.extend({
-    store: null,
+    needs: ['procedures'],    
     isRenamingView: false,    
     actions: {
         destroyVisit: function(visit){
@@ -42,19 +42,19 @@ App.VisitController = Ember.ObjectController.extend({
         },
 
        startRenaming: function(){
-            this.set('isRenamingView', true);
+            this.toggleProperty('isRenamingView');
         },
  
         doneRenaming: function(){
           var visit = this.get('model')
           visit.save();
-          this.set('isRenamingView', false);
+          this.toggleProperty('isRenamingView');
         },
       
 
         acceptElement: function(item, elementName, senderElement){ 
                 //HERE IS THE THING!!!         
-                var procedure = this.get('store').getById('procedure',item);
+                var procedure = this.get('controllers.procedures').store.getById('procedure',item);
                 if($('.ember-view #'+ elementName +' .col-md-5 .ember-view .' + item).length <= 0){ 
                   var procedureItem = Ember.View.create({ 
                                         templateName: 'procedure-item',                                      
@@ -75,17 +75,20 @@ App.VisitController = Ember.ObjectController.extend({
 
 App.ProceduresController = Ember.ObjectController.extend({    
     isCreating: false,    
-    visitCount: 1,
-    
+    visitCount: function(){
+      var visits = this.store.find('visit');
+      return visits.get('length');
+    }.property()
+    ,   
 
     actions: {     
         newProcedure: function(){
-          this.set('isCreating',true);
+          this.toggleProperty('isCreating');
           this.transitionToRoute('procedures');
         },       
 
         addProcedure: function(){
-            this.set('isCreating',false);
+            this.toggleProperty('isCreating');
             var procedure = this.store.createRecord('procedure',
             {
               name: this.get('name'),              
@@ -105,16 +108,16 @@ App.ProceduresController = Ember.ObjectController.extend({
             this.transitionToRoute('procedures');
         },           
 
-        newVisit: function(){
-          var count = this.get('visitCount');
-          this.incrementProperty('visitCount'); 
+        newVisit: function(){          
+          this.incrementProperty('visitCount');
+          var count = this.get('visitCount'); 
 
           var visit = this.store.createRecord('visit',
             {
-              name: 'Visit ' + count             
+              label: 'Visit ' + count             
             });
           visit.save();            
-          var viewController = App.VisitController.create({ model: visit, store: this.store, container: this.container });
+          var viewController = App.VisitController.create({ model: visit, container: this.container });
           var visitView = Ember.View.create({ 
                                       templateName: 'visit-item',
                                       controller: viewController,
