@@ -78,9 +78,3 @@ App.Immunization = DS.Model.extend({
   administeredOn: DS.attr('date'),
   comments: DS.attr('string')
 });
-
-App.Procedure = DS.Model.extend({
-  name: DS.attr('string'),
-  performedOn: DS.attr('date'),
-  comments: DS.attr('string')
-});
