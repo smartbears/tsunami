@@ -79,7 +79,7 @@ App.Immunization = DS.Model.extend({
   comments: DS.attr('string')
 });
 
-App.Procedure = DS.Model.extend({
+/*App.Procedure = DS.Model.extend({
   name: DS.attr('string'),
   performedOn: DS.attr('date'),
   comments: DS.attr('string'),
@@ -89,4 +89,4 @@ App.Procedure = DS.Model.extend({
 App.Visit = DS.Model.extend({
   name: DS.attr('string'),
   //procedures: DS.hasMany('procedure')
-});
+});*/

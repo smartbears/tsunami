@@ -76,7 +76,8 @@ App.VisitController = Ember.ObjectController.extend({
 App.ProceduresController = Ember.ObjectController.extend({    
     isCreating: false,    
     visitCount: function(){
-      return this.store.find('visit').get('length')
+      var visits = this.store.find('visit');
+      return visits.get('length');
     }.property()
     ,   
 
@@ -113,7 +114,7 @@ App.ProceduresController = Ember.ObjectController.extend({
 
           var visit = this.store.createRecord('visit',
             {
-              name: 'Visit ' + count             
+              label: 'Visit ' + count             
             });
           visit.save();            
           var viewController = App.VisitController.create({ model: visit, container: this.container });
