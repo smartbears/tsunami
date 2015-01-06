@@ -6,7 +6,7 @@ using System.Linq;
 using MongoDB.Driver.Linq;
 using MongoDB.Bson;
 
-namespace Protocols.Runner.Controllers
+namespace Protocols.Controllers
 {
     public class SubjectsController : ApiController
     {

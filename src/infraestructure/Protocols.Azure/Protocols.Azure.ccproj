@@ -45,23 +45,23 @@
       <RoleName>Subjects</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
-    <ProjectReference Include="..\Protocols.Runner\Protocols.Runner.csproj">
-      <Name>Protocols.Runner</Name>
+    <ProjectReference Include="..\Protocols\Protocols.csproj">
+      <Name>Protocols</Name>
       <Project>{957f2d6e-1b2c-4666-9c13-9881b4b47d29}</Project>
       <Private>True</Private>
       <RoleType>Worker</RoleType>
-      <RoleName>Protocols.Runner</RoleName>
+      <RoleName>Protocols</RoleName>
       <UpdateDiagnosticsConnectionStringOnPublish>True</UpdateDiagnosticsConnectionStringOnPublish>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Profiles" />
     <Folder Include="SubjectsContent\" />
-    <Folder Include="Protocols.RunnerContent\" />
+    <Folder Include="Protocols.Content\" />
   </ItemGroup>
   <ItemGroup>
     <DiagnosticsConfiguration Include="SubjectsContent\diagnostics.wadcfgx" />
-    <DiagnosticsConfiguration Include="Protocols.RunnerContent\diagnostics.wadcfgx" />
+    <DiagnosticsConfiguration Include="Protocols.Content\diagnostics.wadcfgx" />
   </ItemGroup>
   <ItemGroup>
     <PublishProfile Include="Profiles\protocolsProduction.azurePubxml" />

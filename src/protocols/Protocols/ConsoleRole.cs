@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.Owin.Hosting;
 
-namespace Protocols.Runner
+namespace Protocols
 {
     public class ConsoleRole
      {

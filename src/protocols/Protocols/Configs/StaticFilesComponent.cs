@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Protocols.Runner.Configs
+namespace Protocols.Configs
 {
     using AppFunc = Func<IDictionary<string, object>, Task>;
 

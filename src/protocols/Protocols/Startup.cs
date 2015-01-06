@@ -2,17 +2,17 @@
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Owin;
-using Protocols.Runner.Configs;
+using Protocols.Configs;
 using System.Collections.Generic;
 using System.Web.Http.Dispatcher;
-using Protocols.Runner;
+using Protocols;
 using Castle.Windsor;
-using Protocols.Runner.Helpers;
+using Protocols.Helpers;
 using Castle.Core;
 using Castle.Windsor.Installer;
 using System.Web.Http.Cors;
 
-namespace Protocols.Runner
+namespace Protocols
 {
     public class Startup
     {

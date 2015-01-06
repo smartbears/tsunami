@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace Protocols.Runner.Controllers
+namespace Protocols.Controllers
 {
     public class HomeController : ApiController
     {

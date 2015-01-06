@@ -89,4 +89,4 @@ App.Procedure = DS.Model.extend({
 App.Visit = DS.Model.extend({
   name: DS.attr('string'),
   //procedures: DS.hasMany('procedure')
-})
+});

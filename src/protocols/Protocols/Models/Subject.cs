@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Protocols.Runner.Models
+namespace Protocols.Models
 {
     public class Subject
     {

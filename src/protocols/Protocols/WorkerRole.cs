@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Owin.Hosting;
 using Microsoft.WindowsAzure.ServiceRuntime;
 
-namespace Protocols.Runner
+namespace Protocols
 {
     public class WorkerRole : RoleEntryPoint
     {
@@ -16,7 +16,7 @@ namespace Protocols.Runner
 
         public override void Run()
         {
-            Trace.TraceInformation("Protocols.Runner is running");
+            Trace.TraceInformation("Protocols is running");
 
             try
             {

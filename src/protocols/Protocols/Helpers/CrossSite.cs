@@ -2,7 +2,7 @@
 using System.Web.Http;
 using System.Web.Http.Filters;
 
-namespace Protocols.Runner
+namespace Protocols
 {
 	public class AllowCrossSiteJsonAttribute : ActionFilterAttribute
 	{

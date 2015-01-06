@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocols.Runner", "protocols\Protocols.Runner\Protocols.Runner.csproj", "{957F2D6E-1B2C-4666-9C13-9881B4B47D29}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Protocols", "protocols\Protocols\Protocols.csproj", "{957F2D6E-1B2C-4666-9C13-9881B4B47D29}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subjects.Core", "subjects\Subjects.Core\Subjects.Core.csproj", "{9D7FA907-4BF6-47CD-85E2-C0888D31CA97}"
 EndProject

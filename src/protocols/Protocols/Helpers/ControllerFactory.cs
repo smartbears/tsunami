@@ -14,7 +14,7 @@ using Castle.Windsor;
 
 using IDependencyResolver = System.Web.Http.Dependencies.IDependencyResolver;
 
-namespace Protocols.Runner.Helpers
+namespace Protocols.Helpers
 {
 	public class WindsorCompositionRoot : IHttpControllerActivator
 	{
