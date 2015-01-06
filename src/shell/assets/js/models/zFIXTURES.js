@@ -15,11 +15,15 @@ App.Protocol.reopenClass({
   ]
 });
 
+App.Visit.reopenClass()
+
 App.Procedure.reopenClass({
   FIXTURES:[
     {id:1, name:"Measure presure", performedOn:null , comments:"This is test comment1"},
     {id:2, name:"Breath checking", performedOn:null , comments:"This is test comment2"},
     {id:3, name:"X rays", performedOn:null , comments:"This is test comment3"},
     {id:4, name:"Height", performedOn:null , comments:"This is test comment4"},
+    {id:5, name:"X Rays", comments: ""},
+    {id:6, name:"Electrocardiogram", comments: ""}
   ]
 });

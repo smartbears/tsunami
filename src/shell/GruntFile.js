@@ -89,7 +89,7 @@ module.exports = function (grunt) {
                     'assets/js/views/**/*.js',
                     'assets/js/models/*.js',
                     'assets/js/components/*.js',
-					'assets/js/controllers/**/*.js',
+					'assets/js/controllers/**/*.js',                    
                 ],
                 dest: 'assets/js/shell.min.js'
 
@@ -166,7 +166,7 @@ module.exports = function (grunt) {
                 tasks: ['emberTemplates']
             },
             application_scripts: {
-                files: ['assets/js/*.js', 'assets/js/models/**/*.js', 'assets/js/views/**/*.js', 'assets/js/controllers/*.js','!assets/js/*.min.js'],
+                files: ['assets/js/*.js', 'assets/js/models/**/*.js', 'assets/js/views/**/*.js', 'assets/js/controllers/*.js', 'assets/js/components/*.js','!assets/js/*.min.js'],
                 tasks: [
                     'uglify:application_scripts'
                 ]
