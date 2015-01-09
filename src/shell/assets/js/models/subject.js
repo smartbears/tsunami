@@ -7,7 +7,7 @@ App.Subject = DS.Model.extend({
   //conditions: DS.hasMany('condition'),
   allergies: DS.hasMany('allergy', {inverse: null}),
   //immunizations: DS.hasMany('immunization'),
-  //procedures: DS.hasMany('procedure'),
+  //procedures: DS.hasMany('procedure'), 
 
 
  /* age: function(){

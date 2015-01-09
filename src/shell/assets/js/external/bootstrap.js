@@ -8,7 +8,7 @@
 
 
 +function ($) {
-  'use strict';
+  'use strict'; 
 
   // COLLAPSE PUBLIC CLASS DEFINITION
   // ================================
@@ -208,7 +208,7 @@
     Plugin.call($target, option)
   })
 
-}(jQuery); 
+}(jQuery);
 
 /* ========================================================================
  * Bootstrap: transition.js v3.3.0
@@ -269,4 +269,3 @@
   })
 
 }(jQuery);
-
