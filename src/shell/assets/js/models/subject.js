@@ -7,7 +7,7 @@ App.Subject = DS.Model.extend({
   //conditions: DS.hasMany('condition'),
   allergies: DS.hasMany('allergy', {inverse: null}),
   //immunizations: DS.hasMany('immunization'),
-  //procedures: DS.hasMany('procedure'),
+  //procedures: DS.hasMany('procedure'), 
 
 
  /* age: function(){
@@ -50,7 +50,7 @@ App.ContactInformation = DS.Model.extend({
 });
 
 App.Demographic = DS.Model.extend({
-  birthday: DS.attr('date'),
+  birthday: DS.attr('string'),
   gender: DS.attr('string'),
   height: DS.attr('number'),
   weight: DS.attr('number'),
@@ -98,7 +98,7 @@ App.Immunization = DS.Model.extend({
   comments: DS.attr('string')
 });
 
-App.Procedure = DS.Model.extend({
+/*App.Procedure = DS.Model.extend({
   name: DS.attr('string'),
   performedOn: DS.attr('date'),
   comments: DS.attr('string'),
@@ -108,4 +108,4 @@ App.Procedure = DS.Model.extend({
 App.Visit = DS.Model.extend({
   name: DS.attr('string'),
   //procedures: DS.hasMany('procedure')
-});
+});*/
