@@ -18,8 +18,8 @@ App.Router.map(function() {
         this.route("add");
     });
 
-    this.resource("alergies", function(){
-        this.resource('alergy', { path:'/:id' }, function(){
+    this.resource("allergies", function(){
+        this.resource('allergy', { path:'/:id' }, function(){
             this.route('edit');
         });
         this.route("add");
@@ -34,7 +34,7 @@ App.ProceduresRoute = Ember.Route.extend({
     model: function() {
         return this.store.find('procedure');
     }
-}); 
+});
 
 App.ProcedureRoute = Ember.Route.extend({
     model: function(params) {
@@ -56,17 +56,29 @@ App.SubjectRoute = Ember.Route.extend({
     }
 });
 
+App.SubjectsAddRoute = Ember.Route.extend({
+  model: function(){
+    return {
+      contactInformation : {},
+      demographic: {},
+      guardian: {},
+      allergies: [],
+    }
+    //return this.store.createRecord('subject');
+    //return null;
+  }
+});
 
-//Alergies
-App.AlergiesRoute = Ember.Route.extend({
+//Allergies
+App.AllergiesRoute = Ember.Route.extend({
     model: function() {
-        return this.store.find('alergy');
+        return this.store.find('allergy');
     }
 });
 
-App.AlergyRoute = Ember.Route.extend({
+App.AllergyRoute = Ember.Route.extend({
     model: function(params) {
-        return this.store.find('alergy', params.id);
+        return this.store.find('allergy', params.id);
     }
 });
 

@@ -1,6 +1,7 @@
 ﻿using System;
 using Castle.MicroKernel.Registration;
 using MongoDB.Driver;
+using Subjects.Core.Persistence;
 using Subjects.Data;
 
 namespace Subjects.WindsorInstallers
@@ -24,29 +25,29 @@ namespace Subjects.WindsorInstallers
 				.Instance(_database)
 			);
 
-			container.Register(Classes.FromAssemblyContaining(typeof(SubjectRepository))
-				.BasedOn<SubjectRepository>()
+			container.Register(Component.For<ISubjectRepository>()
+                .ImplementedBy<SubjectRepository>()
 				.LifestyleSingleton());
 
-            container.Register(Classes.FromAssemblyContaining(typeof(AlergyRepository))
-                .BasedOn<AlergyRepository>()
-                .LifestyleSingleton());
+            //container.Register(Classes.FromAssemblyContaining(typeof(AlergyRepository))
+            //    .BasedOn<AlergyRepository>()
+            //    .LifestyleSingleton());
 
-            container.Register(Classes.FromAssemblyContaining(typeof(ConditionRepository))
-                .BasedOn<ConditionRepository>()
-                .LifestyleSingleton());
+            //container.Register(Classes.FromAssemblyContaining(typeof(ConditionRepository))
+            //    .BasedOn<ConditionRepository>()
+            //    .LifestyleSingleton());
 
-            container.Register(Classes.FromAssemblyContaining(typeof(GuardianRepository))
-               .BasedOn<GuardianRepository>()
-               .LifestyleSingleton());
+            ////container.Register(Classes.FromAssemblyContaining(typeof(GuardianRepository))
+            ////   .BasedOn<GuardianRepository>()
+            ////   .LifestyleSingleton());
 
-            container.Register(Classes.FromAssemblyContaining(typeof(ImmunizationRepository))
-              .BasedOn<ImmunizationRepository>()
-              .LifestyleSingleton());
+            //container.Register(Classes.FromAssemblyContaining(typeof(ImmunizationRepository))
+            //  .BasedOn<ImmunizationRepository>()
+            //  .LifestyleSingleton());
 
-            container.Register(Classes.FromAssemblyContaining(typeof(MedicationRepository))
-              .BasedOn<MedicationRepository>()
-              .LifestyleSingleton());
+            //container.Register(Classes.FromAssemblyContaining(typeof(MedicationRepository))
+            //  .BasedOn<MedicationRepository>()
+            //  .LifestyleSingleton());
 
             container.Register(Classes.FromAssemblyContaining(typeof(ProcedureRepository))
               .BasedOn<ProcedureRepository>()

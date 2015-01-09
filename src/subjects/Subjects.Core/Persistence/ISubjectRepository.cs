@@ -2,7 +2,7 @@
 
 namespace Subjects.Core.Persistence
 {
-    public interface ISubjectRepository
+    public interface ISubjectRepository : IRepository<Subject>
     {
         IList<Subject> SearchByName(string name);
 

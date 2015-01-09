@@ -120,6 +120,10 @@
   -->
   <ItemGroup />
   <ItemGroup>
+    <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
+      <Project>{9ddde55c-efa2-45d6-b75f-436d01460bf3}</Project>
+      <Name>SharedKernel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Subjects.Core\Subjects.Core.csproj">
       <Project>{9D7FA907-4BF6-47CD-85E2-C0888D31CA97}</Project>
       <Name>Subjects.Core</Name>

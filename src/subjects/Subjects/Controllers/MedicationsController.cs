@@ -9,41 +9,41 @@ namespace Subjects.Controllers
 {
 	public class MedicationsController : ApiController
 	{
-		public MedicationRepository Repository { get; set; }
+		//public MedicationRepository Repository { get; set; }
 
-		[AllowCrossSiteJson]
-		public IEnumerable<Medication> Get()
-		{
-			return Repository.List();
-		}
+        //[AllowCrossSiteJson]
+        //public IEnumerable<Medication> Get()
+        //{
+        //    return Repository.List();
+        //}
 			
-		[AllowCrossSiteJson]
-		public Medication Get(Guid id)
-		{
-			return Repository.Get(id);
-		}        
+        //[AllowCrossSiteJson]
+        //public Medication Get(Guid id)
+        //{
+        //    return Repository.Get(id);
+        //}        
 
-        [HttpPost]
-		[AllowCrossSiteJson]
-		public Medication Post(Medication medication)
-		{
-			return Repository.Insert (medication);
-		}
+        //[HttpPost]
+        //[AllowCrossSiteJson]
+        //public Medication Post(Medication medication)
+        //{
+        //    return Repository.Insert (medication);
+        //}
 
-		[HttpPut]
-		[AllowCrossSiteJson]
-		public Guid Put(Medication medication)
-		{
-            Repository.Update(medication);
-            return medication.Id;
-		}
+        //[HttpPut]
+        //[AllowCrossSiteJson]
+        //public Guid Put(Medication medication)
+        //{
+        //    Repository.Update(medication);
+        //    return medication.Id;
+        //}
 
-        [HttpDelete]
-		[AllowCrossSiteJson]     
-        public void Delete(Guid id)
-        {
-			Repository.Delete(id);
-        }
+        //[HttpDelete]
+        //[AllowCrossSiteJson]     
+        //public void Delete(Guid id)
+        //{
+        //    Repository.Delete(id);
+        //}
 
     }
 }

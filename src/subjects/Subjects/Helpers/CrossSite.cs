@@ -5,10 +5,11 @@ using System.Web.Http.Filters;
 
 namespace Subjects.Helpers
 {
+    [AllowCrossSiteJson]
 	public class BaseController : ApiController{
 
 		//Preflight Optionsrequest
-		[AllowCrossSiteJson]
+		
 		public string Options()
 		{
 			return null; // HTTP 200 response with empty body
