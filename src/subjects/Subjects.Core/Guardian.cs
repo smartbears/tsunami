@@ -1,22 +1,13 @@
-﻿using MongoDB.Bson.Serialization.Attributes;
-using Subjects.Core.Generators;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace Subjects.Core
+﻿namespace Subjects.Core
 {
     public class Guardian
     {
-        [BsonId(IdGenerator = typeof(SubjectIdGenerator))]
-        public Guid Id { get; set; }
-        public string name { get; set; }
-        public string relationShip { get; set; }
-        public string facilityType { get; set; }
-        public string facility { get; set; }
-        public string address { get; set; }
-        public string email { get; set; }
-        public string phone { get; set; }
+        public string Name { get; set; }
+        public string RelationShip { get; set; }
+        public string FacilityType { get; set; }
+        public string Facility { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
     }
 }

@@ -9,40 +9,44 @@ namespace Subjects.Controllers
 {
 	public class GuardiansController : ApiController
 	{
-		public GuardianRepository Repository { get; set; }
+		//public GuardianRepository Repository { get; set; }
 
 		[AllowCrossSiteJson]
 		public IEnumerable<Guardian> Get()
 		{
-			return Repository.List();
+		    return null;
+		    //return Repository.List();
 		}
 			
 		[AllowCrossSiteJson]
 		public Guardian Get(Guid id)
 		{
-			return Repository.Get(id);
+		    return null;
+			//return Repository.Get(id);
 		}        
 
         [HttpPost]
 		[AllowCrossSiteJson]
 		public Guardian Post(Guardian guardian)
-		{
-			return Repository.Insert (guardian);
+        {
+            return null;
+			//return Repository.Insert (guardian);
 		}
 
 		[HttpPut]
 		[AllowCrossSiteJson]
 		public Guid Put(Guardian guardian)
 		{
-            Repository.Update(guardian);
-            return guardian.Id;
+            return Guid.Empty;
+            //Repository.Update(guardian);
+            //return guardian.Id;
 		}
 
         [HttpDelete]
 		[AllowCrossSiteJson]     
         public void Delete(Guid id)
         {
-			Repository.Delete(id);
+			//Repository.Delete(id);
         }
 
     }

@@ -57,37 +57,22 @@ App.SubjectsController = Ember.ObjectController.extend({
 App.SubjectsAddController = Ember.ObjectController.extend({
     actions: {
         add: function(){
-            var subject = this.store.createRecord('subject',
-            {
-              firstName: this.get('firstName'),
-              middleName: this.get('middleName'),
-              lastName: this.get('lastName'),
-              address: this.get('address'),
-              zipCode: this.get('zipCode'),
-              city: this.get('city'),
-              state: this.get('state'),
-              country: this.get('country'),
-              email: this.get('email'),
-              homePhone: this.get('homePhone'),
-              workPhone: this.get('workPhone'),
-              cellPhone: this.get('cellPhone'),
-              alternatedCellPhone: this.get('alternatedCellPhone'),
-              birthday: Date.now(),
-              //gender: this.get('firstName'),
-              height: 10,
-              weight: 10,
-              //heartRate: this.get('firstName'),
-              //bloodPreasure: this.get('firstName'),
-              //race: this.get('firstName'),
-              //ethnicity: this.get('firstName'),
-              //maritalStatus: this.get('firstName'),
+            var subject = this.store.createRecord('subject', {
+              contactInformation : this.store.createRecord('contactInformation', this.model.contactInformation),
+              demographic : this.store.createRecord('demographic', this.model.demographics),
+              guardian : this.store.createRecord('guardian', this.model.guardian)
             });
+
+            subject.get("allergies").pushObjects(this.model.allergies);
 
             subject.save().then(function(){
                  $("table tr").last().attr("item", subject.get('id') );
             });
 
             this.transitionToRoute('subjects');
+        },
+        addAllergy: function(){
+          this.model.allergies.pushObject(this.store.createRecord('allergy', {name: 'randomName_' + Math.random()}))
         }
     }
 });

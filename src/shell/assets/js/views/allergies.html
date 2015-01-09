@@ -2,10 +2,10 @@
   <div class="col-md-6">
     <h1>Alergies</h1>
     {{#link-to 'alergies.add'}}(Add new alergy){{/link-to}}
-         
+
      <div class="input-group">
-      {{input value=searchPattern class="form-control" insert-newline="search"}}        
-         
+      {{input value=searchPattern class="form-control" insert-newline="search"}}
+
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" {{action "search"}} >Search</button>
       </span>

@@ -1,9 +1,11 @@
 ﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace SharedKernel
 {
     public class Entity
     {
+        [BsonId(IdGenerator = typeof(GuidIdGenerator))]
         public Guid Id { get; set; }
 
         public override bool Equals(object obj)

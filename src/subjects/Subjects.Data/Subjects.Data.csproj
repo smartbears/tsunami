@@ -7,6 +7,8 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Subjects.Data</RootNamespace>
     <AssemblyName>Subjects.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -17,6 +19,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>full</DebugType>
@@ -25,6 +28,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MongoDB.Bson">
@@ -47,8 +51,12 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
+    <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
+      <Project>{9ddde55c-efa2-45d6-b75f-436d01460bf3}</Project>
+      <Name>SharedKernel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Subjects.Core\Subjects.Core.csproj">
-      <Project>{9D7FA907-4BF6-47CD-85E2-C0888D31CA97}</Project>
+      <Project>{9d7fa907-4bf6-47cd-85e2-c0888d31ca97}</Project>
       <Name>Subjects.Core</Name>
     </ProjectReference>
   </ItemGroup>

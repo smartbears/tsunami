@@ -1,4 +1,32 @@
 App.Subject = DS.Model.extend({
+  contactInformation: DS.belongsTo('contactInformation', { inverse: null}),
+  demographic
+  : DS.belongsTo('demographic', { inverse: null}),//DS.belongsTo('demographics'),
+  guardian: DS.belongsTo('guardian', { inverse: null}),//DS.belongsTo('guardian', {inverse:null}),
+  //medications: DS.hasMany('medication'),
+  //conditions: DS.hasMany('condition'),
+  allergies: DS.hasMany('allergy', {inverse: null}),
+  //immunizations: DS.hasMany('immunization'),
+  //procedures: DS.hasMany('procedure'), 
+
+
+ /* age: function(){
+    var ageDifMs = Date.now() - this.get('birthday').getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }.property('birthday')*/
+});
+
+App.SubjectSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoKeyMixin, {
+  attrs: {
+    contactInformation: { embedded: 'always', noKey: true },
+    demographics: { embedded: 'always', noKey: true },
+    guardian: { embedded: 'always', noKey: true },
+    allergies: { embedded: 'always', noKey: true },
+  }
+});
+
+App.ContactInformation = DS.Model.extend({
   firstName: DS.attr('string'),
   middleName: DS.attr('string'),
   lastName: DS.attr('string'),
@@ -12,7 +40,17 @@ App.Subject = DS.Model.extend({
   workPhone: DS.attr('string'),
   cellPhone: DS.attr('string'),
   alternatedCellPhone: DS.attr('string'),
-  birthday: DS.attr('date'),
+
+  fullName: function() {
+    var middle = ' ' + this.get('middleName');
+    if(middle.length > 1)
+      middle = middle + ' ';
+      return this.get('firstName') + middle  + this.get('lastName');
+    }.property('firstName', 'middleName', 'lastName'),
+});
+
+App.Demographic = DS.Model.extend({
+  birthday: DS.attr('string'),
   gender: DS.attr('string'),
   height: DS.attr('number'),
   weight: DS.attr('number'),
@@ -20,26 +58,7 @@ App.Subject = DS.Model.extend({
   bloodPreasure: DS.attr('string'),
   race: DS.attr('string'),
   ethnicity: DS.attr('string'),
-  maritalStatus: DS.attr('string'),
-  //guardian: DS.belongsTo('guardian'),
-  //medications: DS.hasMany('medication'),
-  //conditions: DS.hasMany('condition'),
-  //alergies: DS.hasMany('alergy'),
-  //immunizations: DS.hasMany('immunization'),
-  //procedures: DS.hasMany('procedure'),
-
-  fullName: function() {
-    var middle = ' ' + this.get('middleName');
-    if(middle.length > 1)
-      middle = middle + ' ';
-    return this.get('firstName') + middle  + this.get('lastName');
-  }.property('firstName', 'middleName', 'lastName'),
-
- /* age: function(){
-    var ageDifMs = Date.now() - this.get('birthday').getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }.property('birthday')*/
+  maritalStatus: DS.attr('string')
 });
 
 App.Guardian = DS.Model.extend({
@@ -66,7 +85,7 @@ App.Condition = DS.Model.extend({
   comments: DS.attr('string')
 });
 
-App.Alergy = DS.Model.extend({
+App.Allergy = DS.Model.extend({
   name: DS.attr('string'),
   reaction: DS.attr('string'),
   reactionOn: DS.attr('date'),
