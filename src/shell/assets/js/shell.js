@@ -23,9 +23,14 @@ App.Router.map(function() {
             this.route('edit');
         });
         this.route("add");
-    });
+    });    
 
-    this.resource("dnd");
+    this.resource("protocols", function(){
+        this.resource('protocol', { path:'/:id' }, function(){
+            this.route('edit');
+        });
+        this.route("add");
+    });  
 });
 
 
@@ -82,17 +87,33 @@ App.AllergyRoute = Ember.Route.extend({
     }
 });
 
-App.DndRoute = Ember.Route.extend({
-  model: function(){
-    return {
-      inFolder: [
-        {id: 1, name: "Procedure 1"},
-        {id: 2, name: "Procedure 2"},
-        {id: 3, name: "Procedure 3"}
-      ],
-      inTrash: [
-        {id: 4, name: "Procedure 4"}
-      ]
-    };
+//Protocols
+App.ProtocolsRoute = Em.Route.extend({
+  // activate: function() {},
+  // deactivate: function() {},
+  // setupController: function(controller, model) {},
+  // renderTemplate: function() {},
+  // beforeModel: function() {},
+  // afterModel: function() {},
+  
+  model: function() {
+      return this.store.find('protocol');
   }
 });
+
+App.ProtocolRoute = Em.Route.extend({
+  // activate: function() {},
+  // deactivate: function() {},
+  // setupController: function(controller, model) {},
+  // renderTemplate: function() {},
+  // beforeModel: function() {},
+  // afterModel: function() {},
+  
+  model: function(params) {
+      return this.store.find('protocol', params.id);
+  }
+});
+
+
+
+
