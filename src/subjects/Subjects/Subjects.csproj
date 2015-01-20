@@ -86,7 +86,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleRole.cs" />
-    <Compile Include="Controllers\ProceduresController.cs" />
     <Compile Include="Controllers\MedicationsController.cs" />
     <Compile Include="Controllers\ImmunizationsController.cs" />
     <Compile Include="Controllers\GuardiansController.cs" />
@@ -121,7 +120,7 @@
   <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
-      <Project>{9ddde55c-efa2-45d6-b75f-436d01460bf3}</Project>
+      <Project>{9DDDE55C-EFA2-45D6-B75F-436D01460BF3}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Subjects.Core\Subjects.Core.csproj">

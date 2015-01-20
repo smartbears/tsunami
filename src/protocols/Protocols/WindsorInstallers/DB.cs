@@ -29,6 +29,11 @@ namespace Protocols.WindsorInstallers
                 Component.For<IProtocolRepository>()
                 .ImplementedBy<ProtocolRepository>()
                 .LifestyleSingleton());
+
+			container.Register(
+				Component.For<IProcedureRepository>()
+				.ImplementedBy<ProcedureRepository>()
+				.LifestyleSingleton());
 		}
 	}
 }

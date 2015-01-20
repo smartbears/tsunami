@@ -4,6 +4,14 @@ App = Em.Application.create({
 });
 
 App.Router.map(function() {
+
+    this.resource("protocols", function(){
+        this.resource('protocol', { path:'/:id' }, function(){
+            this.route('edit');
+        });
+        this.route("add");
+    });
+
     this.resource("procedures", function(){
         this.resource('procedure', { path:'/:id' }, function(){
             this.route('edit');
@@ -28,6 +36,23 @@ App.Router.map(function() {
     this.resource("dnd");
 });
 
+
+//Protocols
+App.ProtocolsRoute = Ember.Route.extend({
+    model: function() {
+        return this.store.find('protocol');
+    }
+});
+App.ProtocolRoute = Ember.Route.extend({
+    model: function(params) {
+        return this.store.find('protocol', params.id);
+    }
+});
+App.ProtocolsAddRoute = Ember.Route.extend({
+    model: function(){
+        return this.store.createRecord('protocol');
+    }
+});
 
 //Procedures
 App.ProceduresRoute = Ember.Route.extend({

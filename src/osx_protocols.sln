@@ -64,9 +64,6 @@ Global
 		{9D7FA907-4BF6-47CD-85E2-C0888D31CA97} = {1D3BF468-6CA2-4D3B-933F-242699F0E810}
 		{E862A246-C9DE-4381-9A30-E5F203341BF5} = {1D3BF468-6CA2-4D3B-933F-242699F0E810}
 	EndGlobalSection
-	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = subjects\Subjects\Subjects.csproj
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

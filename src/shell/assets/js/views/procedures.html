@@ -34,38 +34,6 @@
 				</form>
 		    {{/if}}
 		</div>
-		<div style="width: 170px; height: 100px; position: absolute; top: 0; right: 0;z-index:2"></div>
 		<button class="btn btn-default" {{action 'newProcedure'}}>New Procedure</button>
-	</div>
-
-	<div class="col-md-6">
-		<div class="list-group" id="listOfVisits">
-			<!-- List of visits goes here!!! -->
-		</div>
-	</div>
-
-	<div class="col-md-1">
-		<button id="buttonrare" class="btn btn-default" {{action 'newVisit'}}>New Visit</button>
-	</div>
-</div>
-
-<div class="container">
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="form-group">
-				<div class="input-group date" id="datetimepicker1">
-					<input type="text" class="form-control" />
-					<span class="input-group-addon">
-						<span class="glyphicon glyphicon-calendar"></span>
-					</span>
-
-				</div>
-			</div>
-		</div>
-		<script type="text/javascript">
-			$(function(){
-				$('#datetimepicker1').datetimepicker();
-			});
-		</script>
 	</div>
 </div>

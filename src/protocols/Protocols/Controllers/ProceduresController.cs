@@ -1,45 +1,38 @@
-using Subjects.Core;
+using Protocols.Core;
 using System.Web.Http;
-using Subjects.Data;
+using Protocols.Data;
 using System.Collections.Generic;
 using System;
-using Subjects.Helpers;
+using Protocols.Helpers;
+using Protocols.Core.Persistence;
 
-namespace Subjects.Controllers
+namespace Protocols.Controllers
 {
-	public class ProceduresController : ApiController
+	public class ProceduresController : BaseController
 	{
-		public ProcedureRepository Repository { get; set; }
+		public IProcedureRepository Repository { get; set; }
 
-		[AllowCrossSiteJson]
 		public IEnumerable<Procedure> Get()
 		{
 			return Repository.List();
 		}
 			
-		[AllowCrossSiteJson]
 		public Procedure Get(Guid id)
 		{
 			return Repository.Get(id);
 		}        
-
-        [HttpPost]
-		[AllowCrossSiteJson]
+			
 		public Procedure Post(Procedure procedure)
 		{
 			return Repository.Insert (procedure);
 		}
-
-		[HttpPut]
-		[AllowCrossSiteJson]
+			
 		public Guid Put(Procedure procedure)
 		{
             Repository.Update(procedure);
             return procedure.Id;
 		}
-
-        [HttpDelete]
-		[AllowCrossSiteJson]     
+			
         public void Delete(Guid id)
         {
 			Repository.Delete(id);

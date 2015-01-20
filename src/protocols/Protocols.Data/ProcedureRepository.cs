@@ -4,16 +4,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Subjects.Core;
+using Protocols.Core;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
 using MongoDB.Bson;
-using Subjects.Core.Persistence;
+using Protocols.Core.Persistence;
+using SharedKernel;
 
-
-namespace Subjects.Data
+namespace Protocols.Data
 {
-	public class ProcedureRepository: IRepository<Procedure>, IProcedureRepository
+	public class ProcedureRepository: IProcedureRepository
 	{
 		MongoCollection<Procedure> _collection;
 		IList<Procedure> _procedures;

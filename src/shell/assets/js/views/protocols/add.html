@@ -1,0 +1,16 @@
+<div class="form-group">
+<form class="form-horizontal" role="form">
+    <div class="col-md-4 resetHorPadding">
+        {{input value=name placeholder="Protocol name" class="form-control" }}
+    </div>
+    <br/>
+    <br/><br/><br/>
+    <div class="form-group">
+        <div class="col-md-10 resetHorPadding">
+            {{view App.DatePicker valueBinding=model.enrollmentWindow class="form-control" placeholder="Enter Enrollment date"}}
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-default" {{action "add"}}>Add</button>
+</form>
+</div>

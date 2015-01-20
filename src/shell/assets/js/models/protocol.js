@@ -1,6 +1,7 @@
 App.Protocol = DS.Model.extend({
   name: DS.attr("string"),
-  enrollmentWindow: DS.attr("date"),
+  description: DS.attr("string"),
+  enrollmentWindow: DS.attr('string'),
   //inclusions:,
   //exclusions:,
   visits: DS.hasMany('visit'),

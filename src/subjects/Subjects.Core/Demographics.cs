@@ -1,12 +1,13 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using System;
 
 namespace Subjects.Core
 {
     public class Demographics
     {
         [BsonIgnoreIfNull]
-        public BsonDateTime Birthday { get; set; }
+        public DateTime Birthday { get; set; }
         public string Gender { get; set; }
         public int Height { get; set; }
         public int Weight { get; set; }
