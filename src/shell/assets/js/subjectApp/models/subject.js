@@ -1,4 +1,4 @@
-App.Subject = DS.Model.extend({
+SubjectApp.Subject = DS.Model.extend({
   contactInformation: DS.belongsTo('contactInformation', { inverse: null}),
   demographic
   : DS.belongsTo('demographic', { inverse: null}),//DS.belongsTo('demographics'),
@@ -17,7 +17,7 @@ App.Subject = DS.Model.extend({
   }.property('birthday')*/
 });
 
-App.SubjectSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoKeyMixin, {
+SubjectApp.SubjectSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoKeyMixin, {
   attrs: {
     contactInformation: { embedded: 'always', noKey: true },
     demographics: { embedded: 'always', noKey: true },
@@ -26,7 +26,7 @@ App.SubjectSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoK
   }
 });
 
-App.ContactInformation = DS.Model.extend({
+SubjectApp.ContactInformation = DS.Model.extend({
   firstName: DS.attr('string'),
   middleName: DS.attr('string'),
   lastName: DS.attr('string'),
@@ -49,7 +49,7 @@ App.ContactInformation = DS.Model.extend({
     }.property('firstName', 'middleName', 'lastName'),
 });
 
-App.Demographic = DS.Model.extend({
+SubjectApp.Demographic = DS.Model.extend({
   birthday: DS.attr('string'),
   gender: DS.attr('string'),
   height: DS.attr('number'),
@@ -61,7 +61,7 @@ App.Demographic = DS.Model.extend({
   maritalStatus: DS.attr('string')
 });
 
-App.Guardian = DS.Model.extend({
+SubjectApp.Guardian = DS.Model.extend({
   name: DS.attr('string'),
   relationShip: DS.attr('string'),
   facilityType: DS.attr('string'),
@@ -71,7 +71,7 @@ App.Guardian = DS.Model.extend({
   phone: DS.attr('string')
 });
 
-App.Medication = DS.Model.extend({
+SubjectApp.Medication = DS.Model.extend({
   name: DS.attr('string'),
   dosage: DS.attr('string'),
   from: DS.attr('date'),
@@ -79,33 +79,21 @@ App.Medication = DS.Model.extend({
   comments: DS.attr('string')
 });
 
-App.Condition = DS.Model.extend({
+SubjectApp.Condition = DS.Model.extend({
   name: DS.attr('string'),
   since: DS.attr('date'),
   comments: DS.attr('string')
 });
 
-App.Allergy = DS.Model.extend({
+SubjectApp.Allergy = DS.Model.extend({
   name: DS.attr('string'),
   reaction: DS.attr('string'),
   reactionOn: DS.attr('date'),
   comments: DS.attr('string')
 });
 
-App.Immunization = DS.Model.extend({
+SubjectApp.Immunization = DS.Model.extend({
   name: DS.attr('string'),
   administeredOn: DS.attr('date'),
   comments: DS.attr('string')
 });
-
-/*App.Procedure = DS.Model.extend({
-  name: DS.attr('string'),
-  performedOn: DS.attr('date'),
-  comments: DS.attr('string'),
-  //visit: DS.belongsTo('visit')
-});
-
-App.Visit = DS.Model.extend({
-  name: DS.attr('string'),
-  //procedures: DS.hasMany('procedure')
-});*/

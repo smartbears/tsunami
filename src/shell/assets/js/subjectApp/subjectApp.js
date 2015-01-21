@@ -1,30 +1,23 @@
-App = Em.Application.create({
+SubjectApp = Em.Application.create({
   rootElement: $('.view-container'),
   //LOG_TRANSITIONS: true
 });
 
-App.Router.map(function() {
+SubjectApp.Router.reopen({
+  rootURL: '/subjects/'
+});
 
-  this.resource("protocols", function(){
-    this.resource('protocol', { path:'/:id' }, function(){
-      this.route('edit');
-    });
-    this.route("add");
+SubjectApp.ApplicationAdapter = DS.RESTAdapter.extend({
+  host: 'http://localhost:8082/api'
+});
+
+SubjectApp.Router.map(function() {
+
+  this.route("add");
+  this.resource('subject', { path:'/:id' }, function(){
+    this.route('edit');
   });
 
-  this.resource("procedures", function(){
-    this.resource('procedure', { path:'/:id' }, function(){
-      this.route('edit');
-    });
-    this.route("add");
-  });
-
-  this.resource("subjects", function(){
-    this.resource('subject', { path:'/:id' }, function(){
-      this.route('edit');
-    });
-    this.route("add");
-  });
 
   this.resource("allergies", function(){
     this.resource('allergy', { path:'/:id' }, function(){
@@ -36,35 +29,20 @@ App.Router.map(function() {
   this.resource("dnd");
 });
 
-
-//Procedures
-App.ProceduresRoute = Ember.Route.extend({
-  model: function() {
-    return this.store.find('procedure');
-  }
-});
-
-App.ProcedureRoute = Ember.Route.extend({
-  model: function(params) {
-    return this.store.find('procedure', params.id);
-  }
-});
-
-
 //Subjects
-App.SubjectsRoute = Ember.Route.extend({
+SubjectApp.IndexRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('subject');
   }
 });
 
-App.SubjectRoute = Ember.Route.extend({
+SubjectApp.SubjectRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find('subject', params.id);
   }
 });
 
-App.SubjectsAddRoute = Ember.Route.extend({
+SubjectApp.AddRoute = Ember.Route.extend({
   model: function(){
     return {
       contactInformation : {},
@@ -75,22 +53,22 @@ App.SubjectsAddRoute = Ember.Route.extend({
     //return this.store.createRecord('subject');
     //return null;
   }
-}); 
+});
 
 //Allergies
-App.AllergiesRoute = Ember.Route.extend({
+SubjectApp.AllergiesRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('allergy');
   }
 });
 
-App.AllergyRoute = Ember.Route.extend({
+SubjectApp.AllergyRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find('allergy', params.id);
   }
 });
 
-App.DndRoute = Ember.Route.extend({
+SubjectApp.DndRoute = Ember.Route.extend({
   model: function(){
     return {
       inFolder: [
