@@ -4,36 +4,14 @@ body {
   font-size: 22px;
 }
 body .title {
-  height: 120px;
   background-color: #3c5598;
   color: white;
 }
 body .title .container ul {
   list-style: none;
 }
-body .sidebar-nav .navbar .navbar-collapse {
-  padding: 0;
-  padding-bottom: 420px;
-  max-height: none;
-  background-color: white;
-  text-align: center;
-}
-body .sidebar-nav .navbar .navbar-collapse .btn-default {
-  margin-top: 20px;
-}
-body .sidebar-nav .navbar ul {
-  float: none;
-}
-body .sidebar-nav .navbar ul:not {
-  display: block;
-}
-body .sidebar-nav .navbar li {
-  float: none;
-  display: block;
-}
-body .sidebar-nav .navbar li a {
-  padding-top: 12px;
-  padding-bottom: 112px;
+body .navbar a {
+  color: #eff0f4;
 }
 body .file {
   background: #e3e3e3;
@@ -51,16 +29,21 @@ body .trash-active {
   background: #ff3232;
   font-weight: bold;
 }
+.protocol-title {
+  background-image: none !important;
+  color: #454545;
+  border-color: #696969 !important;
+}
 .resetHorPadding {
   padding-left: 1px;
   padding-right: 1px;
 }
 /*General Content here, available for every page */
-html,
 body {
   height: 100%;
   overflow-x: hidden;
   font-family: 'Roboto', sans-serif;
+  background-color: #eff0f4;
 }
 .drag-element {
   z-index: -3;
