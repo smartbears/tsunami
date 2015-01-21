@@ -1,4 +1,4 @@
-App.AlergyController = Ember.ObjectController.extend({
+SubjectApp.AlergyController = Ember.ObjectController.extend({
     isEditing: false,
     actions: {
         edit: function() {
@@ -19,7 +19,7 @@ App.AlergyController = Ember.ObjectController.extend({
 });
 
 
-App.AlergiesController = Ember.ObjectController.extend({
+SubjectApp.AlergiesController = Ember.ObjectController.extend({
     isSearching: false,
     actions: {
         search: function() {
@@ -44,9 +44,9 @@ App.AlergiesController = Ember.ObjectController.extend({
           this.transitionToRoute('alergies');
         }
     }
-});
+}); 
 
-App.AlergiesAddController = Ember.ObjectController.extend({
+SubjectApp.AlergiesAddController = Ember.ObjectController.extend({
     actions: {
         add: function(){
             var alergy = this.store.createRecord('alergy',
@@ -56,7 +56,7 @@ App.AlergiesAddController = Ember.ObjectController.extend({
               reactionOn: Date.now(),
               comments: this.get('comments')
             });
-            alergy.save();            
+            alergy.save();
 
             this.transitionToRoute('alergies');
         }

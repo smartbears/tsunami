@@ -1,4 +1,4 @@
-App.SubjectController = Ember.ObjectController.extend({
+SubjectApp.SubjectController = Ember.ObjectController.extend({
     isEditing: false,
     actions: {
         edit: function() {
@@ -19,7 +19,7 @@ App.SubjectController = Ember.ObjectController.extend({
 });
 
 
-App.SubjectsController = Ember.ObjectController.extend({
+SubjectApp.IndexController = Ember.ObjectController.extend({
     isSearching: false,
     actions: {
         search: function() {
@@ -54,7 +54,7 @@ App.SubjectsController = Ember.ObjectController.extend({
     }
 });
 
-App.SubjectsAddController = Ember.ObjectController.extend({
+SubjectApp.SubjectsAddController = Ember.ObjectController.extend({
     actions: {
         add: function(){
             var subject = this.store.createRecord('subject', {
