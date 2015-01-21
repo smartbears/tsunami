@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<!-- BEGIN HEAD -->
+<head>
+<meta charset="utf-8"/>
+<title>Clinical Research | Visit Configuration</title>
+<link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="assets/plugins/bootstrap-editable/bootstrap-editable/css/bootstrap-editable.css"/>
+<!-- BEGIN THEME STYLES -->
+<link href="assets/css/style.css" rel="stylesheet" type="text/css"/>
+<!-- END THEME STYLES -->
+<link rel="shortcut icon" href="favicon.ico"/>
+	<script type="text/javascript">
+	
+	</script>
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="page-header-fixed bg-grey">
+<!-- BEGIN HEADER -->
+<div class="header navbar bg-blue">
+	<!-- BEGIN TOP NAVIGATION BAR -->
+	<div class="header-inner">
+		
+		<!-- BEGIN TOP NAVIGATION MENU -->
+		<ul class="nav navbar-nav pull-right">
+			<li><a>Subject</a></li>
+			<li><a>Protocol Configuration</a></li>
+			<li><a>Finantial Protocol</a></li>
+		</ul>
+		<!-- END TOP NAVIGATION MENU -->
+	</div>
+	<!-- END TOP NAVIGATION BAR -->
+</div>
+<!-- END HEADER -->
+<div class="clearfix">
+</div>
+<!-- BEGIN CONTAINER -->
+<div class="page-container bg-grey">
+	
+	<!-- BEGIN CONTENT -->
+	<div class="page-content-wrapper col-sm-12 right">
+		<div class="page">
+		<div class="row" style="margin-left: 0px;">
+			<h1 class="title color-dark" style="display: inline-block; margin: 30px 10px 30px 30px;">I1V-MC-4590MK</h1>
+			<p class="color-dark"style=" display: inline-block; font-weight: initial;">Diabetes Melitus II con uso de Meenformin 500g</p>
+		</div>
+		<div class=" col-sm-3 col-sm-2_4">
+			<div id="" class="proceduresCont row margin-row">
+				<h4 class="procedure-title col-sm-12 bg-red">Procedures</h4>
+				<ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
+					<li class="ui-state-default draggable scroll_El"><span><a class="procedure"></a></span></li>	
+					
+				</ul>				
+				<p class="count_proc" id="number" style="display:none"> 17 procedures</p>
+				<button style="display:block" id= "proc" class="btn bg-gray addProc">+</button>
+			</div>
+		</div>
+		<div class="col-sm-3 col-sm-2_4" id="col1">
+				
+			<div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
+				<div   class= "n_visit" id= "">
+						<h4 id="" class="new-visit-title" >New Visit </h4>
+						<button  id="nV1" class="btn bg-gray bottom-0 n_visit addProc">+</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3 col-sm-2_4" id="col2">
+						
+			<div class="row margin-row nvisitPos" id="nvisit2" style="display:none">
+				<div   class= "n_visit" id= "">
+						<h4 id="" class="new-visit-title" >New Visit </h4>
+						<button  id="nV2" class="btn bg-gray bottom-0 n_visit addProc">+</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3 col-sm-2_4" id="col3">
+						
+			<div class="row margin-row nvisitPos" id="nvisit3" style="display:none">
+				<div   class= "n_visit" id= "">
+						<h4 id="" class="new-visit-title" >New Visit </h4>
+						<button  id="nV3" class="btn bg-gray n_visit bottom-0 addProc">+</button>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3 col-sm-2_4" id="col4">
+						
+			<div class="row margin-row nvisitPos" id="nvisit4" style="display:none">
+				<div class= "n_visit" id= "">
+						<h4 id="" class="new-visit-title" >New Visit </h4>
+						<button id="nV4" class="btn bg-gray bottom-0 n_visit addProc">+</button>
+				</div>
+			</div>
+		</div>
+		
+		
+		</div>
+	</div>
+	<!-- END CONTENT -->
+</div>
+<!-- END CONTAINER -->
+<!-- BEGIN FOOTER -->
+<div class="footer">
+	
+</div>
+<!-- END FOOTER -->
+
+<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+<!-- BEGIN CORE PLUGINS -->
+<!--[if lt IE 9]>
+<script src="assets/plugins/respond.min.js"></script>
+<script src="assets/plugins/excanvas.min.js"></script> 
+<![endif]-->
+<script src="assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+<!-- IMPORTANT! jquery-ui-1.10.3.custom.min.js for drag & drop support -->
+<script src="assets/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap2-typeahead.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+<script src="assets/plugins/jquery.cokie.min.js" type="text/javascript"></script>
+<script src="assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+<!-- END CORE PLUGINS -->
+<!-- BEGIN PAGE LEVEL PLUGINS -->
+<!-- BEGIN PLUGINS USED BY X-EDITABLE -->
+<script type="text/javascript" src="assets/plugins/jquery.mockjax.js"></script>
+<script type="text/javascript" src="assets/plugins/bootstrap-editable/bootstrap-editable/js/bootstrap-editable.min.js"></script>
+<!-- END X-EDITABLE PLUGIN -->
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+<script src="assets/scripts/custom/form-editable.js"></script>
+<script>
+jQuery(document).ready(function() {
+// initiate layout and plugins
+
+FormEditable.init();
+});
+</script>
+<!-- END PAGE LEVEL SCRIPTS -->
+
+</body>
+<!-- END BODY -->
+
+</html>

@@ -5,6 +5,7 @@ using Protocols.Core.Persistence;
 
 namespace Protocols.Controllers
 {
+    [AllowCrossSiteJsonAttribute]
 	public class ProtocolsController : BaseController
     {
         public IProtocolRepository Repository { get; set; }

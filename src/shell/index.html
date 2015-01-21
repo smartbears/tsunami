@@ -36,32 +36,31 @@
 </head>
 
 <body>
-  <div style="background: white;">
+  <div>
       <!--Content goes here -->
       <div class='title'>
-        <div class='container'>
-            <h2 class="pull-left">Clinical Research</h2>
-        </div>
+        <nav class="navbar">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Clinical Research</a>
+            </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="protocols">Protocols</a></li>
+                <li><a href="./index.html#/subjects">Subjects</a></li>
+              </ul>
+        </nav>
       </div>
 
       <div class="container">
         <div class="row">
-          <div class="col-xs-3 col-sm-2">
-              <div class="sidebar-offcanvas" id="sidebar" role="navigation">
-                    <div class="list-group">
-                      <a href="./index.html#/subjects" class="list-group-item">Subjects</a>
-                      <a href="./index.html#/alergies" class="list-group-item">Alergies</a>
-                      <a href="./index.html#/conditions" class="list-group-item">Conditions</a>
-                      <a href="./index.html#/guardians" class="list-group-item">Guardians</a>
-                      <a href="./index.html#/immunizations" class="list-group-item">Immunizations</a>
-                      <a href="./index.html#/medications" class="list-group-item">Medications</a>
-                      <br/>
-                      <br/>
-                      <a href="./index.html#/protocols" class="list-group-item">Protocols</a>
-                      <a href="./index.html#/procedures" class="list-group-item">Procedures</a>
-                    </div>
-              </div>
-          </div>
 
           <div class="col-md-10">
             <div class='view-container'>
@@ -76,7 +75,7 @@
       <script src="assets/js/external/ember.prod.js"></script>
       <script src="assets/js/external/ember-data.prod-v1.0.0.12.js"></script-->
       <script src="assets/js/templates.min.js"></script>
-      <script src="assets/js/shell.min.js"></script>
+      <script src="assets/js/subjectApp.min.js"></script>
   </div>
 </body>
 
