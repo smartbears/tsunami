@@ -3,10 +3,6 @@ App = Em.Application.create({
   //LOG_TRANSITIONS: true
 });
 
-App.ApplicationAdapter = DS.RESTAdapter.extend({
-  host: 'http://localhost:8082/api'
-});
-
 App.Router.map(function() {
 
   this.resource("protocols", function(){
@@ -79,7 +75,7 @@ App.SubjectsAddRoute = Ember.Route.extend({
     //return this.store.createRecord('subject');
     //return null;
   }
-});
+}); 
 
 //Allergies
 App.AllergiesRoute = Ember.Route.extend({

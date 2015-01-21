@@ -1,4 +1,4 @@
-App.ProtocolController = Ember.ObjectController.extend({
+ProtocolApp.ProtocolController = Ember.ObjectController.extend({
     isEditing: false,
     actions: {
         edit: function() {
@@ -15,7 +15,7 @@ App.ProtocolController = Ember.ObjectController.extend({
     }
 });
 
-App.ProtocolsAddController = Ember.ObjectController.extend({
+ProtocolApp.ProtocolsAddController = Ember.ObjectController.extend({
     actions: {
         add: function(){
             var protocol = this.get('model');

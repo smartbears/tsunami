@@ -1,4 +1,4 @@
-App.Protocol = DS.Model.extend({
+ProtocolApp.Protocol = DS.Model.extend({
   name: DS.attr("string"),
   description: DS.attr("string"),
   enrollmentWindow: DS.attr('string'),

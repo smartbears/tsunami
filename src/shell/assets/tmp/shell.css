@@ -38,6 +38,10 @@ body .trash-active {
   padding-left: 1px;
   padding-right: 1px;
 }
+li.active {
+  color: #eff0f4;
+  background-color: #454545;
+}
 /*General Content here, available for every page */
 body {
   height: 100%;

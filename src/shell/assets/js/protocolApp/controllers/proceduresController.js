@@ -1,4 +1,4 @@
-App.ProcedureController = Ember.ObjectController.extend({
+ProtocolApp.ProcedureController = Ember.ObjectController.extend({
     isEditing: false,
     actions: {
         edit: function() {
@@ -31,7 +31,7 @@ App.ProcedureController = Ember.ObjectController.extend({
     }
 });
 
-App.VisitController = Ember.ObjectController.extend({
+ProtocolApp.VisitController = Ember.ObjectController.extend({
     needs: ['procedures'],
     isRenamingView: false,
     actions: {
@@ -73,7 +73,7 @@ App.VisitController = Ember.ObjectController.extend({
 });
 
 
-App.ProceduresController = Ember.ObjectController.extend({
+ProtocolApp.ProceduresController = Ember.ObjectController.extend({
     isCreating: false,
     visitCount: function(){
       var visits = this.store.find('visit');
@@ -98,7 +98,7 @@ App.ProceduresController = Ember.ObjectController.extend({
             procedure.save();
 
             this.set('name', '');
-            this.set('comments', '');            
+            this.set('comments', '');
 
             this.transitionToRoute('procedures');
         },
