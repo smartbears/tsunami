@@ -97,6 +97,9 @@
     <Compile Include="WorkerRole.cs" />
     <Compile Include="Helpers\CrossSite.cs" />
     <Compile Include="Helpers\ControllerFactory.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\ProceduresController.cs" />
+    <Compile Include="Helpers\MyEmberJsonMediaTypeFormatter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config">
@@ -126,7 +129,7 @@
       <Name>SharedKernel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Protocols.Data\Protocols.Data.csproj">
-      <Project>{1f78feb1-812b-486d-9110-f43ab8239b02}</Project>
+      <Project>{1F78FEB1-812B-486D-9110-F43AB8239B02}</Project>
       <Name>Protocols.Data</Name>
     </ProjectReference>
   </ItemGroup>

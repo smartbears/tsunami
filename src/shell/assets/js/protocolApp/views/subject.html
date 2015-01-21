@@ -1,0 +1,6 @@
+<h1>Details</h1>
+{{#if isEditing}}
+  {{partial 'subject/edit'}}
+{{else}}
+  {{contactInformation.fullName}}</li> <button {{action 'edit'}}>Edit</button>
+{{/if}}

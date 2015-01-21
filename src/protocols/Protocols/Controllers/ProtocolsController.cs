@@ -5,8 +5,8 @@ using Protocols.Core.Persistence;
 
 namespace Protocols.Controllers
 {
-    [AllowCrossSiteJson]
-    public class ProtocolsController : ApiController
+    [AllowCrossSiteJsonAttribute]
+	public class ProtocolsController : BaseController
     {
         public IProtocolRepository Repository { get; set; }
 
@@ -14,5 +14,10 @@ namespace Protocols.Controllers
         {
             return Repository.List();
         }
+			
+		public Protocol Post(Protocol protocol)
+		{
+			return Repository.Insert(protocol);
+		}
     }
 }

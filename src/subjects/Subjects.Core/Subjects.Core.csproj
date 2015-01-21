@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
@@ -47,7 +47,6 @@
     <Compile Include="Guardian.cs" />
     <Compile Include="Immunization.cs" />
     <Compile Include="Medication.cs" />
-    <Compile Include="Persistence\IProcedureRepository.cs" />
     <Compile Include="Persistence\IMedicationRepository.cs" />
     <Compile Include="Persistence\IImmunizationRepository.cs" />
     <Compile Include="Persistence\IGuardianRepository.cs" />
@@ -55,7 +54,6 @@
     <Compile Include="Persistence\IRepository.cs" />
     <Compile Include="Persistence\IAlergyRepository.cs" />
     <Compile Include="Persistence\ISubjectRepository.cs" />
-    <Compile Include="Procedure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Subject.cs" />
   </ItemGroup>
@@ -64,7 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
-      <Project>{9ddde55c-efa2-45d6-b75f-436d01460bf3}</Project>
+      <Project>{9DDDE55C-EFA2-45D6-B75F-436D01460BF3}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>
   </ItemGroup>

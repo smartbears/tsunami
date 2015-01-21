@@ -86,17 +86,31 @@ module.exports = function (grunt) {
                 ],
                 dest: 'assets/js/external.min.js'
             },
-            application_scripts: {
+            subjectApp_scripts: {
                 src: [
+                    'assets/js/app.js',
                     'assets/js/mixins/*.js',
-                    'assets/js/shell.js',
-                    'assets/js/views/**/*.js',
-                    'assets/js/models/*.js',
-                    'assets/js/components/*.js',
-			'assets/js/controllers/**/*.js',
+                    'assets/js/components/**/*.js',
+                    'assets/js/subjectApp/subjectApp.js',
+                    'assets/js/subjectApp/views/**/*.js',
+                    'assets/js/subjectApp/models/*.js',
+                    'assets/js/subjectApp/components/**/*.js',
+                    'assets/js/subjectApp/controllers/**/*.js',
                 ],
-                dest: 'assets/js/shell.min.js'
-
+                dest: 'assets/js/subjectApp.min.js'
+            },
+            protocolApp_scripts: {
+              src: [
+                'assets/js/app.js',
+                'assets/js/mixins/*.js',
+                'assets/js/components/**/*.js',
+                'assets/js/protocolApp/protocolApp.js',
+                'assets/js/protocolApp/views/**/*.js',
+                'assets/js/protocolApp/models/*.js',
+                'assets/js/protocolApp/components/**/*.js',
+                'assets/js/protocolApp/controllers/**/*.js',
+              ],
+              dest: 'assets/js/protocolApp.min.js'
             }
         },
         /*emberTemplates: {
@@ -116,11 +130,12 @@ module.exports = function (grunt) {
         emberTemplates: {
           compile: {
             options: {
-              templateBasePath: "assets/js/views",
+              templateBasePath: /assets\/js\/\w+\/views\//,
               templateFileExtensions: ".html"
             },
             files: {
-              "assets/js/templates.min.js": ["assets/js/views/**/*.html"]
+              "assets/js/protocolTemplates.min.js": ["assets/js/protocolApp/views/**/*.html"],
+              "assets/js/subjectTemplates.min.js": ["assets/js/subjectApp/views/**/*.html"]
             }
           }
         },
@@ -166,14 +181,32 @@ module.exports = function (grunt) {
                 ]
             },
             emberTemplates: {
-                files: ['assets/js/views/**/*.html' ],
+                files: ['assets/js/protocolApp/views/**/*.html',  'assets/js/subjectApp/views/**/*.html'],
                 tasks: ['emberTemplates']
             },
-            application_scripts: {
-                files: ['assets/js/*.js', 'assets/js/mixins/*.js', 'assets/js/models/**/*.js', 'assets/js/views/**/*.js', 'assets/js/controllers/*.js', 'assets/js/components/*.js','!assets/js/*.min.js'],
+            subjectApp_scripts: {
+                files: [
+                            'assets/js/app.js',
+                            'assets/js/subjectApp/**/*.js',
+                            'assets/js/mixins/*.js',
+                            'assets/js/components/*.js',
+                            '!assets/js/*.min.js'
+                ],
                 tasks: [
-                    'uglify:application_scripts'
+                    'uglify:subjectApp_scripts'
                 ]
+            },
+            protocolApp_scripts: {
+              files: [
+              'assets/js/app.js',
+              'assets/js/protocolApp/**/*.js',
+              'assets/js/mixins/*.js',
+              'assets/js/components/*.js',
+              '!assets/js/*.min.js'
+              ],
+              tasks: [
+              'uglify:protocolApp_scripts'
+              ]
             }
         }
     });

@@ -10,7 +10,7 @@
 
     <title>Protocols</title>
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link href="assets/css/shell.min.css" rel="stylesheet">   
+    <link href="assets/css/shell.min.css" rel="stylesheet">
 
     <script type="text/x-handlebars" data-template-name="procedure-item">
        <div {{bind-attr class=":list-group-item view.id"}} style="font-size: 14px;">
@@ -23,42 +23,44 @@
             <div class="col-md-5">
               <div class="list-group-item list-group-item-danger" {{action 'startRenaming' on="doubleClick"}}>
                 {{#if isRenamingView}}
-                  {{input value=label class="form-control" placeholder="Enter label..." insert-newline="doneRenaming" focus-out="doneRenaming" id="inputEditVisit" }} 
+                  {{input value=label class="form-control" placeholder="Enter label..." insert-newline="doneRenaming" focus-out="doneRenaming" id="inputEditVisit" }}
                 {{else}}
                   {{label}}
                   <button type="button" class="close" aria-hidden="true" {{action 'destroyVisit' view.elementName}}>&times;</button>
-                {{/if}}                
-              </div> 
-            </div>  
+                {{/if}}
+              </div>
+            </div>
         {{/drop-element}}
     </script>
 
 </head>
 
 <body>
-  <div style="background: white;">
+  <div>
       <!--Content goes here -->
       <div class='title'>
-        <div class='container'>
-            <h2 class="pull-left">Clinical Research</h2>
-        </div>
+        <nav class="navbar">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a class="navbar-brand" href="#">Clinical Research</a>
+            </div>
+
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="protocols">Protocols</a></li>
+                <li><a href="./index.html#/subjects">Subjects</a></li>
+              </ul>
+        </nav>
       </div>
 
       <div class="container">
         <div class="row">
-          <div class="col-xs-3 col-sm-2">
-              <div class="sidebar-offcanvas" id="sidebar" role="navigation">
-                    <div class="list-group">
-                      <a href="./index.html#/subjects" class="list-group-item">Subjects</a>
-                      <a href="./index.html#/alergies" class="list-group-item">Alergies</a>
-                      <a href="./index.html#/conditions" class="list-group-item">Conditions</a>
-                      <a href="./index.html#/guardians" class="list-group-item">Guardians</a>
-                      <a href="./index.html#/immunizations" class="list-group-item">Immunizations</a>
-                      <a href="./index.html#/medications" class="list-group-item">Medications</a>
-                      <a href="./index.html#/procedures" class="list-group-item">Procedures</a>
-                    </div>
-              </div>
-          </div>
 
           <div class="col-md-10">
             <div class='view-container'>
@@ -66,16 +68,14 @@
           </div>
         </div>
 
-        
-
       </div>
-       
-      <script src="assets/js/external.min.js"></script>   
+
+      <script src="assets/js/external.min.js"></script>
       <!--<script src="assets/js/external/handlebars-v2.0.0.js"></script>
       <script src="assets/js/external/ember.prod.js"></script>
       <script src="assets/js/external/ember-data.prod-v1.0.0.12.js"></script-->
       <script src="assets/js/templates.min.js"></script>
-      <script src="assets/js/shell.min.js"></script>
+      <script src="assets/js/subjectApp.min.js"></script>
   </div>
 </body>
 

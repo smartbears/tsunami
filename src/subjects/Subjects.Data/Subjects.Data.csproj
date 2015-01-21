@@ -41,7 +41,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConditionRepository.cs" />
-    <Compile Include="ProcedureRepository.cs" />
     <Compile Include="MedicationRepository.cs" />
     <Compile Include="ImmunizationRepository.cs" />
     <Compile Include="GuardianRepository.cs" />
@@ -52,11 +51,11 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\..\SharedKernel\SharedKernel.csproj">
-      <Project>{9ddde55c-efa2-45d6-b75f-436d01460bf3}</Project>
+      <Project>{9DDDE55C-EFA2-45D6-B75F-436D01460BF3}</Project>
       <Name>SharedKernel</Name>
     </ProjectReference>
     <ProjectReference Include="..\Subjects.Core\Subjects.Core.csproj">
-      <Project>{9d7fa907-4bf6-47cd-85e2-c0888d31ca97}</Project>
+      <Project>{9D7FA907-4BF6-47CD-85E2-C0888D31CA97}</Project>
       <Name>Subjects.Core</Name>
     </ProjectReference>
   </ItemGroup>

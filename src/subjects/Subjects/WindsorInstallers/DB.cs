@@ -48,10 +48,6 @@ namespace Subjects.WindsorInstallers
             //container.Register(Classes.FromAssemblyContaining(typeof(MedicationRepository))
             //  .BasedOn<MedicationRepository>()
             //  .LifestyleSingleton());
-
-            container.Register(Classes.FromAssemblyContaining(typeof(ProcedureRepository))
-              .BasedOn<ProcedureRepository>()
-              .LifestyleSingleton());
         }
 	}
 }
