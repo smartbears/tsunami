@@ -1,7 +1,7 @@
 //The file name starts with z because all the models need to be created before this
 //code is executed.
 
-App.Subject.reopenClass({
+SubjectApp.Subject.reopenClass({
   FIXTURES:[
     {
         id:1,
