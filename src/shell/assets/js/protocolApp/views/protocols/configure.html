@@ -1,22 +1,21 @@
 <!-- BEGIN CONTENT -->
-<div class="page-content-wrapper col-sm-12 right" style="margin-left: 0px;">
-    <div class="page">
-        <div class="row">
+<div class="page-content-wrapper col-sm-12 right">
+    <div id="protocol-container" class="page">
+        <div class="resetHorMargin row">
             <h1 class="protocol-title">{{name}}</h1>
-            <p>{{description}}</p>
+            <p class="protocol-description">{{description}}</p>
         </div>
-        <div class="col-sm-3 col-sm-2_4">
+        <div class="col-sm-2">
           <div class="proceduresCont row margin-row">
-            <h4 class="procedure-title col-sm-12 bg-red">Procedures</h4>
+            <h4 class="procedure-title col-sm-12">Procedures</h4>
             <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
               <li class="ui-state-default draggable scroll_El"><span><a class="procedure"></a></span></li>
 
             </ul>
-            <p class="count_proc" id="number" style="display:none"> 17 procedures</p>
             <button style="display:block" id= "proc" class="btn bg-gray addProc">+</button>
           </div>
         </div>
-        <div class="col-sm-3 col-sm-2_4" id="col1">
+        <div class="col-sm-2" id="col1">
           <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
             <div   class= "n_visit" id= "">
               <h4 id="" class="new-visit-title" >New Visit </h4>

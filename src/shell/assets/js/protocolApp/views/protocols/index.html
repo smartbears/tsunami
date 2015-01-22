@@ -9,7 +9,7 @@
     <tbody>
         {{#each item in model itemController="protocol"}}
         <tr {{bind-attr id="item.id" }}>
-            <td>{{#link-to 'protocol' item}}{{item.name}}{{/link-to}}</td>
+            <td>{{#link-to 'protocols.configure' item}}{{item.name}}{{/link-to}}</td>
             <td><a href="#" {{action "delete" }}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>
         {{else}}
