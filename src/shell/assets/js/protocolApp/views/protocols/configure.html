@@ -4,52 +4,49 @@
         <div class="resetHorMargin row">
             <h1 class="protocol-title">{{name}}</h1>
             <p class="protocol-description">{{description}}</p>
+            <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
         </div>
         <div class="col-sm-2">
           <div class="proceduresCont row margin-row">
             <h4 class="procedure-title col-sm-12">Procedures</h4>
             <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
-              <li class="ui-state-default draggable scroll_El"><span><a class="procedure"></a></span></li>
-
+              {{#each procedure in procedures}}
+              {{#drag-element item=procedure.name elementName='num' dragType='visits'}}
+              <li class="ui-state-default scroll_El">
+                <span>
+                  {{#unless procedure.isEditing}}
+                    <a class="add-new-proc" href="#" {{action "rename_procedure" procedure}}>
+                      {{procedure.name}}
+                    </a></span>
+                  {{else}}
+                    {{input value=procedure.name placeholder="New Procedure"}}
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                  {{/unless}}
+                </li>
+                {{/drag-element}}
+              {{/each}}
             </ul>
-            <button style="display:block" id= "proc" class="btn bg-gray addProc">+</button>
+            <button style="display:block" id= "proc" class="btn bg-gray addProc" {{action "add_procedure"}}>+</button>
           </div>
         </div>
+
+        {{#each visit in visits itemController="visit"}}
+        {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
         <div class="col-sm-2" id="col1">
           <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
             <div   class= "n_visit" id= "">
-              <h4 id="" class="new-visit-title" >New Visit </h4>
+              <h4 id="" class="new-visit-title" >{{visit.label}}</h4>
               <button  id="nV1" class="btn bg-gray bottom-0 n_visit addProc">+</button>
+              <div class="list-group" id="listone">
+                {{#each visitProc in visit.procedures}}
+                  <div class="list-group-item">{{visitProc}}</div>
+                {{/each}}
+              </div>
             </div>
           </div>
         </div>
-        <div class="col-sm-3 col-sm-2_4" id="col2">
-
-          <div class="row margin-row nvisitPos" id="nvisit2" style="display:none">
-            <div   class= "n_visit" id= "">
-              <h4 id="" class="new-visit-title" >New Visit </h4>
-              <button  id="nV2" class="btn bg-gray bottom-0 n_visit addProc">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-sm-2_4" id="col3">
-
-          <div class="row margin-row nvisitPos" id="nvisit3" style="display:none">
-            <div   class= "n_visit" id= "">
-              <h4 id="" class="new-visit-title" >New Visit </h4>
-              <button  id="nV3" class="btn bg-gray n_visit bottom-0 addProc">+</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-sm-2_4" id="col4">
-
-          <div class="row margin-row nvisitPos" id="nvisit4" style="display:none">
-            <div class= "n_visit" id= "">
-              <h4 id="" class="new-visit-title" >New Visit </h4>
-              <button id="nV4" class="btn bg-gray bottom-0 n_visit addProc">+</button>
-            </div>
-          </div>
-        </div>
+        {{/drop-element}}
+        {{/each}}
     </div>
 </div>
 <!-- END CONTENT -->

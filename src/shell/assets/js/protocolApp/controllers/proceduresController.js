@@ -1,5 +1,6 @@
 ProtocolApp.ProcedureController = Ember.ObjectController.extend({
     isEditing: false,
+    aa: "test",
     actions: {
         edit: function() {
           this.set('isEditing', true);

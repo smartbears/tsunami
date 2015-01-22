@@ -26,6 +26,9 @@ ProtocolApp.Router.map(function() {
   });
 });
 
+ProtocolApp.DragElementComponent = App.DragElementComponent;
+ProtocolApp.DropElementComponent = App.DropElementComponent;
+
 //Protocols
 ProtocolApp.ProtocolsIndexRoute = Ember.Route.extend({
   model: function() {
@@ -34,7 +37,15 @@ ProtocolApp.ProtocolsIndexRoute = Ember.Route.extend({
 });
 ProtocolApp.ProtocolsConfigureRoute = Ember.Route.extend({
   model: function(params) {
-    return this.store.find('protocol', params.id);
+    var store = this.store;
+    return store.find('protocol', params.id).then(function(p){
+      var visits = p.get("visits");
+      if(visits.length == 0){
+        var visit = store.createRecord('visit', {label:"New Visit", number:0});
+        p.get("visits").pushObject(visit);
+      }
+      return p;
+    });
   }
 });
 ProtocolApp.ProtocolsAddRoute = Ember.Route.extend({

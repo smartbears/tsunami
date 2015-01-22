@@ -118,6 +118,14 @@ body .trash-active {
   margin-bottom: 0;
   margin-top: 10px;
 }
+.add-new-proc {
+  text-decoration: none;
+  font-style: italic;
+  text-shadow: none !important;
+  color: #5B5F6F !important;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+}
 li.active {
   color: #eff0f4;
   background-color: #696969;

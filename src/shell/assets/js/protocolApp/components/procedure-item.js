@@ -1,2 +1,2 @@
-App.ProcedureItemView = Ember.View.extend({  
+ProtocolApp.ProcedureItemView = Ember.View.extend({  
 });
