@@ -4,6 +4,14 @@ ProtocolApp.Protocol = DS.Model.extend({
   enrollmentWindow: DS.attr('string'),
   //inclusions:,
   //exclusions:,
-  visits: DS.hasMany('visit'),
-  //unscheduledVisits: DS.hasMany('visit')
+  visits: DS.hasMany('visit', {inverse: null}),
+  procedures: DS.hasMany('procedure', {inverse: null}),
+  //unscheduledVisits: DS.hasMany('visit'),
+});
+
+ProtocolApp.ProtocolSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoKeyMixin, {
+  attrs: {
+    visits: { embedded: 'always', noKey: true },
+    procedures: { embedded: 'always', noKey: true },
+  }
 });
