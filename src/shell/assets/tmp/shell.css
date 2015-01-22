@@ -10,8 +10,18 @@ body .title {
 body .title .container ul {
   list-style: none;
 }
-body .navbar a {
-  color: #eff0f4;
+body .navbar-header a {
+  color: #d0d4df;
+}
+body .nav a {
+  color: #d0d4df;
+  font-size: 14px !important;
+  font-weight: 700;
+  font-family: 'Lato', sans-serif;
+}
+body .nav a:hover {
+  color: #f04a5e !important;
+  background-color: #3c5498;
 }
 body .file {
   background: #e3e3e3;
@@ -29,18 +39,88 @@ body .trash-active {
   background: #ff3232;
   font-weight: bold;
 }
+#protocol-container {
+  font-size: 12px;
+}
 .protocol-title {
   background-image: none !important;
-  color: #454545;
+  color: #696969;
+  border-color: #696969 !important;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold !important;
+  margin: 30px 10px 30px 20px;
+  text-transform: uppercase;
+  display: inline-block;
+}
+.protocol-description {
+  display: inline-block;
+  font-weight: initial;
+  background-image: none !important;
+  color: #696969;
   border-color: #696969 !important;
 }
-.resetHorPadding {
-  padding-left: 1px;
-  padding-right: 1px;
+.proceduresCont {
+  position: relative;
+}
+.procedure-title {
+  background-image: none !important;
+  background-color: #f04a5e !important;
+  border-color: #f04a5e !important;
+  color: #fff !important;
+  margin-bottom: 0px;
+  text-transform: uppercase;
+  padding: 10px;
+  font-weight: bold !important;
+  font-family: 'Lato', sans-serif;
+}
+.connectedSortable {
+  min-height: 20px;
+  margin: 0;
+  padding: 0px 0 0 0;
+  float: left;
+  margin-right: 10px;
+  background-color: #fff;
+  min-width: 100%;
+}
+.connectedSortable li,
+.sortable2 li {
+  margin: 0 0px 0px 0px;
+  padding: 5px 5px 5px 20px;
+  list-style-position: inside;
+  border-bottom: 1px solid #eff0f4;
+  background-color: #fff;
+}
+.addProc {
+  position: absolute !important;
+  bottom: -30px;
+  right: 0;
+  background-color: #fff;
+  font-size: 17px;
+  font-weight: bold;
+  color: #c3c5ca;
+}
+.n_visit {
+  position: relative;
+  background-color: #ebebeb;
+  color: #696969 !important;
+}
+.bottom-0 {
+  bottom: 0px !important;
+}
+.margin-row {
+  margin: 0px 0px 45px 0px !important;
+}
+.new-visit-title {
+  text-transform: uppercase;
+  padding: 10px;
+  font-family: 'Lato', sans-serif;
+  font-weight: bold !important;
+  margin-bottom: 0;
+  margin-top: 10px;
 }
 li.active {
   color: #eff0f4;
-  background-color: #454545;
+  background-color: #696969;
 }
 /*General Content here, available for every page */
 body {
@@ -60,4 +140,12 @@ body {
   color: white;
   background-color: gray;
   opacity: 1;
+}
+.resetHorPadding {
+  padding-left: 1px;
+  padding-right: 1px;
+}
+.resetHorMargin {
+  margin-left: 1px;
+  margin-right: 1px;
 }
