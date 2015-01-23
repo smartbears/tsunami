@@ -12,8 +12,11 @@ ProtocolApp.ApplicationAdapter = DS.RESTAdapter.extend({
 });
 
 ProtocolApp.Router.map(function() {
-  this.route('configure', {path: '/:id'});
-  this.route("add");
+  this.resource('protocols', {path: '/'}, function(){
+    this.route('configure', {path: '/:id'});
+    this.route("add", {path:'/add'});
+  });
+
 
   this.resource("procedures", function(){
     this.resource('procedure', { path:'/:id' }, function(){
@@ -23,24 +26,29 @@ ProtocolApp.Router.map(function() {
   });
 });
 
-ProtocolApp.ApplicationRoute = Ember.Route.extend({
-  model: function() {
-    return this.store.find('protocol');
-  }
-});
+ProtocolApp.DragElementComponent = App.DragElementComponent;
+ProtocolApp.DropElementComponent = App.DropElementComponent;
 
 //Protocols
-ProtocolApp.IndexRoute = Ember.Route.extend({
+ProtocolApp.ProtocolsIndexRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('protocol');
   }
 });
-ProtocolApp.IndexConfigureRoute = Ember.Route.extend({
+ProtocolApp.ProtocolsConfigureRoute = Ember.Route.extend({
   model: function(params) {
-    return this.store.find('protocol', params.id);
+    var store = this.store;
+    return store.find('protocol', params.id).then(function(p){
+      var visits = p.get("visits");
+      if(visits.length == 0){
+        var visit = store.createRecord('visit', {label:"New Visit", number:0});
+        p.get("visits").pushObject(visit);
+      }
+      return p;
+    });
   }
 });
-ProtocolApp.IndexAddRoute = Ember.Route.extend({
+ProtocolApp.ProtocolsAddRoute = Ember.Route.extend({
   model: function(){
     return this.store.createRecord('protocol');
   }
