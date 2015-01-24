@@ -7,9 +7,11 @@ ProtocolApp.Router.reopen({
   rootURL: '/protocols/'
 });
 
-ProtocolApp.ApplicationAdapter = DS.RESTAdapter.extend({
+/*ProtocolApp.ApplicationAdapter = DS.RESTAdapter.extend({
   host: 'http://localhost:8081/api'
-});
+});*/
+
+ProtocolApp.ApplicationAdapter = DS.FixtureAdapter.extend({});
 
 ProtocolApp.Router.map(function() {
   this.resource('protocols', {path: '/'}, function(){
@@ -37,15 +39,7 @@ ProtocolApp.ProtocolsIndexRoute = Ember.Route.extend({
 });
 ProtocolApp.ProtocolsConfigureRoute = Ember.Route.extend({
   model: function(params) {
-    var store = this.store;
-    return store.find('protocol', params.id).then(function(p){
-      var visits = p.get("visits");
-      if(visits.length == 0){
-        var visit = store.createRecord('visit', {label:"New Visit", number:0});
-        p.get("visits").pushObject(visit);
-      }
-      return p;
-    });
+    return this.store.find('protocol', params.id);
   }
 });
 ProtocolApp.ProtocolsAddRoute = Ember.Route.extend({

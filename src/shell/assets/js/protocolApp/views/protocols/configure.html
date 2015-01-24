@@ -30,23 +30,42 @@
           </div>
         </div>
 
-        {{#each visit in visits itemController="visit"}}
-        {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
-        <div class="col-sm-2" id="col1">
-          <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
-            <div   class= "n_visit" id= "">
-              <h4 id="" class="new-visit-title" >{{visit.label}}</h4>
-              <button  id="nV1" class="btn bg-gray bottom-0 n_visit addProc">+</button>
-              <div class="list-group" id="listone">
-                {{#each visitProc in visit.procedures}}
-                  <div class="list-group-item">{{visitProc}}</div>
-                {{/each}}
+        <div class="col-sm-10">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="row">
+            {{#each visit in visits itemController="visit"}}
+            {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
+            <div class="col-sm-3" id="col1">
+              <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
+                <div   class= "n_visit" id= "">
+                  <h4 id="" class="new-visit-title" >{{visit.label}}</h4>
+                  <div class="list-group" id="listone">
+                    {{#each visitProc in visit.procedures}}
+                      <div class="list-group-item">{{visitProc}}</div>
+                    {{/each}}
+                  </div>
+                </div>
+              </div>
+            </div>
+            {{/drop-element}}
+            {{#ifIsNthItem startAt=3 nth=4}}
+              <div class="clearfix"></div>
+            {{/ifIsNthItem}}
+            {{/each}}
+
+            <div class="col-sm-3" id="col1">
+              <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
+                <div   class= "n_visit" id= "">
+                  <h4 id="" class="new-visit-title" >NEW VISIT</h4>
+                  <button  id="nV1" class="btn bg-gray bottom-0 n_visit addProc" {{action "add_visit"}}>+</button>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        {{/drop-element}}
-        {{/each}}
+      </div>
+      </div>
     </div>
 </div>
 <!-- END CONTENT -->
