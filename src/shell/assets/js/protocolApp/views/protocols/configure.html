@@ -9,8 +9,15 @@
         {{else}}
             <h1 class="protocol-title" {{action "editName"}}>{{name}}</h1>            
         {{/if}}
+
+        {{#if isEditingDescription}}
+            <p class="protocol-description">
+              {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}} 
+            </p>
+        {{else}}
+            <p class="protocol-description" {{action "editDescription"}}>{{description}}</p>
+        {{/if}}             
             
-            <p class="protocol-description">{{description}}</p>
             <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
         </div>
         <div class="col-sm-2">

@@ -1,5 +1,6 @@
 ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
   isEditingName: false,
+  isEditingDescription: false,
   actions: {
     editName: function () {
       this.set("isEditingName", true);       
@@ -7,6 +8,14 @@ ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
 
     updateName: function () {
       this.set("isEditingName", false);       
+    },
+
+    editDescription: function () {
+      this.set("isEditingDescription", true);       
+    },
+
+    updateDescription: function () {
+      this.set("isEditingDescription", false);       
     },
 
     add_procedure: function(){
