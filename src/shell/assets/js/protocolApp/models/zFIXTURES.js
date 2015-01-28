@@ -3,8 +3,8 @@
 
 ProtocolApp.Protocol.reopenClass({
   FIXTURES:[
-    {id:1, name: "L1V-MC-4590MK"},
-    {id:2, name: "L2V-UI-3510MK"},
+  {id:1, name: "L1V-MC-4590MK", procedures: [1,2,3,4,5]},
+  {id:2, name: "L2V-UI-3510MK"},
   ]
 });
 
