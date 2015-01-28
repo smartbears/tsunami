@@ -47,23 +47,27 @@
             <div class="col-sm-12">
               <div class="row">
             {{#each visit in visits itemController="visit"}}
-             
+
+
               {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
               <div class="col-sm-3" id="col1">
-                <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
-                  <div   class= "n_visit" id= "">
-                    <h4 id="" class="new-visit-title" >{{visit.label}}</h4>
-                    <div class="list-group">
-                      {{#each visitProc in visit.procedures itemController="procedure"}}
+                <div id="visit1" class=" visit row margin-row">
+                  <h4 class="visit-title procedure col-sm-12">{{visit.label}}</h4>
+                  <ul class="connectedSortable col-sm-12">
+                    {{#each visitProc in visit.procedures itemController="procedure"}}
                         {{#unless visitProc.isEditingName}}
-                          <div class="list-group-item" {{action "editName"}}>{{visitProc.name}}</div>
+                          <li class="ui-state-default ">
+                            <a class="procedure editable-click editable-empty">{{visitProc.name}}</a>
+                          </li>
                         {{else}}
-                          {{input class="list-group-item" value=visitProc.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}                      
+                          <li class="ui-state-default ">                            
+                            {{input class="procedure editable editable-click editable-empty" value=visitProc.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}} 
+                          </li>                                               
                         {{/unless}}
-                        
-                      {{/each}}
-                    </div>
-                  </div>
+                    {{/each}}                    
+                  </ul>
+                  <p class="count_proc" id="" style="display:block"> 17 procedures</p>
+                  <button style="display:block" class="btn bg-gray  addProc">+</button>
                 </div>
               </div>
               {{/drop-element}}
