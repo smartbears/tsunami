@@ -25,7 +25,7 @@
             <h4 class="procedure-title col-sm-12">Procedures</h4>
             <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
               {{#each procedure in procedures itemController="procedure"}}
-                {{#drag-element item=procedure.name elementName='num'}}
+                {{#drag-element item=procedure.id elementName='num'}}
                 <li class="ui-state-default scroll_El">
                     {{#unless procedure.isEditingName}}
                       <span {{action "editName" procedure}}>                      
@@ -34,7 +34,7 @@
                     {{else}}
                       {{input value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}                      
                     {{/unless}}
-                  </li>
+                </li>
                 {{/drag-element}}
               {{/each}}
             </ul>
@@ -47,23 +47,31 @@
             <div class="col-sm-12">
               <div class="row">
             {{#each visit in visits itemController="visit"}}
-            {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
-            <div class="col-sm-3" id="col1">
-              <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
-                <div   class= "n_visit" id= "">
-                  <h4 id="" class="new-visit-title" >{{visit.label}}</h4>
-                  <div class="list-group" id="listone">
-                    {{#each visitProc in visit.procedures}}
-                      <div class="list-group-item">{{visitProc}}</div>
-                    {{/each}}
+             
+              {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
+              <div class="col-sm-3" id="col1">
+                <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
+                  <div   class= "n_visit" id= "">
+                    <h4 id="" class="new-visit-title" >{{visit.label}}</h4>
+                    <div class="list-group">
+                      {{#each visitProc in visit.procedures itemController="procedure"}}
+                        {{#unless visitProc.isEditingName}}
+                          <div class="list-group-item" {{action "editName"}}>{{visitProc.name}}</div>
+                        {{else}}
+                          {{input class="list-group-item" value=visitProc.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}                      
+                        {{/unless}}
+                        
+                      {{/each}}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            {{/drop-element}}
-            {{#ifIsNthItem startAt=3 nth=4}}
-              <div class="clearfix"></div>
-            {{/ifIsNthItem}}
+              {{/drop-element}}
+              
+              {{#ifIsNthItem startAt=3 nth=4}}
+                <div class="clearfix"></div>
+              {{/ifIsNthItem}}
+
             {{/each}}
 
             <div class="col-sm-3" id="col1">
