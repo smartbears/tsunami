@@ -1,37 +1,3 @@
-ProtocolApp.ProcedureController = Ember.ObjectController.extend({
-    isEditing: false,
-    aa: "test",
-    actions: {
-        edit: function() {
-          this.set('isEditing', true);
-        },
-
-        doneEditing: function() {
-          var procedure = this.get('model');
-          procedure.save().then(function(){
-            $('.' + procedure.get('id') + ' span').each(function(){
-                $(this).text(procedure.get('name'));
-            });
-          }); //Not working
-          this.set('isEditing', false);
-        },
-
-        delete: function(){
-            var procedure = this.get('model');
-             $('.' + procedure.get('id')).each(function(){
-                  $(this).fadeOut("slow",function(){
-                    $(this).remove();
-                  });
-
-              }).then(function(){
-                  procedure.destroyRecord();
-              });
-
-              this.transitionToRoute('procedures');
-        }
-    }
-});
-
 ProtocolApp.VisitController = Ember.ObjectController.extend({
     needs: ['procedures'],
     isRenamingView: false,
