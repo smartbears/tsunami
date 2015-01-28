@@ -4,6 +4,50 @@
   font-size:12px;
 }
 
+h1 small,
+h2 small,
+h3 small, 
+h4 small, 
+h5 small,
+h6 small {
+  color: #444;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold !important;
+  margin-bottom:0;
+}
+
+h1.block, 
+h2.block, 
+h3.block, 
+h4.block, 
+h5.block, 
+h6.block {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+h4{ font-weight: bolder; text-transform: uppercase; padding: 10px;}
+
+a {
+  text-shadow: none !important;
+  color: #5B5F6F !important;
+  cursor:pointer;
+  text-decoration:none;
+  border: none !important;
+}
+
+a,a:focus, a:hover, a:active {
+  outline: 0;
+}
+
 .protocol-title {
   background-image: none !important;
   color: @title-color;
@@ -39,14 +83,14 @@
   font-family: 'Lato', sans-serif;
 }
 
-.connectedSortable{
-  min-height: 20px;
-  margin: 0;
-  padding: 0px 0 0 0;
-  float: left;
-  margin-right: 10px;
-  background-color: #fff;
-  min-width: 100%;
+.connectedSortable, .sortable2 {
+min-height: 20px;
+margin: 0;
+padding: 0px 0 0 0;
+float: left;
+margin-right: 10px;
+background-color:#fff;
+min-width: 100%;
 }
 
 .connectedSortable li, .sortable2 li {
@@ -97,4 +141,61 @@
   color: #5B5F6F !important;
   font-weight: 700;
   font-family: 'Lato', sans-serif;
+}
+
+.visit-title{
+  color: #f04a5e;
+  background-color:#fff;
+  border-bottom: 1px solid #eff0f4;
+}
+.visit .form-control{
+  color: #f04a5e; 
+  background-color:#fff;
+  border-bottom: 1px solid #eff0f4; 
+  font-size:18px; 
+  font-weight: bolder; 
+  text-transform: uppercase; 
+  padding: 10px !important;
+  min-width: 100% !important;
+}
+.visit .editable-clear-x{
+    float: right;
+    top: -19px;
+    right: 15px;
+}
+.count_proc{
+  color:#c3c5ca;
+}
+.proceduresCont{
+  position:relative;
+}
+.n_visit{
+  position:relative; 
+  background-color:#ebebeb; 
+  color: #696969 !important;
+}
+.nvisitPos{ 
+  position: absolute; 
+  bottom: -95px; 
+  width:89%;
+}
+.visit{
+  position:relative;
+}
+.count_proc{
+  position: absolute;
+  bottom: -30px;
+  left: 0;
+  margin-left: 20px;
+}
+
+.editable-empty, .editable-empty:hover, .editable-empty:focus {
+  font-style: italic;
+  color: #DD1144;
+  border-bottom: none; 
+  text-decoration: none;
+}
+
+.editable-click, a.editable-click, a.editable-click:hover{
+  cursor: text;
 }
