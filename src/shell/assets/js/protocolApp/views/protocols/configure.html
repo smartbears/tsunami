@@ -2,27 +2,39 @@
 <div class="page-content-wrapper col-sm-12 right">
     <div id="protocol-container" class="page">
         <div class="resetHorMargin row">
-            <h1 class="protocol-title">{{name}}</h1>
-            <p class="protocol-description">{{description}}</p>
+        {{#if isEditingName}}
+            <h1 class="protocol-title" >
+                {{input value=name focus-out="updateName" insert-newline="updateName"}} 
+            </h1>                   
+        {{else}}
+            <h1 class="protocol-title" {{action "editName"}}>{{name}}</h1>            
+        {{/if}}
+
+        {{#if isEditingDescription}}
+            <p class="protocol-description">
+              {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}} 
+            </p>
+        {{else}}
+            <p class="protocol-description" {{action "editDescription"}}>{{description}}</p>
+        {{/if}}             
+            
             <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
         </div>
         <div class="col-sm-2">
           <div class="proceduresCont row margin-row">
             <h4 class="procedure-title col-sm-12">Procedures</h4>
             <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
-              {{#each procedure in procedures}}
-              {{#drag-element item=procedure.name elementName='num' dragType='visits'}}
-              <li class="ui-state-default scroll_El">
-                <span>
-                  {{#unless procedure.isEditing}}
-                    <a class="add-new-proc" href="#" {{action "rename_procedure" procedure}}>
-                      {{procedure.name}}
-                    </a></span>
-                  {{else}}
-                    {{input value=procedure.name placeholder="New Procedure"}}
-                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                  {{/unless}}
-                </li>
+              {{#each procedure in procedures itemController="procedure"}}
+                {{#drag-element item=procedure.name elementName='num'}}
+                <li class="ui-state-default scroll_El">
+                    {{#unless procedure.isEditingName}}
+                      <span {{action "editName" procedure}}>                      
+                        {{procedure.name}}
+                      </span>
+                    {{else}}
+                      {{input value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}                      
+                    {{/unless}}
+                  </li>
                 {{/drag-element}}
               {{/each}}
             </ul>
