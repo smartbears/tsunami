@@ -2,7 +2,14 @@
 <div class="page-content-wrapper col-sm-12 right">
     <div id="protocol-container" class="page">
         <div class="resetHorMargin row">
-            <h1 class="protocol-title">{{name}}</h1>
+        {{#if isEditingName}}
+            <h1 class="protocol-title" >
+                {{input value=name focus-out="updateName" insert-newline="updateName"}} 
+            </h1>                   
+        {{else}}
+            <h1 class="protocol-title" {{action "editName"}}>{{name}}</h1>            
+        {{/if}}
+            
             <p class="protocol-description">{{description}}</p>
             <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
         </div>

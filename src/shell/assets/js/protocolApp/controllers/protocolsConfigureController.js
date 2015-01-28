@@ -1,5 +1,14 @@
 ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
+  isEditingName: false,
   actions: {
+    editName: function () {
+      this.set("isEditingName", true);       
+    },
+
+    updateName: function () {
+      this.set("isEditingName", false);       
+    },
+
     add_procedure: function(){
       var procedure = this.store.createRecord('procedure', {name: "New Procedure"});
       this.get("procedures").pushObject(procedure);
