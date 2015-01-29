@@ -1,95 +1,97 @@
-<!-- BEGIN CONTENT -->
 <div class="page-content-wrapper col-sm-12 right">
-    <div id="protocol-container" class="page">
-        <div class="resetHorMargin row">
-        {{#if isEditingName}}
-            <h1 class="protocol-title" >
-                {{input value=name focus-out="updateName" insert-newline="updateName"}} 
-            </h1>                   
-        {{else}}
-            <h1 class="protocol-title" {{action "editName"}}>{{name}}</h1>            
-        {{/if}}
+    <div class="page">
+    <div class="row" style="margin-left: 0px;">
+      {{#if isEditingName}}
+        <h1 class="title color-dark">
+          {{input value=name focus-out="updateName" insert-newline="updateName"}}
+        </h1>
+      {{else}}
+        <h1 class="title color-dark" {{action "editName"}}>{{name}}</h1>            
+      {{/if}}
 
-        {{#if isEditingDescription}}
-            <p class="protocol-description">
+      {{#if isEditingDescription}}
+            <p class="color-dark">
               {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}} 
             </p>
         {{else}}
-            <p class="protocol-description" {{action "editDescription"}}>{{description}}</p>
-        {{/if}}             
-            
-            <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
-        </div>
-        <div class="col-sm-2">
-          <div class="proceduresCont row margin-row">
-            <h4 class="procedure-title col-sm-12">Procedures</h4>
-            <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
-              {{#each procedure in procedures itemController="procedure"}}
-                {{#drag-element item=procedure.id elementName='num'}}
-                <li class="ui-state-default scroll_El">
-                    {{#unless procedure.isEditingName}}
-                      <span {{action "editName" procedure}}>                      
-                        {{procedure.name}}
-                      </span>
-                    {{else}}
-                      {{input value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}                      
-                    {{/unless}}
-                </li>
-                {{/drag-element}}
-              {{/each}}
-            </ul>
-            <button style="display:block" id= "proc" class="btn bg-gray addProc" {{action "add_procedure"}}>+</button>
-          </div>
-        </div>
+          <p class="color-dark"style=" display: inline-block; font-weight: initial;" {{action "editDescription"}}>{{description}}</p>
+      {{/if}} 
 
-        <div class="col-sm-10">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="row">
-            {{#each visit in visits itemController="visit"}}
+      <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
+      
+    </div>
+    <div class=" col-sm-3 col-sm-2_4">
+      <div id="" class="proceduresCont row margin-row">
+        <h4 class="procedure-title col-sm-12 bg-red">Procedures</h4>
+        <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
+        {{#each procedure in procedures itemController="procedure"}}          
 
-
-              {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
-              <div class="col-sm-3" id="col1">
-                <div id="visit1" class=" visit row margin-row">
-                  <h4 class="visit-title procedure col-sm-12">{{visit.label}}</h4>
-                  <ul class="connectedSortable col-sm-12">
-                    {{#each visitProc in visit.procedures itemController="procedure"}}
-                        {{#unless visitProc.isEditingName}}
-                          <li class="ui-state-default ">
-                            <a class="procedure editable-click editable-empty">{{visitProc.name}}</a>
-                          </li>
-                        {{else}}
-                          <li class="ui-state-default ">                            
-                            {{input class="procedure editable editable-click editable-empty" value=visitProc.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}} 
-                          </li>                                               
-                        {{/unless}}
-                    {{/each}}                    
-                  </ul>
-                  <p class="count_proc" id="" style="display:block"> 17 procedures</p>
-                  <button style="display:block" class="btn bg-gray  addProc">+</button>
-                </div>
-              </div>
-              {{/drop-element}}
-              
-              {{#ifIsNthItem startAt=3 nth=4}}
-                <div class="clearfix"></div>
-              {{/ifIsNthItem}}
-
-            {{/each}}
-
-            <div class="col-sm-3" id="col1">
-              <div class="row margin-row nvisitPos" id="nvisit1" style="display:block">
-                <div   class= "n_visit" id= "">
-                  <h4 id="" class="new-visit-title" >NEW VISIT</h4>
-                  <button  id="nV1" class="btn bg-gray bottom-0 n_visit addProc" {{action "add_visit"}}>+</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+            {{#unless procedure.isEditingName}}
+              {{#drag-element item=procedure.id elementName='num'}}
+                <li class="ui-state-default draggable" {{action "editName"}}>
+                  {{procedure.name}}                
+                </li>  
+              {{/drag-element}}                    
+            {{else}}          
+              <li class="ui-state-default">          
+                {{input class="procedure" value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}} 
+              </li>                     
+            {{/unless}}
+          
+        {{else}}          
+            <li class="ui-state-default">
+              No elements found.
+            </li>  
+        {{/each}}         
+        </ul>       
+        <p class="count_proc" id="number" style="display:block"> {{proceduresCount}} procedures</p>
+        <button style="display:block" id= "proc" class=" btn bg-gray addProc"><i class="glyphicon-plus glyphicon"></i></button>
       </div>
     </div>
+    
+    {{#each visit in visits itemController="visit"}}
+      {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
+
+        <div class="col-sm-3 col-sm-2_4" id="col1">     
+          <div id="visit1" class=" visit row margin-row">
+            <div class="visit_N">
+              {{#if visit.isEditingLabel}}            
+                {{input value=visit.label placeholder="AddVisit" class="visit-title h4 col-sm-10" }}
+              {{else}}
+                <span class="visit-title h4 col-sm-10">{{visit.label}}</span>
+              {{/if}}          
+                <i class="col-sm-2 clickable glyphicon-chevron-up glyphicon collapse pull-right"></i>
+            </div>
+            <div class="visit-body">
+              <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
+                
+                <li class="ui-state-default">
+                  <input placeholder="AddProcedure" type="text" class="procedure">
+                </li>
+                
+                <p class="count_proc" id="" style="display:none"> 17 procedures</p>
+              </ul>
+              <button style="display:block" class="btn bg-gray  addProc">
+                <i class="glyphicon-plus glyphicon"></i>
+              </button>
+            </div>
+          </div>
+        </div>       
+
+      {{/drop-element}}
+    {{/each}}
+
+    <!-- PLUS BUTTON -->
+    <div class="col-sm-3 col-sm-2_4">        
+      <div class="row margin-row nvisitPos" id="nvisit1" style="display: block;">
+        <div class="n_visit" id="">
+            <h4 id="" class="new-visit-title">New Visit </h4>
+            <button id="nV1" class="btn bg-gray bottom-0 n_visit addProc" {{action "add_visit"}}>
+              <i class="glyphicon-plus glyphicon"></i>
+            </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>
-<!-- END CONTENT -->

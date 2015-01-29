@@ -1,6 +1,18 @@
 ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
   isEditingName: false,
   isEditingDescription: false,
+
+  visitCount: function(){
+    var visits = this.get('visits');
+    return visits.get('length');
+  }.property('visits.@each'),
+
+  proceduresCount: function(){   
+    var procedures = this.get('procedures');
+    return procedures.get('length');
+    //View this using then function
+  }.property('procedures.@each'),
+
   actions: {
     editName: function () {
       this.set("isEditingName", true);       
@@ -26,7 +38,8 @@ ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
       procedure.set("isEditing", true);
     },
     add_visit: function(){
-      var visit = this.store.createRecord('visit', {label:"New Visit", number:0})
+      var labelText = "Visit " + this.get('visitCount');
+      var visit = this.store.createRecord('visit', {label: labelText, number: this.get('visitCount') + 1})
       this.get("visits").pushObject(visit);
     },
     add: function(){
