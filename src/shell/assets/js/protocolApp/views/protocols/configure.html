@@ -48,6 +48,9 @@
         <button style="display:block" id= "proc" class=" btn bg-gray addProc"><i class="glyphicon-plus glyphicon"></i></button>
       </div>
     </div>
+
+      
+    
     
     {{#each visit in visits itemController="visit"}}
       {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
@@ -56,11 +59,12 @@
           <div id="visit1" class=" visit row margin-row">
             <div class="visit_N">
               {{#if visit.isEditingLabel}}            
-                {{input value=visit.label placeholder="AddVisit" class="visit-title h4 col-sm-10" }}
+                {{input value=visit.label placeholder="AddVisit" class="visit-title h4 col-sm-10" focus-out="updateLabel" insert-newline="updateLabel" }}
               {{else}}
-                <span class="visit-title h4 col-sm-10">{{visit.label}}</span>
-              {{/if}}          
-                <i class="col-sm-2 clickable glyphicon-chevron-up glyphicon collapse pull-right"></i>
+                <span class="visit-title h4 col-sm-10" {{action "editLabel"}}>{{visit.label}}</span>
+              {{/if}} 
+                
+                <span class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right"></span>              
             </div>
             <div class="visit-body">
               <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
