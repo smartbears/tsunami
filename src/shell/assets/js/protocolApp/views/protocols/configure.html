@@ -62,17 +62,20 @@
                 {{input value=visit.label placeholder="AddVisit" class="visit-title h4 col-sm-10" focus-out="updateLabel" insert-newline="updateLabel" }}
               {{else}}
                 <span class="visit-title h4 col-sm-10" {{action "editLabel"}}>{{visit.label}}</span>
-              {{/if}} 
-                
-                <span class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right"></span>              
+              {{/if}}                 
+              <i class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right"></i>              
             </div>
             <div class="visit-body">
               <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
-                
-                <li class="ui-state-default">
-                  <input placeholder="AddProcedure" type="text" class="procedure">
-                </li>
-                
+                {{#each visitProc in visit.procedures itemController="procedure"}}
+                  <li class="ui-state-default">
+                    {{#unless visitProc.isEditingName}}                    
+                      <span class="procedure" {{action "editName"}}>{{visitProc.name}}</span>                   
+                    {{else}}    
+                      {{input value=visitProc.name placeholder="Add Procedure" class="procedure" focus-out="updateName" insert-newline="updateName"}}                           
+                    {{/unless}}
+                  </li>
+                {{/each}}
                 <p class="count_proc" id="" style="display:none"> 17 procedures</p>
               </ul>
               <button style="display:block" class="btn bg-gray  addProc">
