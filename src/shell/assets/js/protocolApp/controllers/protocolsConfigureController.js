@@ -11,7 +11,7 @@ ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
     var procedures = this.get('procedures');
     return procedures.get('length');
     //View this using then function
-  }.property('procedures.@each'),
+  }.property('procedures.@each'), 
 
   actions: {
     editName: function () {

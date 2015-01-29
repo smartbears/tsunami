@@ -17,35 +17,38 @@
           <p class="color-dark"style=" display: inline-block; font-weight: initial;" {{action "editDescription"}}>{{description}}</p>
       {{/if}} 
 
-      <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
+      <button class="btn btn-primary pull-right" style="margin-top: 35px; margin-bottom: 10px;" {{action "save"}}>Save Changes</button>
       
     </div>
+    
     <div class=" col-sm-3 col-sm-2_4">
       <div id="" class="proceduresCont row margin-row">
         <h4 class="procedure-title col-sm-12 bg-red">Procedures</h4>
-        <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
-        {{#each procedure in procedures itemController="procedure"}}          
+          <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
+            {{#each procedure in procedures itemController="procedure"}}          
 
-            {{#unless procedure.isEditingName}}
-              {{#drag-element item=procedure.id elementName='num'}}
-                <li class="ui-state-default draggable" {{action "editName"}}>
-                  {{procedure.name}}                
-                </li>  
-              {{/drag-element}}                    
+                {{#unless procedure.isEditingName}}
+                  {{#drag-element item=procedure.id elementName='num'}}
+                    <li class="ui-state-default draggable" {{action "editName"}}>
+                      {{procedure.name}}                
+                    </li>  
+                  {{/drag-element}}                    
+                {{else}}          
+                  <li class="ui-state-default">          
+                    {{input class="procedure" value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}} 
+                  </li>                     
+                {{/unless}}
+              
             {{else}}          
-              <li class="ui-state-default">          
-                {{input class="procedure" value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}} 
-              </li>                     
-            {{/unless}}
-          
-        {{else}}          
-            <li class="ui-state-default">
-              No elements found.
-            </li>  
-        {{/each}}         
-        </ul>       
+                <li class="ui-state-default">
+                  No elements found.
+                </li>  
+            {{/each}}         
+          </ul>                
         <p class="count_proc" id="number" style="display:block"> {{proceduresCount}} procedures</p>
-        <button style="display:block" id= "proc" class=" btn bg-gray addProc"><i class="glyphicon-plus glyphicon"></i></button>
+        <button style="display:block" id="proc" class=" btn bg-gray addProc" {{action "add_procedure"}}>
+          <i class="glyphicon-plus glyphicon"></i>
+        </button>
       </div>
     </div>
 
@@ -54,7 +57,6 @@
     
     {{#each visit in visits itemController="visit"}}
       {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
-
         <div class="col-sm-3 col-sm-2_4" id="col1">     
           <div id="visit1" class=" visit row margin-row">
             <div class="visit_N">
@@ -66,26 +68,31 @@
               <i class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right"></i>              
             </div>
             <div class="visit-body">
-              <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
-                {{#each visitProc in visit.procedures itemController="procedure"}}
-                  <li class="ui-state-default">
-                    {{#unless visitProc.isEditingName}}                    
-                      <span class="procedure" {{action "editName"}}>{{visitProc.name}}</span>                   
-                    {{else}}    
-                      {{input value=visitProc.name placeholder="Add Procedure" class="procedure" focus-out="updateName" insert-newline="updateName"}}                           
-                    {{/unless}}
-                  </li>
-                {{/each}}
-                <p class="count_proc" id="" style="display:none"> 17 procedures</p>
-              </ul>
-              <button style="display:block" class="btn bg-gray  addProc">
+              {{#if visit.haveProcedures}}
+                <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
+                  {{#each visitProc in visit.procedures itemController="procedure"}}
+                    <li class="ui-state-default">
+                      {{#unless visitProc.isEditingName}}                    
+                        <span class="procedure" {{action "editName"}}>{{visitProc.name}}</span>                   
+                      {{else}}    
+                        {{input value=visitProc.name placeholder="Add Procedure" class="procedure" focus-out="updateName" insert-newline="updateName"}}                           
+                      {{/unless}}
+                    </li>
+                  {{/each}}
+                  <p class="count_proc pull-right" id="" style="display:block"> {{visit.proceduresCount}} procedures</p>
+                </ul>
+              {{/if}}
+              <button style="display:block" class="btn bg-gray addProc" {{action "insertNewProcedure" this}}>
                 <i class="glyphicon-plus glyphicon"></i>
               </button>
             </div>
           </div>
-        </div>       
-
+        </div>
       {{/drop-element}}
+      {{#ifIsNthItem startAt=3 nth=4}}
+        <div class="col-sm-3 col-sm-2_4"></div>
+      {{/ifIsNthItem}}
+
     {{/each}}
 
     <!-- PLUS BUTTON -->
@@ -99,6 +106,8 @@
         </div>
       </div>
     </div>
+
+    
 
   </div>
 </div>

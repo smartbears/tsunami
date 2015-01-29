@@ -1,11 +1,11 @@
 App.DragElementComponent = Ember.Component.extend({
   tagName:'div',
-  attributeBindings:['draggable', 'elementName', 'item', 'tag:tagName', 'id', 'class', 'dragType'],
+  attributeBindings:['draggable', 'elementName', 'item', 'tag:tagName', 'id', 'class'],
   draggable: 'true',
   elementName: null,
   item: null,
   dragStart: function(event) {
-    var dragType = this.get('dragType');
+    //var dragType = this.get('dragType');
 
     /*if(dragType == 'visits'){
       $(this.element).animate({ opacity: 0.25 }, 500);
