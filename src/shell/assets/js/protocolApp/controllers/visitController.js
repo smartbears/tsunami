@@ -7,10 +7,12 @@ ProtocolApp.VisitController = Ember.ObjectController.extend({
     		var procedure = this.get('controllers.protocolsConfigure')
 														.get('procedures')
 														.findBy("id", procedureId);
+
+			var id = parseInt(procedure.id);
 			if(!this.model.get("procedureIds"))
-				this.model.set("procedureIds", [procedure.id]);
-			else if(!this.model.get("procedureIds").contains(procedure.id))
-				this.model.get("procedureIds").pushObject(procedure.id);
+				this.model.set("procedureIds", [id]);
+			else if(!this.model.get("procedureIds").contains())
+				this.model.get("procedureIds").pushObject(id);
 		},
 
    	 	insertNewProcedure: function(protocol){
