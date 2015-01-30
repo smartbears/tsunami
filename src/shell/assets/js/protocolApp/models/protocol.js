@@ -12,6 +12,6 @@ ProtocolApp.Protocol = DS.Model.extend({
 ProtocolApp.ProtocolSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoKeyMixin, {
   attrs: {
     visits: { embedded: 'always', noKey: true },
-    //procedures: { embedded: 'always', noKey: true },
+    procedures: { embedded: 'always', noKey: true },
   }
 });

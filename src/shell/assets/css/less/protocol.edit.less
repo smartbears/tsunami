@@ -2,80 +2,86 @@
 
 .bg-blue {
     background-image: none !important;
-    background-color: #3c5499 !important;
-    border-color:#3c5499 !important;
+    background-color: @color-blue !important;
+    border-color: @color-blue !important;
     color: #fff !important;
 }
 .bg-red {
     background-image: none !important;
-    background-color: #f04a5e !important;
-    border-color: #f04a5e !important;
+    background-color: @color-red !important;
+    border-color: @color-red !important;
     color: #fff !important;
 }
 .bg-yellow {
     background-image: none !important;
-    background-color: #ffb848 !important;
-    border-color: #ffb848 !important;
+    background-color: @color-yellow !important;
+    border-color: @color-yellow !important;
     color: #fff !important;
 }
 .bg-green {
     background-image: none !important;
-    background-color: #35aa47 !important;
-    border-color: #35aa47 !important;
+    background-color: @color-green !important;
+    border-color: @color-green !important;
     color: #fff !important;
 }
 .bg-purple {
     background-image: none !important;
-    background-color: #852b99 !important;
-    border-color: #852b99 !important;
+    background-color: @color-purple !important;
+    border-color: @color-purple !important;
     color: #fff !important;
 }
 .bg-dark {
     background-image: none !important;
-    background-color: #696969 !important;
-    border-color: #696969 !important;
+    background-color: @color-dark !important;
+    border-color: @color-dark !important;
     color: #fff !important;
 }
 .bg-grey {
     background-image: none !important;
-    background-color: #eff0f4 !important;
-    border-color: #eff0f4 !important;
+    background-color: @color-gray !important;
+    border-color: @color-gray !important;
 }
 .color-blue {
     background-image: none !important;
-    color: #3c5499 !important;
-    border-color:#3c5499 !important;
+    color: @color-blue !important;
+    border-color: @color-blue !important;
 }
 .color-red {
     background-image: none !important;
-    color: #f04a5e !important;
-    border-color: #f04a5e !important;
+    color: @color-red !important;
+    border-color: @color-red !important;
 }
 .color-yellow {
     background-image: none !important;
-    color: #ffb848 !important;
-    border-color: #ffb848 !important;
+    color: @color-yellow !important;
+    border-color: @color-yellow !important;
 }
 .color-green {
     background-image: none !important;
-    color: #35aa47 !important;
-    border-color: #35aa47 !important;
+    color: @color-green !important;
+    border-color: @color-green !important;
 }
 .color-purple {
     background-image: none !important;
-    color: #852b99 !important;
-    border-color: #852b99 !important;
+    color: @color-purple !important;
+    border-color: @color-purple !important;
 }
 .color-dark {
     background-image: none !important;
-    color: #696969 !important;
-    border-color: #696969 !important;
+    color: @color-dark !important;
+    border-color: @color-dark !important;
 }
 .color-grey {
     background-image: none !important;
-    color: #eff0f4 !important;
-    border-color: #eff0f4 !important;
+    color: @color-gray !important;
+    border-color: @color-gray !important;
 }
+
+.color-dark-edit {
+     display: inline-block; 
+     font-weight: initial;
+}
+
 h1 small,h2 small,h3 small,h4 small,h5 small,h6 small {
     color: #444;
 }
@@ -249,15 +255,15 @@ body {
 }
 .procedures::-webkit-scrollbar {
     width: 13px;
-    background-color:#eff0f4;
+    background-color:@color-gray;
     border: 4px solid #fff;
 }
 .procedures::-webkit-scrollbar-track {
     border-radius:10px;
-    -webkit-box-shadow: 0 0 6px #eff0f4 inset;
+    -webkit-box-shadow: 0 0 6px @color-gray inset;
 }
 .procedures::-webkit-scrollbar-thumb {
-    background-color: #696969;
+    background-color: @color-dark;
     border: 4px solid #fff;
     border-radius:10px;
     border-top:1px solid #fff;
@@ -270,7 +276,7 @@ body {
     height:100%;
 }
 .visit-title {
-    color: #f04a5e;
+    color: @color-red;
     background-color:#fff;
     height: 39px;
 }
@@ -288,7 +294,7 @@ body {
 .n_visit {
     position:relative;
     background-color:#ebebeb;
-    color: #696969 !important;
+    color: @color-dark !important;
 }
 .nvisitPos {
     position: absolute;
@@ -306,7 +312,7 @@ body {
     margin-right: 10px;
     background-color:#fff;
     min-width: 100%;
-    border-top: 1px solid #eff0f4;
+    border-top: 1px solid @color-gray;
 }
 .nav {
     li {
@@ -315,7 +321,7 @@ body {
             font-size: 14px !important;
         }
         a:hover {
-            color: #f04a5e !important;
+            color: @color-red !important;
             background-color: #3c5498;
             height: 40px;
         }
@@ -325,13 +331,13 @@ body {
     margin: 0 0px 0px 0px;
     padding: 5px 5px 5px 20px;
     list-style-position: inside;
-    border-bottom: 1px solid #eff0f4;
+    border-bottom: 1px solid @color-gray;
     background-color:#fff;
     height: 30px;
 }
 .ui-draggable-dragging {
     background-color: #3c3f4f !important;
-    color: #f04a5e !important;
+    color: @color-red !important;
     z-index:9999;
     position:absolute;
     padding: 5px 5px 5px 20px;
@@ -343,28 +349,28 @@ body {
 }
 .ui-sortable-helper {
     background-color: #3c3f4f !important;
-    color: #f04a5e !important;
+    color: @color-red !important;
     width: 100%;
     input {
         color: #fff !important;
     }
 }
 .ui-draggable-dragging-ori {
-    background-color: #eff0f4 !important;
-    color: #f04a5e !important;
+    background-color: @color-gray !important;
+    color: @color-red !important;
     input {
-        color: #f04a5e !important;
+        color: @color-red !important;
     }
 }
 ul.connectedSortable {
     li:hover {
-        color: #f04a5e  !important;
+        color: @color-red  !important;
         input {
-            color: #f04a5e !important;
+            color: @color-red !important;
         }
     }
     li:focus {
-        color: #f04a5e  !important;
+        color: @color-red  !important;
     }
 }
 .count_proc_V {
@@ -440,13 +446,18 @@ input.visit-title:-ms-input-placeholder {
 .collapse {
     font-size: 12px;
     cursor: pointer;
-    color: #f04a5e;
+    color: @color-red;
     background-color: #fff;
-    border-bottom: 1px solid #eff0f4;
+    border-bottom: 1px solid @color-gray;
     padding-bottom: 12px;
     padding-top: 15px;
     margin-top: 9px;
     display: block;
     visibility: visible;
+}
+
+.save-button {
+    margin-top: 35px; 
+    margin-bottom: 10px;
 }
 

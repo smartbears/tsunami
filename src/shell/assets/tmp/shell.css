@@ -127,6 +127,10 @@
   color: #eff0f4 !important;
   border-color: #eff0f4 !important;
 }
+.color-dark-edit {
+  display: inline-block;
+  font-weight: initial;
+}
 h1 small,
 h2 small,
 h3 small,
@@ -423,13 +427,13 @@ body {
   color: #f04a5e !important;
 }
 ul.connectedSortable li:hover {
-  color: #f04a5e  !important;
+  color: #f04a5e !important;
 }
 ul.connectedSortable li:hover input {
   color: #f04a5e !important;
 }
 ul.connectedSortable li:focus {
-  color: #f04a5e  !important;
+  color: #f04a5e !important;
 }
 .count_proc_V p {
   display: block !important;
@@ -510,6 +514,10 @@ input.visit-title:-ms-input-placeholder {
   margin-top: 9px;
   display: block;
   visibility: visible;
+}
+.save-button {
+  margin-top: 35px;
+  margin-bottom: 10px;
 }
 /*li.active {
   color: @body-bg;

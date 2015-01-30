@@ -14,15 +14,15 @@
               {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}} 
             </p>
         {{else}}
-          <p class="color-dark"style=" display: inline-block; font-weight: initial;" {{action "editDescription"}}>{{description}}</p>
+          <p class="color-dark color-dark-edit" {{action "editDescription"}}>{{description}}</p>
       {{/if}} 
 
-      <button class="btn btn-primary pull-right" style="margin-top: 35px; margin-bottom: 10px;" {{action "save"}}>Save Changes</button>
+      <button class="btn btn-primary pull-right save-button" {{action "save"}}>Save Changes</button>
       
     </div>
     
-    <div class=" col-sm-3 col-sm-2_4">
-      <div id="" class="proceduresCont row margin-row">
+    <div class="col-sm-3 col-sm-2_4">
+      <div class="proceduresCont row margin-row">
         <h4 class="procedure-title col-sm-12 bg-red">Procedures</h4>
           <ul class="procedures connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
             {{#each procedure in procedures itemController="procedure"}}          
@@ -45,8 +45,8 @@
                 </li>  
             {{/each}}         
           </ul>                
-        <p class="count_proc" id="number" style="display:block"> {{proceduresCount}} procedures</p>
-        <button style="display:block" id="proc" class=" btn bg-gray addProc" {{action "add_procedure"}}>
+        <p class="count_proc" id="number"> {{proceduresCount}} procedures</p>
+        <button style="display:block" id="proc" class="btn bg-gray addProc" {{action "add_procedure"}}>
           <i class="glyphicon-plus glyphicon"></i>
         </button>
       </div>
@@ -58,7 +58,7 @@
     {{#each visit in visits itemController="visit"}}
       {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
         <div class="col-sm-3 col-sm-2_4" id="col1">     
-          <div id="visit1" class=" visit row margin-row">
+          <div id="visit1" class="visit row margin-row">
             <div class="visit_N">
               {{#if visit.isEditingLabel}}            
                 {{input value=visit.label placeholder="AddVisit" class="visit-title h4 col-sm-10" focus-out="updateLabel" insert-newline="updateLabel" }}
@@ -79,10 +79,10 @@
                       {{/unless}}
                     </li>
                   {{/each}}
-                  <p class="count_proc pull-right" id="" style="display:block"> {{visit.proceduresCount}} procedures</p>
+                  <p class="count_proc pull-right"> {{visit.proceduresCount}} procedures</p>
                 </ul>
               {{/if}}
-              <button style="display:block" class="btn bg-gray addProc" {{action "insertNewProcedure" this}}>
+              <button class="btn bg-gray addProc" {{action "insertNewProcedure" this}}>
                 <i class="glyphicon-plus glyphicon"></i>
               </button>
             </div>
@@ -97,7 +97,7 @@
 
     <!-- PLUS BUTTON -->
     <div class="col-sm-3 col-sm-2_4">        
-      <div class="row margin-row nvisitPos" id="nvisit1" style="display: block;">
+      <div class="row margin-row nvisitPos" id="nvisit1">
         <div class="n_visit" id="">
             <h4 id="" class="new-visit-title">New Visit </h4>
             <button id="nV1" class="btn bg-gray bottom-0 n_visit addProc" {{action "add_visit"}}>
