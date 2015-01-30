@@ -1,7 +1,7 @@
 ProtocolApp.ProcedureController = Ember.ObjectController.extend({
     isEditingName: false,
     temporalProcName: null,
-
+    
     actions: {
         editName: function() {
             if(this.get('name').toLowerCase() == 'new procedure')

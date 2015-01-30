@@ -13,6 +13,10 @@ ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
     //View this using then function
   }.property('procedures.@each'),
 
+  procedures: function() {
+      return this.store.find('procedure');
+  }.property('procedures'),
+
   actions: {
     editName: function () {
       this.set("isEditingName", true);
@@ -35,7 +39,7 @@ ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
       var globalProcedureList = this.get("procedures");
 
       procedure.save().then(function(){
-          globalProcedureList.pushObject(procedure);
+          
       });
 
     },

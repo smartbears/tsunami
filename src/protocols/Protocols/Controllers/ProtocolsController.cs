@@ -19,7 +19,7 @@ namespace Protocols.Controllers
 		public Protocol Get(Guid id)
 		{
 			var protocol = Repository.Get (id);
-			protocol.Procedures = Procedures.List ();
+			//protocol.Procedures = Procedures.List ();
 			return protocol;
 		}
 			
