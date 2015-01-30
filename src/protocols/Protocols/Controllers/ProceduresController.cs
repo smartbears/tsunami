@@ -27,11 +27,12 @@ namespace Protocols.Controllers
 			return Repository.Insert (procedure);
 		}
 			
-        //public Guid Put(Procedure procedure)
-        //{
-        //    Repository.Update(procedure);
-        //    return procedure.Id;
-        //}
+		public Guid Put(Guid id, Procedure procedure)
+        {	
+			procedure.Id = id;
+            Repository.Update(procedure);
+            return procedure.Id;
+        }
 			
         public void Delete(Guid id)
         {

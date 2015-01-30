@@ -7,32 +7,41 @@ ProtocolApp.ProtocolsConfigureController = Ember.ObjectController.extend({
     return visits.get('length');
   }.property('visits.@each'),
 
-  proceduresCount: function(){   
+  proceduresCount: function(){
     var procedures = this.get('procedures');
     return procedures.get('length');
     //View this using then function
-  }.property('procedures.@each'), 
+  }.property('procedures.@each'),
+
+  procedures: function() {
+      return this.store.find('procedure');
+  }.property('procedures'),
 
   actions: {
     editName: function () {
-      this.set("isEditingName", true);       
+      this.set("isEditingName", true);
     },
 
     updateName: function () {
-      this.set("isEditingName", false);       
+      this.set("isEditingName", false);
     },
 
     editDescription: function () {
-      this.set("isEditingDescription", true);       
+      this.set("isEditingDescription", true);
     },
 
     updateDescription: function () {
-      this.set("isEditingDescription", false);       
+      this.set("isEditingDescription", false);
     },
 
     add_procedure: function(){
       var procedure = this.store.createRecord('procedure', {name: "New Procedure"});
-      this.get("procedures").pushObject(procedure);
+      var globalProcedureList = this.get("procedures");
+
+      procedure.save().then(function(){
+          
+      });
+
     },
     rename_procedure: function(procedure){
       procedure.set("isEditing", true);
