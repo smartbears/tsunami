@@ -26,9 +26,7 @@ namespace Protocols
                 new { id = RouteParameter.Optional });
 
             app.UseWebApi(config);
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
-
-
+            
 			config.Formatters.Insert(0, new MyEmberJsonMediaTypeFormatter());
             //Json by Default
             config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();

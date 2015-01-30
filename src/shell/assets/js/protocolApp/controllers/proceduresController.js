@@ -13,6 +13,7 @@ ProtocolApp.ProceduresController = Ember.ObjectController.extend({
         },
 
         addProcedure: function(){
+            
             this.toggleProperty('isCreating');
             var procedure = this.store.createRecord('procedure',
             {

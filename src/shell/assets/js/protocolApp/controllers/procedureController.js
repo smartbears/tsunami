@@ -1,12 +1,22 @@
 ProtocolApp.ProcedureController = Ember.ObjectController.extend({
-    isEditingName: false,    
+    isEditingName: false,
+    temporalProcName: null,
+
     actions: {
         editName: function() {
-          this.set('isEditingName', true);
+            if(this.get('name').toLowerCase() == 'new procedure')
+                this.set('name', '');
+
+            this.set('isEditingName', true);
         },
 
         updateName: function() {
-        	this.set('isEditingName', false);        	       	
+            if(this.get('name') == '')
+                this.set('name', 'New Procedure');
+
+        	this.set('isEditingName', false);
+            var procedure = this.get('model');
+            procedure.save();
         },
 
         delete: function(){

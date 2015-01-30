@@ -1,8 +1,9 @@
-﻿namespace Protocols.Core
+﻿using SharedKernel;
+
+namespace Protocols.Core
 {
-    public class Procedure
+	public class Procedure : Entity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
