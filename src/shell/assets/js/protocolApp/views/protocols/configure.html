@@ -4,20 +4,20 @@
         <div class="resetHorMargin row">
         {{#if isEditingName}}
             <h1 class="protocol-title" >
-                {{input value=name focus-out="updateName" insert-newline="updateName"}} 
-            </h1>                   
+                {{input value=name focus-out="updateName" insert-newline="updateName"}}
+            </h1>
         {{else}}
-            <h1 class="protocol-title" {{action "editName"}}>{{name}}</h1>            
+            <h1 class="protocol-title" {{action "editName"}}>{{name}}</h1>
         {{/if}}
 
         {{#if isEditingDescription}}
             <p class="protocol-description">
-              {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}} 
+              {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}}
             </p>
         {{else}}
             <p class="protocol-description" {{action "editDescription"}}>{{description}}</p>
-        {{/if}}             
-            
+        {{/if}}
+
             <button class="btn btn-primary" {{action "save"}}>Save Changes</button>
         </div>
         <div class="col-sm-2">
@@ -28,11 +28,11 @@
                 {{#drag-element item=procedure.id elementName='num'}}
                 <li class="ui-state-default scroll_El">
                     {{#unless procedure.isEditingName}}
-                      <span {{action "editName" procedure}}>                      
+                      <span {{action "editName" procedure}}>
                         {{procedure.name}}
                       </span>
                     {{else}}
-                      {{input value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}                      
+                      {{input value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}
                     {{/unless}}
                 </li>
                 {{/drag-element}}
@@ -60,18 +60,18 @@
                             <a class="procedure editable-click editable-empty">{{visitProc.name}}</a>
                           </li>
                         {{else}}
-                          <li class="ui-state-default ">                            
-                            {{input class="procedure editable editable-click editable-empty" value=visitProc.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}} 
-                          </li>                                               
+                          <li class="ui-state-default ">
+                            {{input class="procedure editable editable-click editable-empty" value=visitProc.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}
+                          </li>
                         {{/unless}}
-                    {{/each}}                    
+                    {{/each}}
                   </ul>
                   <p class="count_proc" id="" style="display:block"> 17 procedures</p>
                   <button style="display:block" class="btn bg-gray  addProc">+</button>
                 </div>
               </div>
               {{/drop-element}}
-              
+
               {{#ifIsNthItem startAt=3 nth=4}}
                 <div class="clearfix"></div>
               {{/ifIsNthItem}}
