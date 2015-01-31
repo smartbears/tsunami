@@ -4,7 +4,7 @@ ProtocolApp.Protocol = DS.Model.extend({
   enrollmentWindow: DS.attr('string'),
   //inclusions:,
   //exclusions:,
-  visits: DS.hasMany('visit', {inverse: null}),
+  visits: DS.hasMany('visit', {inverse: null, async: true}),
   procedures: DS.hasMany('procedure', {inverse: null, async: true}),
   //unscheduledVisits: DS.hasMany('visit'),
 });

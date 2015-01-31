@@ -10,5 +10,6 @@ namespace Protocols.Core
 		public string Description { get; set; }
 		public DateTime? EnrollmentWindow { get; set;}
 		public IList<Visit> Visits { get; set; }
+        public IList<Procedure> Procedures { get; set; }
     }
 }

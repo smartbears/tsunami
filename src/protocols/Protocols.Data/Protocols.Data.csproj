@@ -47,7 +47,6 @@
   <ItemGroup>
     <Compile Include="ProtocolRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ProcedureRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -7,11 +7,11 @@ ProtocolApp.Router.reopen({
   rootURL: '/protocols/'
 });
 
-/*ProtocolApp.ApplicationAdapter = DS.RESTAdapter.extend({
+ProtocolApp.ApplicationAdapter = DS.RESTAdapter.extend({
   host: 'http://localhost:8081/api'
-});*/
+});
 
-ProtocolApp.ApplicationAdapter = DS.FixtureAdapter.extend({});
+//ProtocolApp.ApplicationAdapter = DS.FixtureAdapter.extend({});
 
 ProtocolApp.Router.map(function() {
   this.resource('protocols', {path: '/'}, function(){

@@ -21,7 +21,7 @@ ProtocolApp.VisitController = Ember.ObjectController.extend({
 			return this.get('controllers.protocolsConfigure')
 					.get('procedures')
 					.filter(function(p){
-						return procIds.contains(p.id)
+						return procIds.contains(parseInt(p.id))
 					});
 		}.property("model.procedureIds.@each")
 });
