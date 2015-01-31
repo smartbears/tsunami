@@ -3,19 +3,27 @@
 
 ProtocolApp.Protocol.reopenClass({
   FIXTURES:[
-  {id:1, name: "L1V-MC-4590MK", description:"Diabetes Melitus II con uso de Meenformin 500g.", procedures: [1,2,3,4,5]},
+  {id:1, name: "L1V-MC-4590MK", description:"Diabetes Melitus II con uso de Meenformin 500g.",
+    procedures: [1,2,3,4,5],
+    visits: [1,2]
+  },
   {id:2, name: "L2V-UI-3510MK"},
   ]
 });
 
-ProtocolApp.Visit.reopenClass()
+ProtocolApp.Visit.reopenClass({
+  FIXTURES:[
+    {id:1, label: "Enrollment", procedureIds: [1,2], type: "visit"},
+    {id:2, label: "Visit1", procedureIds: [1], type: "visit"}
+  ]
+});
 
 ProtocolApp.Procedure.reopenClass({
   FIXTURES:[
-    {id:1, name:"Measure presure", performedOn:null , comments:"This is test comment1"},
-    {id:2, name:"Breath checking", performedOn:null , comments:"This is test comment2"},
-    {id:3, name:"X rays", performedOn:null , comments:"This is test comment3"},
-    {id:4, name:"Height", performedOn:null , comments:"This is test comment4"},
-    {id:5, name:"Electrocardiogram", comments: ""}
+    {id:1, name:"Measure presure"},
+    {id:2, name:"Breath checking"},
+    {id:3, name:"X rays"},
+    {id:4, name:"Height"},
+    {id:5, name:"Electrocardiogram"}
   ]
 });
