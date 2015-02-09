@@ -7,9 +7,11 @@ SubjectApp.Router.reopen({
   rootURL: '/subjects/'
 });
 
-SubjectApp.ApplicationAdapter = DS.RESTAdapter.extend({
+/*SubjectApp.ApplicationAdapter = DS.RESTAdapter.extend({
   host: 'http://localhost:8082/api'
-});
+});*/
+
+SubjectApp.ApplicationAdapter = DS.FixtureAdapter.extend({});
 
 SubjectApp.Router.map(function() {
 
