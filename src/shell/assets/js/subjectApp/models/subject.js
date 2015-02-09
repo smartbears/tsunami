@@ -1,7 +1,6 @@
 SubjectApp.Subject = DS.Model.extend({
   contactInformation: DS.belongsTo('contactInformation', { inverse: null}),
-  demographic
-  : DS.belongsTo('demographic', { inverse: null}),//DS.belongsTo('demographics'),
+  demographic  : DS.belongsTo('demographic', { inverse: null}),//DS.belongsTo('demographics'),
   guardian: DS.belongsTo('guardian', { inverse: null}),//DS.belongsTo('guardian', {inverse:null}),
   //medications: DS.hasMany('medication'),
   //conditions: DS.hasMany('condition'),
