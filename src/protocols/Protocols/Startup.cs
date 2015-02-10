@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using Newtonsoft.Json.Converters;
 using Newtonsoft.Json.Serialization;
 using Owin;
@@ -26,7 +27,9 @@ namespace Protocols
                 new { id = RouteParameter.Optional });
 
             app.UseWebApi(config);
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+
+            if(Environment.OSVersion.Platform != PlatformID.MacOSX)
+                config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
 
 			config.Formatters.Insert(0, new MyEmberJsonMediaTypeFormatter());
