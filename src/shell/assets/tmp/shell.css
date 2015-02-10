@@ -673,6 +673,12 @@ input.visit-title:-ms-input-placeholder {
   color: @body-bg;
   background-color: @title-color;
 }*/
+.page-container {
+  top: 50px;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+}
 /*General Content here, available for every page */
 /*body {
     height: 100%;
