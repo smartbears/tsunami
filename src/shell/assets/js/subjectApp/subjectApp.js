@@ -15,7 +15,10 @@ SubjectApp.ApplicationAdapter = DS.FixtureAdapter.extend({});
 
 SubjectApp.Router.map(function() {
 
-  this.route("add");
+    this.resource('subjects', {path: '/'}, function(){
+      this.route("add", {path:'/add'});
+    });
+
   this.resource('subject', { path:'/:id' }, function(){
     this.route('edit');
   });
@@ -44,7 +47,7 @@ SubjectApp.SubjectRoute = Ember.Route.extend({
   }
 });
 
-SubjectApp.AddRoute = Ember.Route.extend({
+SubjectApp.SubjectsAddRoute = Ember.Route.extend({
   model: function(){
     return {
       contactInformation : {},
