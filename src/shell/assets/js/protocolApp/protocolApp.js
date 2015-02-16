@@ -40,6 +40,13 @@ ProtocolApp.ProtocolsIndexRoute = Ember.Route.extend({
 ProtocolApp.ProtocolsConfigureRoute = Ember.Route.extend({
   model: function(params) {
     return this.store.find('protocol', params.id);
+  },
+  setupController: function(controller, model) {
+    controller.set("model", model);
+    if (Em.isEmpty(model.get("visits"))) {
+        //This is where we find the full Protocol Object
+        model.reload();
+    }
   }
 });
 ProtocolApp.ProtocolsAddRoute = Ember.Route.extend({
