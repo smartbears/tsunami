@@ -112,41 +112,108 @@ body {
     position: fixed;
 }
 
+/*FOOTER*/
 .footer {
-    padding: 8px 20px 5px 20px;
-    font-size: 12px;
-    position: fixed;
-    bottom: 0px;
-    z-index: 9999;
-    width: 100%;
-    .footer-inner {
-        float: left;
-        display: inline-block;
-    }
-    .footer-tools {
-        float: right;
-        display: inline-block;
-        .go-top {
-            display: block;
-            text-decoration: none;
-            cursor: pointer;
-            margin-top: -2px;
-            margin-right: 0px;
-            margin-bottom: 0px;
-            font-size: 7px;
-            padding: 0px 6px 0px 6px;
-            i {
-                font-size: 15px;
-                margin-bottom: 5px;
-            }
-        }
-    }
+  padding: 8px 20px 5px 20px; 
+  font-size: 12px;
+  position: fixed;
+  bottom: 0px;
+  z-index: 9999;
+  width: 100%;
 }
-.footer:after,.footer:before {
-    content: "";
-    display: table;
-    line-height: 0;
+
+.footer:after,
+.footer:before {
+  content: "";
+  display: table;
+  line-height: 0;
 }
+
 .footer:after {
-    clear: both;
+  clear: both;
+}
+
+.footer .footer-inner {
+  float: left;
+  display: inline-block;
+}
+
+.footer .footer-tools {
+  float: right;
+  display: inline-block;
+}
+
+.footer .footer-tools .go-top { 
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: -2px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  
+   font-size: 7px;
+  padding: 0px 6px 0px 6px;
+}
+
+.footer .footer-tools .go-top i {
+  font-size: 15px;
+  margin-bottom: 5px; 
+}
+
+/*NAVBAR*/
+.navbar ul li ul, .navbar ul li ul li, .navbar ul li ul li a {
+    display:none !important;
+    height:0px !important;
+    width:0px !important;
+}
+.navbar .navbar-main-list li {
+    display:inline;
+    padding:padding:0px;
+    margin:0px !important;
+}
+.navbar-toggled {
+    display:none;
+    width:100%;
+    position:relative;
+    overflow:hidden;
+    margin:0 auto !important;
+}
+.navbar-button:hover {
+    cursor:pointer;
+}
+.navbar .navbar-toggled ul {
+    display:none;
+    margin:0px !important;
+    padding: 0px 10px!important;
+    float: right;
+    text-align: right;  display: none;  height: 60px;  padding-top: 0px;  margin-top: 0px;  padding-right: 0px;  margin-right: 0px;  padding-bottom: 0px;  margin-bottom: 0px;  padding-left: 0px;  margin-left: 0px;  width: 494px;  opacity: 1;
+}
+.navbar .navbar-toggled ul li {
+    display:block;
+    margin:0 auto !important;
+}
+.navbar-toggled-title{
+    float: right;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-right: 10px;
+}
+.navbar-toggled-controls{
+    min-height: 40px;
+}
+.marker{
+    height: 15px;
+    width: 15px;
+    border-radius: 10px;
+    border-bottom: 0px;
+    position: absolute;
+    top: 43px;
+    left: 30px; 
+    display: none;
+}
+.navbar-nav > li.active a {
+    color: white !important;
+}
+.navbar-nav > li.active >.marker{
+    display: block !important;
 }
