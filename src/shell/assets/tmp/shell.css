@@ -561,6 +561,70 @@ h6,
   margin: 0px 10px 10px 15px;
   text-transform: uppercase;
 }
+input.procedure {
+  border: none !important;
+  box-shadow: none !important;
+  background-color: transparent !important;
+}
+textarea,
+input:focus {
+  border: none !important;
+  box-shadow: none !important;
+  outline: 0;
+}
+.procedure {
+  color: #5b5f6f;
+  width: 85%;
+}
+textarea,
+input::-moz-placeholder {
+  color: #c1c3c8 !important;
+}
+textarea,
+input:-moz-placeholder {
+  color: #c1c3c8 !important;
+}
+textarea,
+input::-webkit-input-placeholder {
+  color: #c1c3c8 !important;
+}
+textarea,
+input:-ms-input-placeholder {
+  color: #c1c3c8 !important;
+}
+textarea,
+input.visit-title {
+  border: none !important;
+  box-shadow: none !important;
+}
+.collapse {
+  padding-left: 5% !important;
+  padding-right: 5% !important;
+  font-size: 12px;
+  cursor: pointer;
+  color: #f04a5e;
+  background-color: #fff;
+  border-bottom: 1px solid #eff0f4;
+  padding-bottom: 12px;
+  padding-top: 15px;
+  margin-top: 0px;
+}
+.reactions {
+  position: relative;
+  margin-bottom: 45px;
+}
+.reactions li {
+  padding-left: 20px;
+  width: 60%;
+}
+#_allergies > div.col-sm-6.pull-right > div.row.reactions > button {
+  right: 40% !important;
+}
+textarea.subject {
+  height: 100%;
+  width: 96%;
+  vertical-align: top;
+}
 .page-content-wrapper {
   margin-top: 50px;
   padding-right: 0px;
