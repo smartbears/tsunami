@@ -14,7 +14,6 @@
     {{#if isSearching}}
     <a href="#" {{action "doneSearch" }}>Show All</a>
     {{/if}}
-
     <br/>
 
     <table class="table table-striped table-hover" id="subjects_table">
@@ -30,9 +29,9 @@
         {{/each}}
       </tbody>
     </table>
-
-
   </div>
+  
   <div class="col-md-5">
     {{outlet}}
   </div>
+</div>
