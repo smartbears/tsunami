@@ -9,7 +9,7 @@
         <table class="table table-striped table-hover" id="protocols_table">
             <tbody>
                 {{#each item in model itemController="protocol"}}
-                <tr id={{item.id}}>
+                <tr {{bind-attr id="item.id" }}>
                     <td>
                       {{#link-to 'protocols.configure' item}}{{item.name}}{{/link-to}}
                     </td>
