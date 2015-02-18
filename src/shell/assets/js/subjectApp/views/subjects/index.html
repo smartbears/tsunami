@@ -1,7 +1,7 @@
 <div class="row">
   <div class="col-md-5">
     <h1>Subjects</h1>
-    {{#link-to 'add'}}(Add new subject){{/link-to}}
+    {{#link-to 'subjects.add'}}(Add new subject){{/link-to}}
 
     <div class="input-group">
       {{input value=searchPattern class="form-control" insert-newline="search"}}
@@ -30,7 +30,7 @@
       </tbody>
     </table>
   </div>
-  
+
   <div class="col-md-5">
     {{outlet}}
   </div>

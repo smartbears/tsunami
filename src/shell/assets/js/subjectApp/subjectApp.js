@@ -4,7 +4,7 @@ SubjectApp = Em.Application.create({
 });
 
 SubjectApp.Router.reopen({
-  rootURL: '/subjects/'
+  rootURL: '/subjects/' 
 });
 
 /*SubjectApp.ApplicationAdapter = DS.RESTAdapter.extend({
@@ -35,7 +35,7 @@ SubjectApp.Router.map(function() {
 });
 
 //Subjects
-SubjectApp.IndexRoute = Ember.Route.extend({
+SubjectApp.SubjectsIndexRoute = Ember.Route.extend({
   model: function() {
     return this.store.find('subject');
   }

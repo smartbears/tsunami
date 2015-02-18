@@ -1,20 +1,24 @@
 <div class="page-content-wrapper col-sm-12 right">
     <div class="page">
-    <div class="row" style="margin-left: 0px;">
+      <div class="row" style="margin-left: 0px;">
       {{#if isEditingName}}
         <h1 class="title color-dark">
           {{input value=name focus-out="updateName" insert-newline="updateName"}}
         </h1>
       {{else}}
-        <h1 class="title color-dark" {{action "editName"}}>{{name}}</h1>
+        <h1 class="title color-dark" {{action "editName"}}>
+          {{name}}
+        </h1>
       {{/if}}
 
       {{#if isEditingDescription}}
-            <p class="color-dark">
-              {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}}
-            </p>
-        {{else}}
-          <p class="color-dark color-dark-edit" {{action "editDescription"}}>{{description}}</p>
+        <p class="color-dark">
+          {{input value=description focus-out="updateDescription" insert-newline="updateDescription"}}
+        </p>
+      {{else}}
+        <p class="color-dark color-dark-edit" {{action "editDescription"}}>
+          {{description}}
+        </p>
       {{/if}}
 
       <button class="btn btn-primary pull-right save-button" {{action "save"}}>Save Changes</button>
@@ -52,50 +56,52 @@
       </div>
     </div>
 
-
-
     <div class="col-sm-10">
       <div class="row">
         <div class="col-sm-12">
           <div class="row margin-left-0">
             {{#each visit in visits itemController="visit"}}
               {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
-                <div class="col-sm-3" id="col1">
-                  <div id="visit1" class="visit row margin-row">
-                    <div class="visit_N">
-                      {{#if visit.isEditingLabel}}
-                        {{input value=visit.label placeholder="AddVisit" class="visit-title h4 col-sm-10" focus-out="updateLabel" insert-newline="updateLabel" }}
-                      {{else}}
-                        <span class="visit-title h4 col-sm-10" {{action "editLabel"}}>{{visit.label}}</span>
-                      {{/if}}
-                      <i class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right"></i>
-                    </div>
-                    <div class="visit-body">
-                      {{#if visit.haveProcedures}}
-                        <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
-                          {{#each visitProc in visit.procedures itemController="procedure"}}
-                            <li class="ui-state-default">
-                              {{#unless visitProc.isEditingName}}
-                                <span class="procedure" {{action "editName"}}>{{visitProc.name}}</span>
-                              {{else}}
-                                {{input value=visitProc.name placeholder="Add Procedure" class="procedure" focus-out="updateName" insert-newline="updateName"}}
-                              {{/unless}}
-                            </li>
-                          {{/each}}
-                          <p class="count_proc pull-right"> {{visit.proceduresCount}} procedures</p>
-                        </ul>
-                      {{/if}}
-                      <button class="btn bg-gray addProc" {{action "insertNewProcedure" this}}>
-                        <i class="glyphicon-plus glyphicon"></i>
-                      </button>
-                    </div>
+               <div class="col-sm-3" id="col1">
+                <div id="visit1" class="visit row margin-row">
+                  <div class="visit_N">
+                    {{#if visit.isEditingLabel}}
+                      {{input value=visit.label placeholder="AddVisit" class="visit-title h4 col-sm-10" focus-out="updateLabel" insert-newline="updateLabel" }}
+                    {{else}}
+                      <span class="visit-title h4 col-sm-10" {{action "editLabel"}}>
+                        {{visit.label}}
+                      </span>
+                    {{/if}}
+                    <i class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right"></i>
+                  </div>
+                  <div class="visit-body">
+                    {{#if visit.haveProcedures}}
+                      <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
+                        {{#each visitProc in visit.procedures itemController="procedure"}}
+                          <li class="ui-state-default">
+                            {{#unless visitProc.isEditingName}}
+                              <span class="procedure" {{action "editName"}}>{{visitProc.name}}</span>
+                            {{else}}
+                              {{input value=visitProc.name placeholder="Add Procedure" class="procedure" focus-out="updateName" insert-newline="updateName"}}
+                            {{/unless}}
+                          </li>
+                        {{/each}}
+                        <p class="count_proc pull-right"> {{visit.proceduresCount}} procedures</p>
+                      </ul>
+                    {{/if}}
+                    <button class="btn bg-gray addProc" {{action "insertNewProcedure" this}}>
+                      <i class="glyphicon-plus glyphicon"></i>
+                    </button>
                   </div>
                 </div>
+               </div>
               {{/drop-element}}
+
+              <div>
               {{#ifIsNthItem startAt=3 nth=4}}
                 <div class="clearfix"></div>
               {{/ifIsNthItem}}
-
+              </div>
             {{/each}}
 
             <!-- PLUS BUTTON -->

@@ -77,9 +77,9 @@ module.exports = function (grunt) {
             external: {
                 src: [
                     'assets/js/external/jquery-1.10.2.js',
-                    'assets/js/external/handlebars-v2.0.0.js',
+                    //'assets/js/external/handlebars-v2.0.0.js',
                     'assets/js/external/ember.prod.js',
-                    'assets/js/external/ember-data.prod-v1.0.0.14.js',
+                    'assets/js/external/ember-data.prod-v1.0.0.15.js',
                     'assets/js/external/moment.js',
                     'assets/js/external/bootstrap.js',
                     'assets/js/external/bootstrap-datetimepicker.js',
@@ -132,7 +132,10 @@ module.exports = function (grunt) {
           compile: {
             options: {
               templateBasePath: /assets\/js\/\w+\/views\//,
-              templateFileExtensions: ".html"
+              templateFileExtensions: ".html",
+              templateCompilerPath: 'assets/js/external/ember-template-compiler.js',
+              handlebarsPath: 'assets/js/external/handlebars-v2.0.0.js',
+              templateNamespace: 'HTMLBars'
             },
             files: {
               "assets/js/protocolTemplates.min.js": ["assets/js/protocolApp/views/**/*.html"],

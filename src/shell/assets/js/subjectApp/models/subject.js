@@ -1,10 +1,10 @@
 SubjectApp.Subject = DS.Model.extend({
-  contactInformation: DS.belongsTo('contactInformation', { inverse: null}),
-  demographic  : DS.belongsTo('demographic', { inverse: null}),//DS.belongsTo('demographics'),
-  guardian: DS.belongsTo('guardian', { inverse: null}),//DS.belongsTo('guardian', {inverse:null}),
+  contactInformation: DS.belongsTo('contactInformation', { inverse: null, async: true}),
+  demographic  : DS.belongsTo('demographic', { inverse: null, async: true}),//DS.belongsTo('demographics'),
+  guardian: DS.belongsTo('guardian', { inverse: null, async: true}),//DS.belongsTo('guardian', {inverse:null}),
   //medications: DS.hasMany('medication'),
   //conditions: DS.hasMany('condition'),
-  allergies: DS.hasMany('allergy', {inverse: null}),
+  allergies: DS.hasMany('allergy', {inverse: null, async: true}),
   //immunizations: DS.hasMany('immunization'),
   //procedures: DS.hasMany('procedure'),
 
