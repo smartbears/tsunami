@@ -361,13 +361,13 @@ ul.connectedSortable > li:focus {
 .navbar-nav {
   margin-right: 5%;
 }
-.page-container {
-  margin-left: 4%;
-  margin-right: 4%;
-  margin-top: 40px;
-  min-height: 630px;
-  margin-bottom: 35px;
-}
+/*.page-container {
+    margin-left: 4%;
+    margin-right: 4%;
+    margin-top: 40px;
+    min-height: 630px;
+    margin-bottom: 35px;
+}*/
 .title {
   display: inline-block;
   margin: 30px 10px 10px 15px;
@@ -542,24 +542,24 @@ input.visit-title:-ms-input-placeholder {
   color: @body-bg;
   background-color: @title-color;
 }*/
-.page-container {
-  top: 50px;
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
-}
+/*.page-container{
+    top:50px;
+    position: absolute;
+    bottom:0px;
+    width:100%;
+}*/
 h6,
 .h6 {
   text-transform: uppercase;
   padding: 10px 20px 20px 30px;
 }
-.page-container {
-  margin-left: 4%;
-  margin-right: 0%;
-  margin-top: 40px;
-  min-height: 630px;
-  margin-bottom: 35px;
-}
+/*.page-container{
+    margin-left: 4%;
+    margin-right: 0%;
+    margin-top: 40px;
+    min-height: 630px;
+    margin-bottom: 35px;
+}*/
 .title {
   display: inline-block;
   margin: 0px 10px 10px 15px;
@@ -959,39 +959,38 @@ body {
   font-size: 12px;
   direction: ltr;
   font-weight: 700;
+  padding-bottom: 70px;
 }
 .header {
   z-index: 9999;
   width: 100%;
-  position: fixed;
 }
 /*FOOTER*/
-.footer {
+.footer-container {
   padding: 8px 20px 5px 20px;
   font-size: 12px;
-  position: fixed;
   bottom: 0px;
   z-index: 9999;
   width: 100%;
 }
-.footer:after,
-.footer:before {
+.footer-container:after,
+.footer-container:before {
   content: "";
   display: table;
   line-height: 0;
 }
-.footer:after {
+.footer-container:after {
   clear: both;
 }
-.footer .footer-inner {
+.footer-container .footer-inner {
   float: left;
   display: inline-block;
 }
-.footer .footer-tools {
+.footer-container .footer-tools {
   float: right;
   display: inline-block;
 }
-.footer .footer-tools .go-top {
+.footer-container .footer-tools .go-top {
   display: block;
   text-decoration: none;
   cursor: pointer;
@@ -1001,7 +1000,7 @@ body {
   font-size: 7px;
   padding: 0px 6px 0px 6px;
 }
-.footer .footer-tools .go-top i {
+.footer-container .footer-tools .go-top i {
   font-size: 15px;
   margin-bottom: 5px;
 }
@@ -1074,4 +1073,15 @@ body {
 }
 .navbar-nav > li.active > .marker {
   display: block !important;
+}
+.view-container {
+  padding-bottom: 50px;
+}
+#footer .navbar {
+  position: absolute;
+  min-height: 0px;
+}
+html {
+  position: relative;
+  min-height: 100%;
 }

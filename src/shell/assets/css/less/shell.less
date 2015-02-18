@@ -104,60 +104,61 @@ body {
     font-size:12px;
     direction: ltr;
     font-weight: 700;
+    padding-bottom: 70px;
 }
 
 .header {
     z-index: 9999;
     width: 100%;
-    position: fixed;
+    //position: fixed;
 }
 
 /*FOOTER*/
-.footer {
-  padding: 8px 20px 5px 20px; 
+.footer-container {
+  padding: 8px 20px 5px 20px;
   font-size: 12px;
-  position: fixed;
+  //position: fixed;
   bottom: 0px;
   z-index: 9999;
   width: 100%;
 }
 
-.footer:after,
-.footer:before {
+.footer-container:after,
+.footer-container:before {
   content: "";
   display: table;
   line-height: 0;
 }
 
-.footer:after {
+.footer-container:after {
   clear: both;
 }
 
-.footer .footer-inner {
+.footer-container .footer-inner {
   float: left;
   display: inline-block;
 }
 
-.footer .footer-tools {
+.footer-container .footer-tools {
   float: right;
   display: inline-block;
 }
 
-.footer .footer-tools .go-top { 
+.footer-container .footer-tools .go-top {
   display: block;
   text-decoration: none;
   cursor: pointer;
   margin-top: -2px;
   margin-right: 0px;
   margin-bottom: 0px;
-  
+
    font-size: 7px;
   padding: 0px 6px 0px 6px;
 }
 
-.footer .footer-tools .go-top i {
+.footer-container .footer-tools .go-top i {
   font-size: 15px;
-  margin-bottom: 5px; 
+  margin-bottom: 5px;
 }
 
 /*NAVBAR*/
@@ -208,7 +209,7 @@ body {
     border-bottom: 0px;
     position: absolute;
     top: 43px;
-    left: 30px; 
+    left: 30px;
     display: none;
 }
 .navbar-nav > li.active a {
@@ -216,4 +217,19 @@ body {
 }
 .navbar-nav > li.active >.marker{
     display: block !important;
+}
+
+.view-container{
+  //min-height: 100%;
+  padding-bottom: 50px;
+}
+
+#footer .navbar{
+  position: absolute;
+  min-height: 0px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
 }
