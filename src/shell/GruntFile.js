@@ -109,6 +109,7 @@ module.exports = function (grunt) {
                 'assets/js/protocolApp/views/**/*.js',
                 'assets/js/protocolApp/models/*.js',
                 'assets/js/protocolApp/components/**/*.js',
+                'assets/js/protocolApp/components/*.js',
                 'assets/js/protocolApp/controllers/**/*.js',
               ],
               dest: 'assets/js/protocolApp.min.js'

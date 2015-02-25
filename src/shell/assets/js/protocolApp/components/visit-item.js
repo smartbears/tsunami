@@ -1,5 +1,8 @@
-ProtocolApp.VisitItemView = Ember.View.extend({
-  templateName: 'visit-item',
-  attributeBindings: ['elementName','id', 'name']
-
+ProtocolApp.VisitItemComponent = Em.Component.extend({
+  tagName: 'div',
+  classNames: [],
+  // didInsertElement: function() {
+  //  
+  // }.on('didInsertElement')
+  
 });
