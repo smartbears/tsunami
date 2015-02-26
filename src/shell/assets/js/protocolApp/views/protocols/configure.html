@@ -33,12 +33,12 @@
 
                 {{#unless procedure.isEditingName}}
                   {{#drag-element item=procedure.id elementName='num'}}
-                    <li class="ui-state-default draggable" {{action "editName"}}>
+                    <li class="ui-state-default draggable ui-draggable" {{action "editName"}}>
                       {{procedure.name}}
                     </li>
                   {{/drag-element}}
                 {{else}}
-                  <li class="ui-state-default">
+                  <li class="ui-state-default draggable ui-draggable">
                     {{input class="procedure" value=procedure.name placeholder="New Procedure" focus-out="updateName" insert-newline="updateName"}}
                   </li>
                 {{/unless}}

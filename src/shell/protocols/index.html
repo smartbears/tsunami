@@ -90,7 +90,7 @@
                       {{#if visitItem.haveProcedures}}
                           <ul class="connectedSortable sortable col-sm-12 ui-droppable ui-sortable">
                             {{#each visitProc in visitItem.procedures itemController="procedure"}}
-                                <li class="ui-state-default">
+                                <li class="ui-state-default draggable">
                                   {{#unless visitProc.isEditingName}}
                                       <span class="procedure" {{action "editName"}}>{{visitProc.name}}</span>
                                   {{else}}
