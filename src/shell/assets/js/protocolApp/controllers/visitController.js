@@ -1,18 +1,16 @@
 ProtocolApp.VisitController = Ember.ObjectController.extend({
 	needs: 'protocolsConfigure',
-	isEditingLabel: false,
-
   	actions: {
     	drop_procedure_into_visit: function(procedureId){
     		var procedure = this.get('controllers.protocolsConfigure')
 														.get('procedures')
 														.findBy("id", procedureId);
 
-			var id = parseInt(procedure.id);
+			//var id = parseInt(procedure.id);
 			if(!this.model.get("procedureIds"))
-				this.model.set("procedureIds", [id]);
+				this.model.set("procedureIds", [procedure.id]);
 			else if(!this.model.get("procedureIds").contains())
-				this.model.get("procedureIds").pushObject(id);
+				this.model.get("procedureIds").pushObject(procedure.id);
 		},
 
    	 	insertNewProcedure: function(protocol){
@@ -28,14 +26,6 @@ ProtocolApp.VisitController = Ember.ObjectController.extend({
 			//this.model.save();
 
    	 	},
-
-   	 	editLabel: function () {
-	      this.set("isEditingLabel", true);
-	    },
-
-	    updateLabel: function () {
-	      this.set("isEditingLabel", false);
-	    },
   	},
 
 	procedures: function(){

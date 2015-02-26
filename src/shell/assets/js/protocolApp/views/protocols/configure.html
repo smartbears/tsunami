@@ -61,7 +61,9 @@
         <div class="col-sm-12">
           <div class="row margin-left-0">
             {{#each visit in visits itemController="visit"}}
-              {{visit-item visit=visit}}
+              
+              {{visit-item visitItem=visit protocol=this insertNewProcedure="insertNewProcedure" dropProcedure="drop_procedure_into_visit"}}
+              
               <div>
                 {{#ifIsNthItem startAt=3 nth=4}}
                   <div class="clearfix"></div>
