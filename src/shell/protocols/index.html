@@ -74,7 +74,7 @@
 
       <script type="text/x-handlebars" id="components/visit-item">
         {{#drop-element dropAction='drop_procedure_into_visit' elementName='visit'}}
-          <div class="col-sm-3" id="col1">
+          <div class="col-sm-3" {{bind-attr id="visitItem.id"}}>
               <div id="visit1" class="visit row margin-row">
                   <div class="visit_N">
                       {{#if isEditingLabel}}
@@ -84,7 +84,7 @@
                             {{visitItem.label}}
                           </span>
                       {{/if}}
-                      <i class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right"></i>
+                      <i class="col-sm-2 clickable glyphicon glyphicon-chevron-up collapse pull-right" {{action "minimizeVisit"}}></i>
                   </div>
                   <div class="visit-body">
                       {{#if visitItem.haveProcedures}}

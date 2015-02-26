@@ -5,6 +5,7 @@ ProtocolApp.VisitItemComponent = Em.Component.extend({
   visitItem: null,
   protocol: null,
   isEditingLabel: false,
+  collapsed: false,
   actions: {
   		drop_procedure_into_visit: function(procedureId){
     		this.sendAction('dropProcedure',procedureId);
@@ -19,6 +20,24 @@ ProtocolApp.VisitItemComponent = Em.Component.extend({
 	    updateLabel: function () {
 	      this.set("isEditingLabel", false);
 	    },
+
+	    minimizeVisit: function(){
+	    	collapsed = this.get('collapsed');
+
+	    	if(collapsed){
+	    		$("#"+this.get('visitItem.id') + ' #visit1 .visit_N i').removeClass('glyphicon-chevron-down');
+	    		$("#"+this.get('visitItem.id') + ' #visit1 .visit_N i').addClass('glyphicon-chevron-up');
+	    		this.set('collapsed', false);
+	    	}
+	    	else{
+	    		$("#"+this.get('visitItem.id') + ' #visit1 .visit_N i').removeClass('glyphicon-chevron-up');
+	    		$("#"+this.get('visitItem.id') + ' #visit1 .visit_N i').addClass('glyphicon-chevron-down');
+	    		this.set('collapsed', true);
+	    	}
+	    	
+	    	$("#"+this.get('visitItem.id') + ' #visit1 .visit-body').toggle('slow');
+
+	    }
   	},
   // didInsertElement: function() {
   //  
