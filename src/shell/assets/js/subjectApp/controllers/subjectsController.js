@@ -33,25 +33,3 @@ SubjectApp.IndexController = Ember.ObjectController.extend({
     }
 });
 
-SubjectApp.SubjectsAddController = Ember.ObjectController.extend({
-    actions: {
-        add: function(){
-            var subject = this.store.createRecord('subject', {
-              contactInformation : this.store.createRecord('contactInformation', this.model.contactInformation),
-              demographic : this.store.createRecord('demographic', this.model.demographics),
-              guardian : this.store.createRecord('guardian', this.model.guardian)
-            });
-
-            subject.get("allergies").pushObjects(this.model.allergies);
-
-            subject.save().then(function(){
-                 $("table tr").last().attr("item", subject.get('id') );
-            });
-
-            this.transitionToRoute('subjects');
-        },
-        addAllergy: function(){
-          this.model.allergies.pushObject(this.store.createRecord('allergy', {name: 'randomName_' + Math.random()}))
-        }
-    }
-});

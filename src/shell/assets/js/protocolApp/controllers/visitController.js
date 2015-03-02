@@ -5,8 +5,7 @@ ProtocolApp.VisitController = Ember.ObjectController.extend({
     		var procedure = this.get('controllers.protocolsConfigure')
 														.get('procedures')
 														.findBy("id", procedureId);
-
-			//var id = parseInt(procedure.id);
+			
 			if(!this.model.get("procedureIds"))
 				this.model.set("procedureIds", [procedure.id]);
 			else if(!this.model.get("procedureIds").contains())
@@ -17,14 +16,10 @@ ProtocolApp.VisitController = Ember.ObjectController.extend({
    	 		var procedure = this.store.createRecord('procedure', {name: "New Procedure"});
       		protocol.get("procedures").pushObject(procedure);
 
-
       		if(!this.model.get("procedureIds"))
 				this.model.set("procedureIds", [procedure.id]);
 			else
-				this.model.get("procedureIds").pushObject(procedure.id);
-
-			//this.model.save();
-
+				this.model.get("procedureIds").pushObject(procedure.id);		
    	 	},
   	},
 
