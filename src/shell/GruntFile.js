@@ -76,8 +76,9 @@ module.exports = function (grunt) {
             },
             external: {
                 src: [
+                    'assets/js/external/ember-template-compiler.js',
                     'assets/js/external/jquery-1.10.2.js',
-                    //'assets/js/external/handlebars-v2.0.0.js',
+                    'assets/js/external/handlebars-v2.0.0.js',
                     'assets/js/external/ember.prod.js',
                     'assets/js/external/ember-data.prod-v1.0.0.15.js',
                     'assets/js/external/moment.js',
@@ -109,6 +110,7 @@ module.exports = function (grunt) {
                 'assets/js/protocolApp/views/**/*.js',
                 'assets/js/protocolApp/models/*.js',
                 'assets/js/protocolApp/components/**/*.js',
+                'assets/js/protocolApp/components/*.js',
                 'assets/js/protocolApp/controllers/**/*.js',
               ],
               dest: 'assets/js/protocolApp.min.js'
