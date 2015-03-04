@@ -140,7 +140,7 @@
 					</div>
 
 					<div class="btns-sbj">
-						<button class="btn bg-gray sbj-btn" {{action "saveContactInfo"}}>SAVE</button>
+						<button class="btn bg-gray sbj-btn" {{action "saveModel"}}>SAVE</button>
 						<button class="btn bg-gray sbj-btn"{{action "resetContactInfo"}}>RESET</button>
 					</div>
 				</div>
@@ -209,14 +209,14 @@
 						<div class="col-sm-4">
 							<img class="size_sbj height" src="../assets/img/boy-gray.png"/>
 							<li class="contact col-sm-5">
-								<input placeholder="|Height" type="text" class="subject">
+								{{input value=height placeholder="|Height" class="subject"}}
 							</li>
 							<label class="col-sm-5 text-sbj">Meters</label>
 						</div>
 						<div class="col-sm-4">
 							<img class="size_sbj weight" src="../assets/img/boy-gray.png"/>
 							<li class="contact col-sm-5">
-								<input placeholder="|Weight" type="text" class="subject">
+								{{input value=weight placeholder="|Weight" class="subject"}}
 							</li>
 							<label class="col-sm-5 text-sbj">Pounds</label></div>
 					</div>
@@ -226,7 +226,7 @@
 						<div class="col-sm-3 int">
 							<h4>heart rate</h4>
 								<li class="contact col-sm-5">
-									<input placeholder="|Beats" type="text" class="subject">
+									{{input value=heartRate placeholder="|Beats" class="subject"}}
 								</li>
 								<label class="col-sm-5 text-sbj">A minute</label>
 						</div>
@@ -235,11 +235,11 @@
 							<h4>blood preassure</h4>
 								<label class="col-sm-1 text-sbj">Below </label>
 								<li class="contact col-sm-2">
-									<input placeholder="|120" type="text" class="subject">
+									{{input value=bloodPreasureBelow placeholder="|120" class="subject"}}						
 								</li>
 								<label class="col-sm-1 text-sbj">Over</label>
 								<li class="contact col-sm-2">
-									<input placeholder="|80" type="text" class="subject">
+									{{input value=bloodPreasureOver placeholder="|80" class="subject"}}
 								</li>
 						</div>
 					</div>
@@ -248,12 +248,12 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Race" type="text" class="subject">
+								{{input value=race placeholder="|Race" class="subject"}}
 							</li>
 						</div>
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Ethnicity" type="text" class="subject">
+								{{input value=ethnicity placeholder="|Ethnicity" class="subject"}}								
 							</li>
 						</div>
 					</div>
@@ -262,14 +262,14 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Marital Status GHT" type="text" class="subject">
+								{{input value=maritalStatus placeholder="|Marital Status GHT" class="subject"}}					
 							</li>
 						</div>
 					</div>
 
 					<div class="btns-sbj">
-						<button class="btn bg-gray sbj-btn">SAVE</button>
-						<button class="btn bg-gray sbj-btn">RESET</button>
+						<button class="btn bg-gray sbj-btn" {{action "saveModel"}}>SAVE</button>
+						<button class="btn bg-gray sbj-btn" {{action "resetDemographic"}}>RESET</button>
 					</div>
 				</div>
 			{{/if}}
