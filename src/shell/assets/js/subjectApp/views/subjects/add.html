@@ -134,14 +134,14 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<li class="contact">
-								<input placeholder="|Native language" type="text" class="subject">
+								{{input value=nativeLanguage placeholder="|Native language" class="subject"}}
 							</li>
 						</div>
 					</div>
 
 					<div class="btns-sbj">
-						<button class="btn bg-gray sbj-btn">SAVE</button>
-						<button class="btn bg-gray sbj-btn">RESET</button>
+						<button class="btn bg-gray sbj-btn" {{action "saveContactInfo"}}>SAVE</button>
+						<button class="btn bg-gray sbj-btn"{{action "resetContactInfo"}}>RESET</button>
 					</div>
 				</div>
 			{{/if}}				

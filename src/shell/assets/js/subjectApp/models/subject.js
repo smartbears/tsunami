@@ -39,6 +39,7 @@ SubjectApp.ContactInformation = DS.Model.extend({
   workPhone: DS.attr('string'),
   cellPhone: DS.attr('string'),
   alternatedCellPhone: DS.attr('string'),
+  nativeLanguage: DS.attr('string'),
 
   fullName: function() {
     var middle = ' ' + this.get('middleName');
