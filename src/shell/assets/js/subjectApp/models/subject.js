@@ -55,7 +55,8 @@ SubjectApp.Demographic = DS.Model.extend({
   height: DS.attr('number'),
   weight: DS.attr('number'),
   heartRate: DS.attr('string'),
-  bloodPreasure: DS.attr('string'),
+  bloodPreasureBelow: DS.attr('string'),
+  bloodPreasureOver: DS.attr('string'),
   race: DS.attr('string'),
   ethnicity: DS.attr('string'),
   maritalStatus: DS.attr('string')

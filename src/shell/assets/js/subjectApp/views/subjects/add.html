@@ -285,18 +285,18 @@
 
 					<div class="row">
 						<div class="col-sm-4">
-							<li class="contact">
-								<input placeholder="|First name" type="text" class="subject">
+							<li class="contact">								
+								{{input value=name placeholder="|First name" class="subject"}}
 							</li>
 						</div>
 						<div class="col-sm-4">
-							<li class="contact">
-								<input placeholder="|Middle name" type="text" class="subject">
+							<li class="contact">								
+								{{input value=name placeholder="|Middle name" class="subject"}}
 							</li>
 						</div>
 						<div class="col-sm-4">
-							<li class="contact">
-								<input placeholder="|Last name" type="text" class="subject">
+							<li class="contact">								
+								{{input value=name placeholder="|Last name" class="subject"}}
 							</li>
 						</div>
 					</div>
@@ -304,8 +304,8 @@
 
 					<div class="row">
 						<div class="col-sm-4">
-							<li class="contact">
-								<input placeholder="|Relationship" type="text" class="subject">
+							<li class="contact">								
+								{{input value=relationShip placeholder="|Relationship" class="subject"}}
 							</li>
 						</div>
 					</div>
@@ -314,12 +314,12 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<li class="contact">
-								<input placeholder="|Facility Type" type="text" class="subject">
+								{{input value=facilityType placeholder="|Facility Type" class="subject"}}
 							</li>
 						</div>
 						<div class="col-sm-4">
 							<li class="contact">
-								<input placeholder="|Facility" type="text" class="subject">
+								{{input value=facility placeholder="|Facility" class="subject"}}
 							</li>
 						</div>
 					</div>
@@ -328,7 +328,7 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<li class="contact">
-								<input placeholder="|Address" type="text" class="subject">
+								{{input value=address placeholder="|Address" class="subject"}}
 							</li>
 						</div>
 					</div>
@@ -337,22 +337,22 @@
 					<div class="row">
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Home phone" type="text" class="subject">
+								{{input value=phone placeholder="|Home phone" class="subject"}}
 							</li>
 						</div>
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Cell phone" type="text" class="subject">
+								{{input value=phone placeholder="|Cell phone" class="subject"}}
 							</li>
 						</div>
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Work phone" type="text" class="subject">
+								{{input value=phone placeholder="|Work phone" class="subject"}}
 							</li>
 						</div>
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Alternate cell phone" type="text" class="subject">
+								{{input value=phone placeholder="|Alternate cell phone" class="subject"}}
 							</li>
 						</div>
 					</div>
@@ -361,14 +361,14 @@
 					<div class="row">
 						<div class="col-sm-4">
 							<li class="contact">
-								<input placeholder="|Email" type="text" class="subject">
+								{{input value=email placeholder="|Email" class="subject"}}
 							</li>
 						</div>
 					</div>
 
 					<div class="btns-sbj">
-						<button class="btn bg-gray sbj-btn">SAVE</button>
-						<button class="btn bg-gray sbj-btn">RESET</button>
+						<button class="btn bg-gray sbj-btn" {{action "saveModel"}}>SAVE</button>
+						<button class="btn bg-gray sbj-btn" {{action "resetGuardian"}}>RESET</button>
 					</div>
 				</div>
 			{{/if}}
