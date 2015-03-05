@@ -19,7 +19,8 @@ namespace Subjects.WindsorInstallers
 			var client = new MongoClient(connectionString);
 
 			var _server = client.GetServer();
-			var _database = _server.GetDatabase(System.Configuration.ConfigurationSettings.AppSettings["DbName"]);   
+			var _database = _server.GetDatabase(System.Configuration.ConfigurationSettings.AppSettings["DbName"]);
+            _database.GetStats(); //this is to check that mongodb is up and running.
 
 			container.Register(Component.For<MongoDatabase>()
 				.Instance(_database)

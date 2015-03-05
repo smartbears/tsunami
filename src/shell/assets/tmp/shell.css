@@ -82,7 +82,7 @@
   border-color: #C3C5CA !important;
 }
 /***
-  General typography 
+  General typography
   ***/
 h1 small,
 h2 small,
@@ -857,35 +857,25 @@ textarea.subject {
   margin-top: 0;
   padding-left: 18px;
 }
+.view-container {
+  padding-bottom: 50px;
+  margin-top: 50px;
+}
 /***
     Footer
 ***/
-.footer {
-  padding: 8px 20px 5px 20px;
-  font-size: 12px;
-  position: fixed;
-  bottom: 0px;
-  z-index: 9999;
-  width: 100%;
-}
-.footer:after,
-.footer:before {
-  content: "";
-  display: table;
-  line-height: 0;
-}
-.footer:after {
-  clear: both;
-}
-.footer .footer-inner {
+#footer .footer-inner {
   float: left;
   display: inline-block;
 }
-.footer .footer-tools {
+#footer .navbar {
+  padding: 8px 20px 5px 20px;
+}
+#footer .footer-tools {
   float: right;
   display: inline-block;
 }
-.footer .footer-tools .go-top {
+#footer .footer-tools .go-top {
   display: block;
   text-decoration: none;
   cursor: pointer;
@@ -895,9 +885,17 @@ textarea.subject {
   font-size: 7px;
   padding: 0px 6px 0px 6px;
 }
-.footer .footer-tools .go-top i {
+#footer .footer-tools .go-top i {
   font-size: 15px;
   margin-bottom: 5px;
+}
+#footer .navbar {
+  position: absolute;
+  min-height: 0px;
+}
+html {
+  position: relative;
+  min-height: 100%;
 }
 /***
     Responsive

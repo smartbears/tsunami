@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Web.Http;
 using System.Web.Http.Cors;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
@@ -18,10 +19,8 @@ namespace Subjects
             //app.Run((ctx=> ctx.Response.WriteAsync("This is a test")));
             var config = new HttpConfiguration();
 
-            //Below line Breaks Mono, Data Binder.
-            //Please do not enable for now, or attempt to the consequences
-            //Zeus rage!
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
+            if (Environment.OSVersion.Platform != PlatformID.MacOSX)
+                config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 
             config.Routes.MapHttpRoute(
                 "Default",
