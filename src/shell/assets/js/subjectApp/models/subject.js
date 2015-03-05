@@ -39,6 +39,7 @@ SubjectApp.ContactInformation = DS.Model.extend({
   workPhone: DS.attr('string'),
   cellPhone: DS.attr('string'),
   alternatedCellPhone: DS.attr('string'),
+  nativeLanguage: DS.attr('string'),
 
   fullName: function() {
     var middle = ' ' + this.get('middleName');
@@ -54,7 +55,8 @@ SubjectApp.Demographic = DS.Model.extend({
   height: DS.attr('number'),
   weight: DS.attr('number'),
   heartRate: DS.attr('string'),
-  bloodPreasure: DS.attr('string'),
+  bloodPreasureBelow: DS.attr('string'),
+  bloodPreasureOver: DS.attr('string'),
   race: DS.attr('string'),
   ethnicity: DS.attr('string'),
   maritalStatus: DS.attr('string')
