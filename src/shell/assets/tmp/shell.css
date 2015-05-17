@@ -41,6 +41,12 @@
   background-color: #eff0f4 !important;
   border-color: #eff0f4 !important;
 }
+.bg-lgreen {
+  background-image: none !important;
+  background-color: #1bbc9b !important;
+  border-color: #1bbc9b !important;
+  color: #fff !important;
+}
 .color-blue {
   background-image: none !important;
   color: #3c5499 !important;
@@ -78,8 +84,14 @@
 }
 .color-gray {
   background-image: none !important;
-  color: #C3C5CA !important;
-  border-color: #C3C5CA !important;
+  color: #c3c5ca !important;
+  border-color: #c3c5ca !important;
+}
+.color-dgray {
+  color: #dcdcdd !important;
+}
+.color-text {
+  color: #5b5f6f !important;
 }
 /***
   General typography
@@ -253,7 +265,7 @@ hr {
 }
 /* general body settings */
 body {
-  color: #000;
+  color: #696969;
   font-family: 'Lato', sans-serif;
   padding: 0px !important;
   margin: 0px !important;
@@ -370,7 +382,7 @@ body {
   list-style-position: inside;
   border-bottom: 1px solid #eff0f4;
   background-color: #fff;
-  height: 30px;
+  /*height: 30px;*/
 }
 .ui-draggable-dragging {
   background-color: #3c3f4f !important;
@@ -429,7 +441,7 @@ input:focus {
 }
 .procedure {
   color: #5b5f6f;
-  width: 85%;
+  width: 75%;
 }
 textarea,
 input::-moz-placeholder {
@@ -462,8 +474,11 @@ input.subject-title {
   background-color: #fff;
   border-bottom: 1px solid #eff0f4;
   padding-bottom: 12px;
-  padding-top: 15px;
+  padding-top: 12px;
   margin-top: 0px;
+  height: 39px;
+  top: 0;
+  width: 15.7%;
   display: block;
   visibility: visible;
 }
@@ -531,6 +546,10 @@ input.subject-title {
 }
 .img_contc {
   padding-bottom: 20px;
+  width: 6%;
+  display: inline-block;
+  vertical-align: middle;
+  /***30-3-2015***/
 }
 .img_contc > a {
   font-size: 14px;
@@ -864,18 +883,32 @@ textarea.subject {
 /***
     Footer
 ***/
-#footer .footer-inner {
+.footer {
+  padding: 8px 20px 5px 20px;
+  font-size: 12px;
+  bottom: 0px;
+  z-index: 9999;
+  width: 100%;
+  height: 50px;
+}
+.footer:after,
+.footer:before {
+  content: "";
+  display: table;
+  line-height: 0;
+}
+.footer:after {
+  clear: both;
+}
+.footer .footer-inner {
   float: left;
   display: inline-block;
 }
-#footer .navbar {
-  padding: 8px 20px 5px 20px;
-}
-#footer .footer-tools {
+.footer .footer-tools {
   float: right;
   display: inline-block;
 }
-#footer .footer-tools .go-top {
+.footer .footer-tools .go-top {
   display: block;
   text-decoration: none;
   cursor: pointer;
@@ -885,17 +918,9 @@ textarea.subject {
   font-size: 7px;
   padding: 0px 6px 0px 6px;
 }
-#footer .footer-tools .go-top i {
+.footer .footer-tools .go-top i {
   font-size: 15px;
   margin-bottom: 5px;
-}
-#footer .navbar {
-  position: absolute;
-  min-height: 0px;
-}
-html {
-  position: relative;
-  min-height: 100%;
 }
 /***
     Responsive
@@ -927,6 +952,9 @@ html {
   .ui-draggable-dragging {
     width: 80%;
   }
+  /***
+  New 15-2-2015
+  ***/
   .sidebar {
     height: auto !important;
     margin-left: -50px;
@@ -950,4 +978,84 @@ html {
     right: 3% !important;
     bottom: -34px;
   }
+}
+/*** NEW 21-3 ***/
+.box {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  margin-right: 7px;
+  vertical-align: middle;
+}
+.execution_ul {
+  list-style: none;
+}
+/***30-3-2015***/
+.visit_N .btn.active {
+  background: #f4f4f4;
+  height: 39px;
+  box-shadow: none;
+}
+.visit_N .btn {
+  background: inherit;
+  height: 39px;
+  box-shadow: none;
+}
+.slct_all {
+  position: absolute;
+  bottom: -33px;
+  left: 15px;
+  margin-left: 20px;
+  color: #c3c5ca;
+}
+.sbjc_info {
+  display: inline-block;
+  width: 80%;
+  vertical-align: baseline;
+}
+.btns-prot {
+  display: inline-block;
+  float: right;
+  margin-right: 7%;
+}
+.leyend_name {
+  display: inline-block;
+}
+li.prot_ex {
+  padding-left: 10px;
+}
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+.slc_allP {
+  position: absolute !important;
+  bottom: -29px;
+  left: 0;
+  background-color: #fff;
+  font-size: 12px;
+  font-weight: lighter;
+  color: #c3c5ca;
+  height: 30px;
+  width: 30px;
+  padding: 0;
+}
+.paginators {
+  padding-left: 0;
+  margin-top: 30px;
+  padding-right: 0;
+}
+.paginators a {
+  padding: 15%;
+  color: #737373!important;
+}
+.newer {
+  border: 1px solid #c4c5c6 !important;
+}
+.paginator {
+  border: 1px solid #c4c5c6 !important;
+  border-radius: 15px;
+  padding: 5px 20px;
+}
+.done {
+  background-color: transparent !important;
 }

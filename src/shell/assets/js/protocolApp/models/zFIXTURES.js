@@ -3,11 +3,11 @@
 
 ProtocolApp.Protocol.reopenClass({
   FIXTURES:[
-  {id:"3", name: "L1V-MC-4590MK", description:"Diabetes Melitus II con uso de Meenformin 500g.",
+  {id:"1", name: "L1V-MC-4590MK", description:"Diabetes Melitus II con uso de Meenformin 500g.",
     procedures: ["1","2","3","4","5"],
     visits: ["1","2"]
   },
-  {id:"4", name: "L2V-UI-3510MK"},
+  {id:"2", name: "L2V-UI-3510MK"},
   ]
 });
 

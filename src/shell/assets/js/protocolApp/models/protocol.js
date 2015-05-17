@@ -9,9 +9,9 @@ ProtocolApp.Protocol = DS.Model.extend({
   //unscheduledVisits: DS.hasMany('visit'),
 });
 
-ProtocolApp.ProtocolSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoKeyMixin, {
+/*ProtocolApp.ProtocolSerializer = DS.RESTSerializer.extend(DS.EmbeddedRecordsMixin, DS.NoKeyMixin, {
   attrs: {
     visits: { embedded: 'always', noKey: true },
     procedures: { embedded: 'always', noKey: true },
   }
-});
+});*/

@@ -83,7 +83,9 @@ module.exports = function (grunt) {
                     'assets/js/external/ember-data.prod-v1.0.0.15.js',
                     'assets/js/external/moment.js',
                     'assets/js/external/bootstrap.js',
-                    'assets/js/external/bootstrap-datetimepicker.js',
+                    //'assets/js/external/bootstrap-datetimepicker.js',
+                    'assets/js/external/bootstrap-datepicker.js',
+                    'assets/js/external/components-pickers.js',
                     'assets/js/external/responsive-menu.js'
                 ],
                 dest: 'assets/js/external.min.js'
