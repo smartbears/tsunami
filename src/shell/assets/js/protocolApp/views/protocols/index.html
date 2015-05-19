@@ -1,24 +1,37 @@
 
-<div class="row">
-    <div class="col-md-5">
-        <h1>Protocols</h1>
-        {{#link-to 'protocols.add'}}(Add new Protocol){{/link-to}}
-        <br/>
-        <br/>
 
-        <table class="table table-striped table-hover" id="protocols_table">
-            <tbody>
-                {{#each item in model itemController="protocol"}}
-                <tr {{bind-attr id="item.id" }}>
-                    <td>
-                      {{#link-to 'protocols.configure' item}}{{item.name}}{{/link-to}}
-                    </td>
-                    <td><a href="#" {{action "delete" }}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
-                </tr>
-                {{else}}
-                Sorry, no elements were found.
-                {{/each}}
-            </tbody>
-        </table>
+<div class="page-content-wrapper col-sm-12 right">
+        <div class="page">
+        <div class="row" style="margin-left: 0px;">
+            <h1 class="title color-dark">Protocols</h1>
+            <!--<p class="color-dark"style=" display: inline-block; font-weight: initial;">Diabetes Melitus II con uso de Meenformin 500g</p>-->
+        </div>
+            <div class=" col-sm-3 col-sm-2_4">
+                <div id="" class="proceduresCont row margin-row" style="position:relative !important; width: 100%;">
+                    <h4 class="procedure-title col-sm-12 bg-red" style="padding: 5px 0 0 0;"></h4>
+                    <ul class="connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
+                        {{#each item in model itemController="protocol"}}
+                            <li class="ui-state-default draggable" {{bind-attr id='item.id'}}>
+                                <!--<input placeholder="AddProcedure" type="text" class="procedure" value="I1V-MC-4590MK">-->
+                                    {{#link-to 'protocols.configure' item}}{{item.name}}{{/link-to}}    
+                                    
+                                {{#if item.haveDescription}}
+                                    <i class="col-sm-2 color-red glyphicon pull-right glyphicon-chevron-up" {{action 'toogleShow'}}></i>
+                                    <ul class="connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200" style="margin: 5px 0 5px 0;">
+                                        <li style="list-style: none;padding: 5px 0px 5px 10px;">
+                                            {{item.description}}
+                                        </li>
+                                    </ul>
+                                {{/if}}
+                            </li>                              
+                        {{else}}
+                            Sorry, no elements were found.
+                        {{/each}}                              
+                    </ul>               
+                    <p class="count_proc" id="number" style="display:block"> 17 protocols</p>
+                    <button style="display:block" id= "proc" class=" btn bg-gray addProc"><i class="glyphicon-plus glyphicon"></i></button>
+                </div>
+            </div>  
+        </div>
     </div>
-</div>
+
