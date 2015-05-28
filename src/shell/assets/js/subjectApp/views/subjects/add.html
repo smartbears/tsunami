@@ -4,25 +4,25 @@
 			<h6 class=""> Patients Details</h6>
 
 			<ul id="tabs" class="ul_list col-sm-12 nav nav-tabs" data-tabs="tabs" role="tablist">
-				<li role="presentation" class="active">
+				<li role="presentation" {{bind-attr class="inContactInfo:active"}}>
 					<a href="#_contactInfo" aria-controls="home" role="tab" data-toggle="tab" {{action "showContactInfo"}}>Contact Information</a>
 				</li>
-				<li role="presentation">
+				<li role="presentation" {{bind-attr class="inDemogrphs:active"}}>
 					<a href="#_demogrphs" aria-controls="demogrphs" role="tab" data-toggle="tab" {{action "showDemogrphs"}}>Demographics</a>
 				</li>
-				<li role="presentation">
+				<li role="presentation" {{bind-attr class="inGuardian:active"}}>
 					<a href="#_guardian" aria-controls="guardian" role="tab" data-toggle="tab" {{action "showGuardian"}}>Guardian</a>
 				</li>
-				<li role="presentation">
+				<li role="presentation" {{bind-attr class="inMedication:active"}}>
 					<a href="#_medication" aria-controls="medication" role="tab" data-toggle="tab" {{action "showMedication"}}>Medications</a>
 				</li>
-				<li role="presentation">
+				<li role="presentation" {{bind-attr class="inConditions:active"}}>
 					<a href="#_conditions" aria-controls="conditions" role="tab" data-toggle="tab" {{action "showConditions"}}>Conditions</a>
 				</li>
-				<li role="presentation">
+				<li role="presentation" {{bind-attr class="inAllergies:active"}}>
 					<a href="#_allergies" aria-controls="allergies" role="tab" data-toggle="tab" {{action "showAllergies"}}>Allergies/Reaction</a>
 				</li>
-				<li role="presentation">
+				<li role="presentation" {{bind-attr class="inInmunization:active"}}>
 					<a href="#_inmunization" aria-controls="inmunization" role="tab" data-toggle="tab" {{action "showInmunization"}}>Inmunization</a>
 				</li>
 				<li role="presentation">
@@ -139,7 +139,7 @@
 					</div>
 
 					<div class="btns-sbj">
-						<button class="btn bg-gray sbj-btn" {{action "saveModel"}}>SAVE</button>
+						<button class="btn bg-gray sbj-btn" {{action "nextInfo"}}>NEXT</button>
 						<button class="btn bg-gray sbj-btn"{{action "resetContactInfo"}}>RESET</button>
 					</div>
 				</div>
@@ -267,7 +267,7 @@
 					</div>
 
 					<div class="btns-sbj">
-						<button class="btn bg-gray sbj-btn" {{action "saveModel"}}>SAVE</button>
+						<button class="btn bg-gray sbj-btn" {{action "nextInfo"}}>NEXT</button>
 						<button class="btn bg-gray sbj-btn" {{action "resetDemographic"}}>RESET</button>
 					</div>
 				</div>
@@ -366,7 +366,7 @@
 					</div>
 
 					<div class="btns-sbj">
-						<button class="btn bg-gray sbj-btn" {{action "saveModel"}}>SAVE</button>
+						<button class="btn bg-gray sbj-btn" {{action "nextInfo"}}>NEXT</button>
 						<button class="btn bg-gray sbj-btn" {{action "resetGuardian"}}>RESET</button>
 					</div>
 				</div>
@@ -461,7 +461,7 @@
 						</div>
 
 						<div class="btns-sbj">
-							<button class="btn bg-gray sbj-btn">SAVE</button>
+							<button class="btn bg-gray sbj-btn" {{action 'nextInfo'}}>NEXT</button>
 							<button class="btn bg-gray sbj-btn">RESET</button>
 							<button class="btn bg-gray sbj-btn">EDIT</button>
 						</div>
@@ -545,7 +545,7 @@
 						</div>
 
 						<div class="btns-sbj">
-							<button class="btn bg-gray sbj-btn">SAVE</button>
+							<button class="btn bg-gray sbj-btn" {{action "nextInfo"}}>NEXT</button>
 							<button class="btn bg-gray sbj-btn">RESET</button>
 						</div>
 					</div>
@@ -639,7 +639,7 @@
 						</div>
 
 						<div class="btns-sbj">
-							<button class="btn bg-gray sbj-btn">SAVE</button>
+							<button class="btn bg-gray sbj-btn" {{action "nextInfo"}}>NEXT</button>
 							<button class="btn bg-gray sbj-btn">RESET</button>
 						</div>
 					</div>
@@ -722,7 +722,7 @@
 						</div>
 
 						<div class="btns-sbj">
-							<button class="btn bg-gray sbj-btn">SAVE</button>
+							<button class="btn bg-gray sbj-btn" {{action "saveModel"}}>SAVE</button>
 							<button class="btn bg-gray sbj-btn">RESET</button>
 						</div>
 					</div>
