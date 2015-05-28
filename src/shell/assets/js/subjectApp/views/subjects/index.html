@@ -21,7 +21,7 @@
       <tbody>
         {{#each item in model itemController="subject"}}
         <tr {{bind-attr id="item.id" }}>
-          <td>{{#link-to 'subject' item}}{{item.contactInformation.fullName}}{{/link-to}}</td>
+          <td>{{#link-to 'subject' item}}{{item.fullName}}{{/link-to}}</td>
           <td>{{item.age}}</td>
           <td><a href="#" {{action "delete" }}><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a></td>
         </tr>

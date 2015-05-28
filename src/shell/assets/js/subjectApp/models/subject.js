@@ -32,7 +32,7 @@ SubjectApp.Subject = DS.Model.extend({
   nativeLanguage: DS.attr('string'),
 
   //DEMOGRAPHIC
-  birthday: DS.attr('string'),
+  birthday: DS.attr('date', {defaultValue: function(){return new Date();} }),
   gender: DS.attr('string'),
   height: DS.attr('number', {defaultValue: 0}),
   weight: DS.attr('number', {defaultValue: 0}),
