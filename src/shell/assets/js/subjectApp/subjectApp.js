@@ -1,6 +1,6 @@
 SubjectApp = Em.Application.create({
   rootElement: $('.view-container'),
-  //LOG_TRANSITIONS: true
+  LOG_TRANSITIONS: true
 });
 
 SubjectApp.Router.reopen({
@@ -48,15 +48,8 @@ SubjectApp.SubjectRoute = Ember.Route.extend({
 });
 
 SubjectApp.SubjectsAddRoute = Ember.Route.extend({
-  model: function(){
-    return {
-      contactInformation : {},
-      demographic: {},
-      guardian: {},
-      allergies: [],
-    }
-    //return this.store.createRecord('subject');
-    //return null;
+  model: function(){    
+      return this.store.createRecord('subject');   
   }
 });
 
