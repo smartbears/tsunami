@@ -16,7 +16,7 @@ namespace Subjects.Data
 
         public IList<Subject> SearchByName(string name)
         {
-            return Collection.AsQueryable().Where(sbj => sbj.ContactInformation.FirstName.Contains(name) ).ToList();
+            return Collection.AsQueryable().Where(sbj => sbj.FirstName.Contains(name) ).ToList();
         }
 
         public IList<Subject> SearchByAge(int age)

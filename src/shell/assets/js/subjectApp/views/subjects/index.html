@@ -1,7 +1,7 @@
 <div class="page-content-wrapper col-sm-12 right">
   <div class="page">
     <div class="row" style="margin-left: 0px;">
-        <h1 class="title color-dark">Protocols</h1>
+        <h1 class="title color-dark">Subjects</h1>
           <!--<p class="color-dark"style=" display: inline-block; font-weight: initial;">Diabetes Melitus II con uso de Meenformin 500g</p>-->
     </div>
     <div class=" col-sm-3 col-sm-2_4">
@@ -12,15 +12,7 @@
               <li class="ui-state-default draggable" {{bind-attr id='item.id'}}>
                 <!--<input placeholder="AddProcedure" type="text" class="procedure" value="I1V-MC-4590MK">
                 {{#link-to 'protocols.configure' item}}{{/link-to}}    -->
-                {{item.fullName}}          
-                {{#if item.haveDescription}}
-                  <i class="col-sm-2 color-red glyphicon pull-right glyphicon-chevron-up" {{action 'toogleShow'}}></i>
-                  <ul class="connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200" style="margin: 5px 0 5px 0;">
-                    <li style="list-style: none;padding: 5px 0px 5px 10px;">
-                        {{item.description}}
-                    </li>
-                  </ul>
-                {{/if}}
+                {{item.fullName}}                          
               </li>                              
             {{else}}
                 Sorry, no elements were found.
