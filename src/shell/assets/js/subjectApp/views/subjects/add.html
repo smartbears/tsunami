@@ -179,27 +179,28 @@
 					<div class="row">
 						<h4>Date of Birthday</h4>
 						<div class="col-sm-2">
-							<li class="contact">
-								<input placeholder="|Day" type="text" class="subject">
+							<li class="contact">								
+								{{view "select" content=days value=birthdayDay class="subject" onchange="updateBirthday" }}	
 							</li>
 						</div>
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Month" type="text" class="subject">
-								<i class="down_icon color-gray glyphicon pull-right glyphicon-chevron-down"></i>
+								{{view "select" content=months value=birthdayMonth optionValuePath="content.value"
+       optionLabelPath="content.name" class="subject" prompt="Select a month" }}									
+								<!-- <i class="down_icon color-gray glyphicon pull-right glyphicon-chevron-down"></i> -->
 							</li>
 						</div>
 						<div class="col-sm-3">
 							<li class="contact">
-								<input placeholder="|Year" type="text" class="subject">
-								<i class="down_icon color-gray glyphicon pull-right glyphicon-chevron-down"></i>
+								{{view "select" content=years value=birthdayYear class="subject" prompt="Select a year" }}											
+								<!-- <i class="down_icon color-gray glyphicon pull-right glyphicon-chevron-down"></i> -->
 							</li>
 						</div>
 						<div class="col-sm-3">
-							<li class="contact col-sm-5">
+							<!-- <li class="contact col-sm-5">
 								<input placeholder="|Age" type="text" class="subject">
-							</li>
-							<label class="col-sm-5 text-sbj">Years</label>
+							</li> -->
+							<label class="col-sm-5 text-sbj"> {{bind age}} Years</label>
 						</div>
 					</div>
 					<hr/>
