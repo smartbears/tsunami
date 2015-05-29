@@ -8,13 +8,6 @@ SubjectApp.Subject = DS.Model.extend({
   //immunizations: DS.hasMany('immunization'),
   //procedures: DS.hasMany('procedure'),
 
-
- /* age: function(){
-    var ageDifMs = Date.now() - this.get('birthday').getTime();
-    var ageDate = new Date(ageDifMs); // miliseconds from epoch
-    return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }.property('birthday')*/
-
   //CONTACT INFO
   firstName: DS.attr('string'),
   middleName: DS.attr('string'),
@@ -49,6 +42,12 @@ SubjectApp.Subject = DS.Model.extend({
       middle = middle + ' ';
       return this.get('firstName') + middle  + this.get('lastName');
     }.property('firstName', 'middleName', 'lastName'),
+
+  age: function(){
+    var ageDifMs = Date.now() - this.get('birthday').getTime();
+    var ageDate = new Date(ageDifMs); // miliseconds from epoch
+    return Math.abs(ageDate.getUTCFullYear() - 1970);
+  }.property('birthday')
 
 });
 

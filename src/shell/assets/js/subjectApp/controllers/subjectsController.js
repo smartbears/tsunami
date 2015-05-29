@@ -1,5 +1,12 @@
-SubjectApp.IndexController = Ember.ObjectController.extend({
+SubjectApp.IndexController = Ember.ArrayController.extend({
     isSearching: false,
+
+    subjectsCount: function(){   
+        var subjects = this.get('subjects');
+        return subjects.get('length');
+        //View this using then function
+    }.property('subjects.@each'), 
+
     actions: {
         search: function() {
           var pattern = this.get("searchPattern");
