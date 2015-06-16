@@ -1,48 +1,11 @@
-ProtocolApp.ProtocolController = Ember.ObjectController.extend({
-    isEditing: false,
-    haveDescription: function(){
-        return this.get('description') != null ;
-    }.property('model.haveDescription'),
+ProtocolApp.ProtocolsIndexController = Ember.ObjectController.extend({
+    protocolsCount: function(){   
+        var protocols = this.get('model');
+        return protocols.get('length');
+        //View this using then function
+    }.property('protocols.@each'),
 
     actions: {
-        edit: function() {
-          this.set('isEditing', true);
-        },
-
-        doneEditing: function() {
-
-        },
-
-        delete: function(){
-
-        },
-
-        toogleShow: function(){
-            $('#'+ this.get('id') + ' ul').fadeToggle();
-
-            if($('#'+ this.get('id') + ' i').hasClass('glyphicon-chevron-up')){
-                $('#'+ this.get('id') + ' i').removeClass('glyphicon-chevron-up');
-                $('#'+ this.get('id') + ' i').addClass('glyphicon-chevron-down');
-            }
-            else{
-                $('#'+ this.get('id') + ' i').removeClass('glyphicon-chevron-down');
-                $('#'+ this.get('id') + ' i').addClass('glyphicon-chevron-up');
-            }
-            
-        }
-    }
-});
-
-ProtocolApp.ProtocolsAddController = Ember.ObjectController.extend({
-    actions: {
-        add: function(){
-            var protocol = this.get('model');
-
-            protocol.save().then(function(){
-                console.log(protocol.get('id'));
-            });
-
-            this.transitionToRoute('protocols');
-        }
+        
     }
 });
