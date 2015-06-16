@@ -1,8 +1,8 @@
-SubjectApp.IndexController = Ember.ArrayController.extend({
+SubjectApp.SubjectsIndexController = Ember.ArrayController.extend({
     isSearching: false,
 
     subjectsCount: function(){   
-        var subjects = this.get('subjects');
+        var subjects = this.get('model');
         return subjects.get('length');
         //View this using then function
     }.property('subjects.@each'), 
@@ -22,6 +22,8 @@ SubjectApp.IndexController = Ember.ArrayController.extend({
                     return false;
             }));
           }
+
+        
           //we are only looking by name for now.
           /*var results = this.store.find('subject', {name: pattern});
           this.set('model',results);*/
@@ -33,9 +35,13 @@ SubjectApp.IndexController = Ember.ArrayController.extend({
           this.transitionToRoute('subjects');
         },
 
-         dropDelete: function(item, elementName, senderElement){
+        dropDelete: function(item, elementName, senderElement){
           var subject = this.store.getById('subject',item);
             subject.destroyRecord();
+        },
+
+        addNewUser: function(){
+          this.transitionToRoute('subjects.add');          
         }
     }
 });

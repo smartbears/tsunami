@@ -1,7 +1,7 @@
 <div class="page-content-wrapper col-sm-12 right">
 	<div class="tabbable tabs-left col-sm-10" role="tabpanel">
 		<div class="sidebar col-sm-2">
-			<h6 class=""> Patients Details</h6>
+			<h6>Patients Details</h6>
 
 			<ul id="tabs" class="ul_list col-sm-12 nav nav-tabs" data-tabs="tabs" role="tablist">
 				<li role="presentation" {{bind-attr class="inContactInfo:active"}}>
@@ -180,7 +180,7 @@
 						<h4>Date of Birthday</h4>
 						<div class="col-sm-2">
 							<li class="contact">								
-								{{view "select" content=days value=birthdayDay class="subject" onchange="updateBirthday" }}	
+								{{view "select" content=days value=birthdayDay class="subject" change="updateBirthday" }}	
 							</li>
 						</div>
 						<div class="col-sm-3">
