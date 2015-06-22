@@ -13,38 +13,40 @@ using Subjects.Core.Persistence;
 
 namespace Subjects.Data
 {
-    //public class MedicationRepository: IRepository<Medication>, IMedicationRepository
-    //{
-    //    MongoCollection<Medication> _collection;
-    //    IList<Medication> _medications;
+    public class MedicationRepository : IRepository<Medication>, IMedicationRepository
+    {
+        MongoCollection<Medication> _collection;
+        IList<Medication> _medications;
 
-    //    public MedicationRepository(MongoDatabase _database)
-    //    {
-    //        this._collection = _database.GetCollection<Medication> ("medications");
-    //    }    
+        public MedicationRepository(MongoDatabase _database)
+        {
+            this._collection = _database.GetCollection<Medication>("medications");
+        }
 
-    //    public IList<Medication> List()
-    //    {
-    //        return this._collection.FindAll().ToList();
-    //    }
+        public IList<Medication> List()
+        {
+            return this._collection.FindAll().ToList();
+        }
 
-    //    public Medication Insert(Medication entry){
-    //        this._collection.Save (entry);
-    //        return entry;
-    //    }
+        public Medication Insert(Medication entry)
+        {
+            this._collection.Save(entry);
+            return entry;
+        }
 
-    //    public void Update(Medication entry){            
-    //        _collection.Update(Query<Medication>.EQ(x => x.Id, entry.Id), Update<Medication>.Replace(entry));            
-    //    }
+        public void Update(Medication entry)
+        {
+            _collection.Update(Query<Medication>.EQ(x => x.Id, entry.Id), Update<Medication>.Replace(entry));
+        }
 
-    //    public void Delete(Guid id)
-    //    {
-    //        this._collection.Remove(Query.EQ("_id", id));
-    //    }
+        public void Delete(Guid id)
+        {
+            this._collection.Remove(Query.EQ("_id", id));
+        }
 
-    //    public Medication Get(Guid id)
-    //    {
-    //        return this._collection.AsQueryable().FirstOrDefault(sbj => sbj.Id == id);
-    //    }        
-    //}
+        public Medication Get(Guid id)
+        {
+            return this._collection.AsQueryable().FirstOrDefault(sbj => sbj.Id == id);
+        }
+    }
 }

@@ -102,8 +102,15 @@ SubjectApp.SubjectsAddController = Ember.ObjectController.extend({
           }
         },
         saveModel: function(){
-          this.get('model').save();
-          this.transitionToRoute('subjects');
+          var subject = this.get('model')
+          if(subject.validateSubject()){
+            subject.save();
+            this.transitionToRoute('subjects');
+          }
+          else{
+            //Do something here,like show alert messages.
+          }
+          
         },
 
         resetContactInfo: function(){

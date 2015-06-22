@@ -37,17 +37,31 @@ SubjectApp.Subject = DS.Model.extend({
   maritalStatus: DS.attr('string'),
 
   fullName: function() {
-    var middle = ' ' + this.get('middleName');
-    if(middle.length > 1)
-      middle = middle + ' ';
-      return this.get('firstName') + middle  + this.get('lastName');
+    var middle = this.get('middleName');
+    var firstName = this.get('firstName');
+    var lastName = this.get('lastName');
+    if(firstName != null && middle != null && lastName != null)
+      return firstName + ' ' + middle + ' ' + lastName;
+    else if(firstName == null && middle != null && lastName != null)
+      return 'NoFirstName ' + middle + ' ' + lastName;
+    else if(firstName != null && middle == null && lastName != null)
+      return firstName + ' NoMiddleName ' + lastName;
+    else if(firstName != null && middle != null && lastName == null)
+      return firstName + ' ' + middle + ' NoLastName';
+    else
+      return 'NoFirstName NoMiddleName NoLastName';
     }.property('firstName', 'middleName', 'lastName'),
 
   age: function(){
     var ageDifMs = Date.now() - this.get('birthday').getTime();
     var ageDate = new Date(ageDifMs); // miliseconds from epoch
     return Math.abs(ageDate.getUTCFullYear() - 1970);
-  }.property('birthday')
+  }.property('birthday'),
+
+  validateSubject: function(){
+    if(this.get('height') < 0 || this.get('weight') < 0) return false;
+    return true;
+  }
 
 });
 

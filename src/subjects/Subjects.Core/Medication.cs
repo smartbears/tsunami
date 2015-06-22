@@ -1,8 +1,9 @@
 ﻿using System;
+using SharedKernel;
 
 namespace Subjects.Core
 {
-    public class Medication
+    public class Medication:Entity
     {
         public string Name { get; set; }
         public string Dosage { get; set; }

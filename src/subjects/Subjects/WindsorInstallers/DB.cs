@@ -30,9 +30,9 @@ namespace Subjects.WindsorInstallers
                 .ImplementedBy<SubjectRepository>()
 				.LifestyleSingleton());
 
-            //container.Register(Classes.FromAssemblyContaining(typeof(AlergyRepository))
-            //    .BasedOn<AlergyRepository>()
-            //    .LifestyleSingleton());
+            container.Register(Classes.FromAssemblyContaining(typeof(AlergyRepository))
+                .BasedOn<AlergyRepository>()
+                .LifestyleSingleton());
 
             //container.Register(Classes.FromAssemblyContaining(typeof(ConditionRepository))
             //    .BasedOn<ConditionRepository>()
