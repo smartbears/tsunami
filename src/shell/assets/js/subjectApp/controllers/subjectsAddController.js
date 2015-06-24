@@ -1,4 +1,5 @@
 SubjectApp.SubjectsAddController = Ember.ObjectController.extend({
+    needs: 'medications',    
     inContactInfo: true,
     inDemogrphs: false,
     inGuardian: false,
@@ -102,15 +103,25 @@ SubjectApp.SubjectsAddController = Ember.ObjectController.extend({
           }
         },
         saveModel: function(){
-          var subject = this.get('model')
+          var subject = this.get('model');         
+          var self = this;
           if(subject.validateSubject()){
-            subject.save();
-            this.transitionToRoute('subjects');
+            subject.save().then( function(){            
+                var medications = subject.get('medications')
+                medications.forEach(function(medication) {
+                  medication.set('subject', subject);
+                });
+                medications.save().then(function(){
+                  subject.save();
+                });
+
+                self.transitionToRoute('subjects');
+              }
+            );
           }
           else{
             //Do something here,like show alert messages.
-          }
-          
+          }          
         },
 
         resetContactInfo: function(){
@@ -151,12 +162,17 @@ SubjectApp.SubjectsAddController = Ember.ObjectController.extend({
           this.set('address','');
           this.set('email','');
           this.set('phone','');          
+        },
+
+        addNewMedication: function(){
+          var subject = this.get('model');
+          var medication = this.store.createRecord('medication',{
+            name: 'Medication Name'            
+          });
+
+          subject.get('medications').addObject(medication);           
+          //medication.save();
         }
-
-
-          
-
-
     },
 
     hideAll: function(){
@@ -167,11 +183,12 @@ SubjectApp.SubjectsAddController = Ember.ObjectController.extend({
           this.set('inConditions',false);
           this.set('inAllergies',false);
           this.set('inInmunization',false);          
-        },
+    },
+
     updateBirthday: function(){
           var year = this.get('birthdayYear');
           var month = this.get('birthdayMonth');
           var day = this.get('birthdayDay');
           this.set('birthday',new Date(year, month, day))
-    }
+    },
 });

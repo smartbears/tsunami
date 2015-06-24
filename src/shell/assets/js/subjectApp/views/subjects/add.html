@@ -384,30 +384,25 @@
 								<h6 class="medic-title">Medicaments<i class="color-gray glyphicon pull-right glyphicon-chevron-down"></i></h6>
 							</li>
 							<ul class="medics connectedSortable col-sm-12" data-auto-scroll="true" data-slide-speed="200">
-								<li class="ui-state-default active">
+								<!-- <li class="ui-state-default active">
 									<input placeholder="AddMedication" value="Advil" type="text" class="procedure"/>
 								</li>
 								<li class="ui-state-default">
 									<input placeholder="AddMedication" value="Medication" type="text" class="procedure"/>
-								</li>
-								<li class="ui-state-default">
-									<input placeholder="AddMedication" value="Medication" type="text" class="procedure"/>
-								</li>
-								<li class="ui-state-default">
-									<input placeholder="AddMedication" value="Medication" type="text" class="procedure"/>
-								</li>
-								<li class="ui-state-default">
-									<input placeholder="AddMedication" value="Medication" type="text" class="procedure"/>
-								</li>
-								<li class="ui-state-default">
-									<input placeholder="AddMedication" value="Medication" type="text" class="procedure"/>
-								</li>
+								</li>								
 								<li class="ui-state-default edit">
 									<input placeholder="AddMedication" value="" type="text" class="procedure"/>
-								</li>
+								</li> -->
+								{{#each medication in medications}}
+									<li class="ui-state-default">
+										{{input placeholder="AddMedication" value=medication.name type="text" class="procedure"}}	
+									</li>
+								{{else}}
+								  Sorry, no elements were found.
+								{{/each}}
 							</ul>
 							<p class="count_proc" id="number" style="display:block"> 17 medicaments</p>
-							<button style="display:block" id= "proc" class=" btn bg-gray addProc">
+							<button style="display:block" id= "proc" class=" btn bg-gray addProc" {{action "addNewMedication"}}>
 								<i class="glyphicon-plus glyphicon"></i>
 							</button>
 						</div>

@@ -37,6 +37,7 @@ namespace Subjects.Core
         public string Race { get; set; }
         public string Ethnicity { get; set; }
         public string MaritalStatus { get; set; }
+        public IEnumerable<Medication> Medications { get; set; }
 	}
 }
 

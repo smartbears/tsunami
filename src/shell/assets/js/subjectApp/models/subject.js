@@ -2,7 +2,7 @@ SubjectApp.Subject = DS.Model.extend({
   //contactInformation: DS.belongsTo('contactInformation', { inverse: null, async: true}),
   //demographic  : DS.belongsTo('demographic', { inverse: null, async: true}),//DS.belongsTo('demographics'),
   //guardian: DS.belongsTo('guardian', { inverse: null, async: true}),//DS.belongsTo('guardian', {inverse:null}),
-  //medications: DS.hasMany('medication'),
+  medications: DS.hasMany('medication', {async: true}),
   //conditions: DS.hasMany('condition'),
   //allergies: DS.hasMany('allergy', {inverse: null, async: true}),
   //immunizations: DS.hasMany('immunization'),
@@ -65,14 +65,10 @@ SubjectApp.Subject = DS.Model.extend({
 
 });
 
-
-
-SubjectApp.Medication = DS.Model.extend({
-  name: DS.attr('string'),
-  dosage: DS.attr('string'),
-  from: DS.attr('date'),
-  to: DS.attr('date'),
-  comments: DS.attr('string')
+SubjectApp.SubjectSerializer = DS.ActiveModelSerializer.extend(DS.EmbeddedRecordsMixin, {
+  attrs: {
+    medications: { embedded: 'always'}   
+  }
 });
 
 SubjectApp.Condition = DS.Model.extend({
@@ -81,12 +77,6 @@ SubjectApp.Condition = DS.Model.extend({
   comments: DS.attr('string')
 });
 
-SubjectApp.Allergy = DS.Model.extend({
-  name: DS.attr('string'),
-  reaction: DS.attr('string'),
-  reactionOn: DS.attr('date'),
-  comments: DS.attr('string')
-});
 
 SubjectApp.Immunization = DS.Model.extend({
   name: DS.attr('string'),

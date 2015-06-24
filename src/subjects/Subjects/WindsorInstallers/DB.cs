@@ -46,9 +46,9 @@ namespace Subjects.WindsorInstallers
             //  .BasedOn<ImmunizationRepository>()
             //  .LifestyleSingleton());
 
-            //container.Register(Classes.FromAssemblyContaining(typeof(MedicationRepository))
-            //  .BasedOn<MedicationRepository>()
-            //  .LifestyleSingleton());
+            container.Register(Classes.FromAssemblyContaining(typeof(MedicationRepository))
+              .BasedOn<MedicationRepository>()
+              .LifestyleSingleton());
         }
 	}
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using MongoDB.Bson.Serialization.Attributes;
 using SharedKernel;
 
 namespace Subjects.Core
@@ -7,8 +8,11 @@ namespace Subjects.Core
     {
         public string Name { get; set; }
         public string Dosage { get; set; }
+        [BsonIgnoreIfNull]
         public DateTime From { get; set; }
+        [BsonIgnoreIfNull]
         public DateTime To { get; set; }
-        public string Comments { get; set; }        
+        public string Comments { get; set; }
+        public Guid Subject { get; set; }
     }
 }
